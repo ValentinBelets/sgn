@@ -1,6 +1,7 @@
 import json
 import re
 import os
+import csv
 
 def normalize_sign_no(sign_no):
     if not sign_no:
@@ -149,10 +150,31 @@ def normalize_reference(ref_text):
 
     return clean, issues
 
-def generate_patch(input_file, patch_file, unified_file):
+def _normalize_mapping_key(value):
+    if value is None:
+        return ''
+    cleaned = str(value).replace('&nbsp;', ' ').replace('&amp;', '&').replace('&quot;', '"').strip()
+    return re.sub(r'\s+', ' ', cleaned).lower()
+
+def load_reference_mapping(csv_file):
+    mapping = {}
+    if not os.path.exists(csv_file):
+        return mapping
+
+    with open(csv_file, 'r', encoding='utf-8', newline='') as f:
+        reader = csv.DictReader(f)
+        for row in reader:
+            src = _normalize_mapping_key(row.get('Original Reference', ''))
+            dst = str(row.get('Proposed Normalized Reference', '')).strip()
+            if src and dst:
+                mapping[src] = dst
+    return mapping
+
+def generate_patch(input_file, patch_file, unified_file, mapping_csv='tech_references_mapping.csv'):
     with open(input_file, 'r') as f:
         signs = json.load(f)
 
+    ref_mapping = load_reference_mapping(mapping_csv)
     patch = []
     unified_signs = []
     for sign in signs:
@@ -161,9 +183,16 @@ def generate_patch(input_file, patch_file, unified_file):
         
         leg_ref = sign.get('legislative_reference')
         norm_leg, leg_issues = normalize_reference(leg_ref)
-        
+
         tech_ref = sign.get('primary_technical_reference')
-        norm_tech, tech_issues = normalize_reference(tech_ref)
+        tech_issues = []
+        mapped_tech = ref_mapping.get(_normalize_mapping_key(tech_ref or ''))
+        if mapped_tech:
+            norm_tech = mapped_tech
+            if (tech_ref or '').strip() != mapped_tech:
+                tech_issues.append(f"CSV remapped technical reference: '{tech_ref}' -> '{mapped_tech}'")
+        else:
+            norm_tech, tech_issues = normalize_reference(tech_ref)
         
         all_issues = sign_issues + leg_issues + tech_issues
         
