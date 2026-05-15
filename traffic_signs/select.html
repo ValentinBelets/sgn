@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NSW Traffic Signs Catalogue - Select View</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #002664 0%, #d7153a 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            width: 100%;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+        .header {
+            background: linear-gradient(135deg, #002664 0%, #1a4d8f 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+        .header h1 {
+            font-size: 2em;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.95;
+        }
+        .content {
+            padding: 40px 30px;
+        }
+        .selector {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .view-option {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+        .view-option a {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            padding: 30px 20px;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            background: #f9fafb;
+            color: #002664;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            flex: 1;
+            width: 100%;
+        }
+        .view-option a:hover {
+            border-color: #002664;
+            background: #f0f4ff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 38, 100, 0.15);
+        }
+        .view-icon {
+            font-size: 2.5em;
+        }
+        .view-title {
+            font-size: 1.2em;
+        }
+        .view-desc {
+            font-size: 0.9em;
+            color: #6b7280;
+            font-weight: 400;
+        }
+        @media (max-width: 480px) {
+            .selector {
+                grid-template-columns: 1fr;
+            }
+            .header h1 {
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>NSW Traffic Signs Catalogue</h1>
+            <p>Choose your preferred view</p>
+        </div>
+        <div class="content">
+            <div class="selector">
+                <div class="view-option">
+                    <a href="./interactive_catalogue_unified.html">
+                        <div class="view-icon">🔄</div>
+                        <div class="view-title">Unified View</div>
+                        <div class="view-desc">All signs in one consolidated dataset</div>
+                    </a>
+                </div>
+                <div class="view-option">
+                    <a href="./interactive_catalogue.html">
+                        <div class="view-icon">📋</div>
+                        <div class="view-title">Standard View</div>
+                        <div class="view-desc">Traditional sign-by-sign catalogue</div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
