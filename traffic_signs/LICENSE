@@ -1,6 +1,6 @@
 MIT License
 
-Copyright (c) 2024 [Your Name or Organization]
+Copyright (c) 2026 Val Belets
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -19,3 +19,15 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+Data Source Notice
+
+This project is an independent reference and data-cleanup layer built from
+publicly accessible Transport for NSW (TfNSW) traffic sign information.
+
+It is not an official TfNSW system, not a re-creation of the TfNSW road signs
+database, and not a substitute for TfNSW source systems or publications.
+
+TfNSW names, logos, and source content remain the property of their respective
+owners. Users should rely on official TfNSW publications for authoritative
+requirements.

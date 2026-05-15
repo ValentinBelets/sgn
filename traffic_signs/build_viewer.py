@@ -566,6 +566,10 @@ def build_viewer(json_path: str = 'nsw_traffic_signs.json', output_path: str = '
         <button onclick="clearFilters()">Clear All Filters</button>
     </div>
 </main>
+    
+<div style="margin:18px auto 0;max-width:1120px;padding:10px 14px;border:1px solid var(--border);border-radius:10px;background:var(--surface-soft);color:var(--muted-strong);font-size:.86rem;line-height:1.4;">
+    Data source note: This project references publicly accessible Transport for NSW (TfNSW) traffic sign information and applies data cleanup/normalization. It is not an official TfNSW system and not a re-creation of the TfNSW road signs database. See <a href="./LICENSE" target="_blank" rel="noopener" style="color:var(--primary);font-weight:700;text-decoration:none;">LICENSE</a>.
+</div>
 
 <script>
     const SERIES_COLORS = { R:'#1d4ed8', W:'#d97706', G:'#15803d', T:'#c2410c', GE:'#7c3aed', RM:'#0e7490' };
