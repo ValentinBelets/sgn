@@ -450,6 +450,76 @@
             .filter-section.tech-flex select[multiple] { height: 82px; min-height: 82px; }
             #main { padding: 12px; }
         }
+        /* ── DISCLAIMER MODAL ── */
+        #disclaimer-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.55);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+        #disclaimer-overlay.visible { display: flex; }
+        #disclaimer-modal {
+            background: var(--card-bg, #fff);
+            border-radius: 12px;
+            padding: 28px 32px;
+            max-width: 540px;
+            width: 90%;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.22);
+            color: var(--text, #1a1a1b);
+            font-size: 13.5px;
+            line-height: 1.6;
+        }
+        #disclaimer-modal h2 {
+            font-size: 1em;
+            font-weight: 800;
+            color: var(--primary);
+            margin: 0 0 14px;
+        }
+        #disclaimer-modal p { margin: 0 0 10px; }
+        #disclaimer-modal p:last-of-type { margin-bottom: 0; }
+        .disclaimer-actions {
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+        }
+        .disclaimer-actions small {
+            color: var(--muted, #9ca3af);
+            font-size: 11px;
+            line-height: 1.4;
+        }
+        .disclaimer-actions a { color: var(--muted, #9ca3af); }
+        #disclaimer-close {
+            background: var(--primary, #002664);
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            padding: 8px 20px;
+            font-weight: 700;
+            font-size: 13px;
+            cursor: pointer;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+        #disclaimer-close:hover { opacity: 0.85; }
+        .btn-disclaimer {
+            border: 1.5px solid var(--border);
+            background: var(--surface);
+            color: var(--muted-strong);
+            border-radius: 6px;
+            padding: 4px 10px;
+            font-size: 12px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.15s;
+            margin-left: auto;
+            white-space: nowrap;
+        }
+        .btn-disclaimer:hover { background: var(--surface-hover); }
     </style>
 </head>
 <body>
@@ -516,6 +586,7 @@
             <button class="view-btn active" id="btnGrid" onclick="setView('grid')" title="Grid view">&#8862;</button>
             <button class="view-btn" id="btnList" onclick="setView('list')" title="List view">&#8801;</button>
         </div>
+        <button class="btn-disclaimer" onclick="openDisclaimer()" type="button" title="View data disclaimer and attribution">ⓘ Disclaimer</button>
     </div>
     <div id="active-chips"></div>
     <div id="signGrid"></div>
@@ -778,6 +849,34 @@
     filterSeries.addEventListener('change', filterSigns);
     [filterTech, filterStandard, filterStatus, filterNSW].forEach(function(el){ el.addEventListener('change', filterSigns); });
     document.getElementById('sortSelect').addEventListener('change', filterSigns);
+</script>
+<div id="disclaimer-overlay" role="dialog" aria-modal="true" aria-labelledby="disclaimer-title" onclick="if(event.target===this)closeDisclaimer()">
+    <div id="disclaimer-modal">
+        <h2 id="disclaimer-title">Data Disclaimer &amp; Attribution</h2>
+        <p><strong>Source &amp; scope:</strong> Traffic sign data sourced from the publicly accessible Transport for NSW (TfNSW) signage catalogue. Data reflects a point-in-time snapshot scraped on 14&nbsp;May&nbsp;2026 and may not reflect current standards or approvals.</p>
+        <p><strong>Normalizations:</strong> Some field values have been remapped for consistency (e.g.&nbsp;technical reference names). All transformations are transparent and visible in the repository scripts, mappings, and patch files.</p>
+        <p><strong>Not official:</strong> This is an independent reference tool. It is not endorsed by, affiliated with, or an official publication of Transport for NSW or the NSW Government.</p>
+        <p><strong>No warranty / use at own risk:</strong> Always verify requirements against current official TfNSW standards, legislation, and approvals before use in any design, engineering, or compliance context. The maintainers accept no liability for any decisions, works, or outcomes arising from use of this tool.</p>
+        <p><strong>Copyright:</strong> Tool code &copy;&nbsp;2026 Val Belets, MIT licence. Sign images and source data remain &copy;&nbsp;Transport for NSW / NSW Government.</p>
+        <div class="disclaimer-actions">
+            <small>Data scraped 14&nbsp;May&nbsp;2026 &middot; <a href="https://github.com/ValentinBelets/sgn" target="_blank" rel="noopener noreferrer">View source &amp; licence</a></small>
+            <button id="disclaimer-close" onclick="closeDisclaimer()" type="button">Got it</button>
+        </div>
+    </div>
+</div>
+<script>
+    function openDisclaimer() {
+        document.getElementById('disclaimer-overlay').classList.add('visible');
+    }
+    function closeDisclaimer() {
+        document.getElementById('disclaimer-overlay').classList.remove('visible');
+        try { sessionStorage.setItem('disclaimer-seen', '1'); } catch(e) {}
+    }
+    (function() {
+        try {
+            if (!sessionStorage.getItem('disclaimer-seen')) openDisclaimer();
+        } catch(e) { openDisclaimer(); }
+    })();
 </script>
 </body>
 </html>
