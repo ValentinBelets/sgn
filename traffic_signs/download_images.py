@@ -1,9 +1,12 @@
 import json
-import os
 import urllib.request
-import concurrent.futures
 import time
 import random
+from pathlib import Path
+
+BASE_DIR = Path(__file__).resolve().parent
+IMAGES_DIR = BASE_DIR / 'images'
+JSON_PATH = BASE_DIR / 'nsw_traffic_signs.json'
 
 HEADERS = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36',
@@ -20,9 +23,9 @@ def download_image(sign):
     if not filename:
         return False
         
-    save_path = os.path.join('traffic_signs/images', filename)
+    save_path = IMAGES_DIR / filename
     
-    if os.path.exists(save_path) and os.path.getsize(save_path) > 0:
+    if save_path.exists() and save_path.stat().st_size > 0:
         return True
         
     try:
@@ -39,16 +42,14 @@ def download_image(sign):
         return False
 
 def main():
-    json_path = 'traffic_signs/nsw_traffic_signs.json'
-    if not os.path.exists(json_path):
+    if not JSON_PATH.exists():
         print("JSON file not found.")
         return
 
-    with open(json_path, 'r', encoding='utf-8') as f:
+    with open(JSON_PATH, 'r', encoding='utf-8') as f:
         data = json.load(f)
 
-    if not os.path.exists('traffic_signs/images'):
-        os.makedirs('traffic_signs/images')
+    IMAGES_DIR.mkdir(parents=True, exist_ok=True)
 
     print(f"Starting enriched download of {len(data)} images...")
     

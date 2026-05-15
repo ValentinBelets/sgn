@@ -2,10 +2,12 @@ import urllib.request
 import re
 import json
 import time
-import os
+from pathlib import Path
 
 BASE_URL = "https://www.transport.nsw.gov.au"
 SEARCH_URL = BASE_URL + "/operations/roads-and-waterways/traffic-signs?page={}"
+BASE_DIR = Path(__file__).resolve().parent
+OUTPUT_PATH = BASE_DIR / "nsw_traffic_signs.json"
 HEADERS = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
     'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
@@ -96,7 +98,6 @@ def scrape_all():
     all_signs = []
     page = 0
     total_found = 0
-    output_path = "traffic_signs/nsw_traffic_signs.json"
     
     while True:
         print(f"Scraping search page {page}...")
@@ -130,10 +131,12 @@ def scrape_all():
             all_signs.append(sign_data)
             total_found += 1
             if total_found % 10 == 0:
-                with open(output_path, "w") as f: json.dump(all_signs, f, indent=2)
+                with open(OUTPUT_PATH, "w", encoding="utf-8") as f:
+                    json.dump(all_signs, f, indent=2)
             time.sleep(0.3)
         page += 1
-    with open(output_path, "w") as f: json.dump(all_signs, f, indent=2)
+    with open(OUTPUT_PATH, "w", encoding="utf-8") as f:
+        json.dump(all_signs, f, indent=2)
     print(f"Finished! Total: {total_found}")
 
 if __name__ == "__main__":

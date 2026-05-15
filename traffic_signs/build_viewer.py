@@ -1,13 +1,23 @@
 import json
 import os
 import re
+from pathlib import Path
 
-def build_viewer(json_path='nsw_traffic_signs.json', output_path='interactive_catalogue.html'):
-    if not os.path.exists(json_path):
-        print(f"Error: {json_path} not found.")
+def build_viewer(json_path: str = 'nsw_traffic_signs_unified.json', output_path: str = 'interactive_catalogue_unified.html') -> None:
+    base_dir = Path(__file__).resolve().parent
+    json_file = Path(json_path)
+    output_file = Path(output_path)
+
+    if not json_file.is_absolute():
+        json_file = base_dir / json_file
+    if not output_file.is_absolute():
+        output_file = base_dir / output_file
+
+    if not os.path.exists(json_file):
+        print(f"Error: {json_file} not found.")
         return
 
-    with open(json_path, 'r', encoding='utf-8') as f:
+    with open(json_file, 'r', encoding='utf-8') as f:
         data = json.load(f)
 
     # Pre-process data
@@ -455,12 +465,12 @@ def build_viewer(json_path='nsw_traffic_signs.json', output_path='interactive_ca
 </html>"""
 
     final_html = html_template.replace('%DATA%', json.dumps(data))
-    with open(output_path, 'w', encoding='utf-8') as f:
+    with open(output_file, 'w', encoding='utf-8') as f:
         f.write(final_html)
-    print(f"Successfully created {output_path} with local image support and Clear button.")
+    print(f"Successfully created {output_file} with local image support and Clear button.")
 
 if __name__ == "__main__":
     import sys
-    inp = sys.argv[1] if len(sys.argv) > 1 else 'nsw_traffic_signs.json'
-    out = sys.argv[2] if len(sys.argv) > 2 else 'interactive_catalogue.html'
+    inp = sys.argv[1] if len(sys.argv) > 1 else 'nsw_traffic_signs_unified.json'
+    out = sys.argv[2] if len(sys.argv) > 2 else 'interactive_catalogue_unified.html'
     build_viewer(inp, out)
