@@ -196,11 +196,72 @@ def build_viewer(json_path: str = 'nsw_traffic_signs_unified.json', output_path:
         }
         select:focus { border-color: var(--primary); outline: none; }
         select[multiple] { height: 82px; }
-        .filter-section.tech-flex select[multiple] {
-            height: auto;
-            min-height: 120px;
-            flex: 1 1 auto;
+        .tech-list { flex: 1 1 auto; min-height: 120px; overflow-y: auto; border: 1.5px solid var(--border); border-radius: 6px; background: var(--surface-soft); }
+        .tech-item { display: flex; align-items: center; gap: 6px; padding: 4px 8px; font-size: 12px; color: var(--muted-strong); cursor: pointer; user-select: none; transition: background 0.1s; }
+        .tech-item:hover { background: var(--surface-hover); }
+        .tech-item input { flex-shrink: 0; accent-color: var(--primary); cursor: pointer; margin: 0; }
+        .tech-item span { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; min-width: 0; }
+        /* ── DISCLAIMER MODAL ── */
+        #disclaimer-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.55);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
         }
+        #disclaimer-overlay.visible { display: flex; }
+        #disclaimer-modal {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 28px 32px;
+            max-width: 540px;
+            width: 90%;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.22);
+            color: var(--text);
+            font-size: 13.5px;
+            line-height: 1.6;
+        }
+        #disclaimer-modal h2 { font-size: 1em; font-weight: 800; color: var(--primary); margin: 0 0 14px; }
+        #disclaimer-modal p { margin: 0 0 10px; }
+        #disclaimer-modal p:last-of-type { margin-bottom: 0; }
+        .disclaimer-actions {
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+        }
+        .disclaimer-actions small { color: var(--muted); font-size: 11px; line-height: 1.4; }
+        .disclaimer-actions a { color: inherit; }
+        #disclaimer-close {
+            background: var(--primary);
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            padding: 8px 20px;
+            font-weight: 700;
+            font-size: 13px;
+            cursor: pointer;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+        #disclaimer-close:hover { opacity: 0.85; }
+        .btn-disclaimer {
+            border: 1.5px solid var(--border);
+            background: var(--surface);
+            color: var(--muted-strong);
+            border-radius: 6px;
+            padding: 4px 10px;
+            font-size: 12px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.15s;
+            margin-left: auto;
+            white-space: nowrap;
+        }
+        .btn-disclaimer:hover { background: var(--surface-hover); }
         .checkbox-group { display: flex; flex-direction: column; gap: 2px; }
         .checkbox-item {
             display: flex;
@@ -528,7 +589,7 @@ def build_viewer(json_path: str = 'nsw_traffic_signs_unified.json', output_path:
             body { flex-direction: column; }
             #sidebar { width: 100%; min-width: 0; position: relative; height: auto; border-right: none; border-bottom: 1px solid var(--border); }
             .filter-section.tech-flex { min-height: 0; }
-            .filter-section.tech-flex select[multiple] { height: 82px; min-height: 82px; }
+            .tech-list { max-height: 82px; }
             #main { padding: 12px; }
         }
     </style>
@@ -579,7 +640,8 @@ def build_viewer(json_path: str = 'nsw_traffic_signs_unified.json', output_path:
     </div>
     <div class="filter-section tech-flex">
         <label class="section-label">Technical Reference</label>
-        <select id="filterTech" multiple title="Hold Ctrl/Cmd for multi-select"></select>
+        <input type="text" id="techSearch" placeholder="Search references\u2026" autocomplete="off">
+        <div id="filterTech" class="tech-list"></div>
     </div>
     <button class="btn-reset" onclick="clearFilters()">&#8635; Reset All Filters</button>
 </aside>
@@ -597,6 +659,7 @@ def build_viewer(json_path: str = 'nsw_traffic_signs_unified.json', output_path:
             <button class="view-btn active" id="btnGrid" onclick="setView('grid')" title="Grid view">&#8862;</button>
             <button class="view-btn" id="btnList" onclick="setView('list')" title="List view">&#8801;</button>
         </div>
+        <button class="btn-disclaimer" onclick="openDisclaimer()" type="button" title="View data disclaimer and attribution">\u24d8 Disclaimer</button>
     </div>
     <div id="active-chips"></div>
     <div id="signGrid"></div>
@@ -672,14 +735,27 @@ def build_viewer(json_path: str = 'nsw_traffic_signs_unified.json', output_path:
         const refs = new Set();
         allSigns.forEach(s => {
             const ref = s.primary_technical_reference_filter || s.primary_technical_reference;
-            if (ref && ref !== '-' && ref !== 'NA' && ref.length > 2) {
-                refs.add(ref);
-            }
+            if (ref && ref !== '-' && ref !== 'NA' && ref.length > 2) refs.add(ref);
         });
         Array.from(refs).sort().forEach(ref => {
-            const opt = document.createElement('option');
-            opt.value = opt.textContent = ref;
-            filterTech.appendChild(opt);
+            const label = document.createElement('label');
+            label.className = 'tech-item';
+            label.title = ref;
+            const cb = document.createElement('input');
+            cb.type = 'checkbox';
+            cb.value = ref;
+            cb.addEventListener('change', filterSigns);
+            const span = document.createElement('span');
+            span.textContent = ref;
+            label.appendChild(cb);
+            label.appendChild(span);
+            filterTech.appendChild(label);
+        });
+        document.getElementById('techSearch').addEventListener('input', function() {
+            const q = this.value.toLowerCase();
+            filterTech.querySelectorAll('.tech-item').forEach(function(item) {
+                item.style.display = item.title.toLowerCase().includes(q) ? '' : 'none';
+            });
         });
     }
 
@@ -764,7 +840,7 @@ def build_viewer(json_path: str = 'nsw_traffic_signs_unified.json', output_path:
         }
         if (term) add('"' + term + '"', function() { searchBar.value = ''; filterSigns(); });
         selectedSeries.forEach(function(s) { add('Series: ' + s, function() { filterSeries.querySelector('input[value="' + s + '"]').checked = false; filterSigns(); }); });
-        selectedTech.forEach(function(t) { add('Ref: ' + t, function() { Array.from(filterTech.options).find(function(o){ return o.value === t; }).selected = false; filterSigns(); }); });
+        selectedTech.forEach(function(t) { add('Ref: ' + t, function() { var cb = Array.from(filterTech.querySelectorAll('input')).find(function(c){ return c.value === t; }); if(cb) cb.checked = false; filterSigns(); }); });
         selectedStd.forEach(function(v) { add('Std: ' + v, function() { Array.from(filterStandard.options).find(function(o){ return o.value === v; }).selected = false; filterSigns(); }); });
         selectedStatus.forEach(function(v) { add('Status: ' + v, function() { Array.from(filterStatus.options).find(function(o){ return o.value === v; }).selected = false; filterSigns(); }); });
         if (nswFilter !== 'all') add('NSW: ' + (nswFilter === 'used' ? 'Used' : 'Not Used'), function() { filterNSW.value = 'all'; filterSigns(); });
@@ -787,7 +863,7 @@ def build_viewer(json_path: str = 'nsw_traffic_signs_unified.json', output_path:
 
     function filterSigns() {
         const term = searchBar.value.toLowerCase().trim();
-        const selectedTech = getSelectedValues(filterTech);
+        const selectedTech = getSelectedCheckboxes(filterTech);
         const nswFilter = filterNSW.value;
         const selectedSeries = getSelectedCheckboxes(filterSeries);
         const selectedStd = getSelectedValues(filterStandard);
@@ -817,7 +893,11 @@ def build_viewer(json_path: str = 'nsw_traffic_signs_unified.json', output_path:
     function clearFilters() {
         searchBar.value = '';
         filterNSW.value = 'all';
-        [filterTech, filterStandard, filterStatus].forEach(function(sel){ Array.from(sel.options).forEach(function(o){ o.selected = false; }); });
+        var ts = document.getElementById('techSearch');
+        if (ts) ts.value = '';
+        filterTech.querySelectorAll('input').forEach(function(cb){ cb.checked = false; });
+        filterTech.querySelectorAll('.tech-item').forEach(function(item){ item.style.display = ''; });
+        [filterStandard, filterStatus].forEach(function(sel){ Array.from(sel.options).forEach(function(o){ o.selected = false; }); });
         filterSeries.querySelectorAll('input').forEach(function(cb){ cb.checked = false; });
         document.getElementById('sortSelect').value = 'sign_no';
         filterSigns();
@@ -857,8 +937,36 @@ def build_viewer(json_path: str = 'nsw_traffic_signs_unified.json', output_path:
     renderSigns(allSigns);
     searchBar.addEventListener('input', filterSigns);
     filterSeries.addEventListener('change', filterSigns);
-    [filterTech, filterStandard, filterStatus, filterNSW].forEach(function(el){ el.addEventListener('change', filterSigns); });
+    [filterStandard, filterStatus, filterNSW].forEach(function(el){ el.addEventListener('change', filterSigns); });
     document.getElementById('sortSelect').addEventListener('change', filterSigns);
+</script>
+<div id="disclaimer-overlay" role="dialog" aria-modal="true" aria-labelledby="disclaimer-title" onclick="if(event.target===this)closeDisclaimer()">
+    <div id="disclaimer-modal">
+        <h2 id="disclaimer-title">Data Disclaimer &amp; Attribution</h2>
+        <p><strong>Source &amp; scope:</strong> Traffic sign data sourced from the publicly accessible Transport for NSW (TfNSW) signage catalogue. Data reflects a point-in-time snapshot collected on 14&nbsp;May&nbsp;2026 and may not reflect current standards or approvals.</p>
+        <p><strong>Normalizations:</strong> Some field values have been remapped for consistency (e.g.&nbsp;technical reference names). All transformations are transparent and visible in the repository scripts, mappings, and patch files.</p>
+        <p><strong>Not official:</strong> This is an independent reference tool. It is not endorsed by, affiliated with, or an official publication of Transport for NSW or the NSW Government.</p>
+        <p><strong>No warranty / use at own risk:</strong> Always verify requirements against current official TfNSW standards, legislation, and approvals before use in any design, engineering, or compliance context. The maintainers accept no liability for any decisions, works, or outcomes arising from use of this tool.</p>
+        <p><strong>Copyright:</strong> Tool code &copy;&nbsp;2026 Val Belets, MIT licence. Sign images and source data remain &copy;&nbsp;Transport for NSW / NSW Government.</p>
+        <div class="disclaimer-actions">
+            <small>Data collected 14&nbsp;May&nbsp;2026 &middot; <a href="https://github.com/ValentinBelets/sgn" target="_blank" rel="noopener noreferrer">View source &amp; licence</a></small>
+            <button id="disclaimer-close" onclick="closeDisclaimer()" type="button">Got it</button>
+        </div>
+    </div>
+</div>
+<script>
+    function openDisclaimer() {
+        document.getElementById('disclaimer-overlay').classList.add('visible');
+    }
+    function closeDisclaimer() {
+        document.getElementById('disclaimer-overlay').classList.remove('visible');
+        try { sessionStorage.setItem('disclaimer-seen', '1'); } catch(e) {}
+    }
+    (function() {
+        try {
+            if (!sessionStorage.getItem('disclaimer-seen')) openDisclaimer();
+        } catch(e) { openDisclaimer(); }
+    })();
 </script>
 </body>
 </html>"""
