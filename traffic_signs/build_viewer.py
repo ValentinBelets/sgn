@@ -56,12 +56,6 @@ def build_viewer(json_path: str = 'nsw_traffic_signs.json', output_path: str = '
             --card-bg: #ffffff;
             --text: #1a1a1b;
             --border: #e5e7eb;
-            --sidebar-bg: #ffffff;
-            --surface: #ffffff;
-            --surface-soft: #f9fafb;
-            --surface-hover: #f3f4f6;
-            --muted: #6b7280;
-            --muted-strong: #374151;
             --sidebar-w: 252px;
             --series-R: #1d4ed8;
             --series-W: #d97706;
@@ -69,20 +63,6 @@ def build_viewer(json_path: str = 'nsw_traffic_signs.json', output_path: str = '
             --series-T: #c2410c;
             --series-GE: #7c3aed;
             --series-RM: #0e7490;
-        }
-        html[data-theme='dark'] {
-            --primary: #93c5fd;
-            --secondary: #fb7185;
-            --bg: #0f172a;
-            --card-bg: #111827;
-            --text: #e5e7eb;
-            --border: #334155;
-            --sidebar-bg: #0b1220;
-            --surface: #0f172a;
-            --surface-soft: #111827;
-            --surface-hover: #1f2937;
-            --muted: #9ca3af;
-            --muted-strong: #cbd5e1;
         }
         * { box-sizing: border-box; }
         body {
@@ -98,7 +78,7 @@ def build_viewer(json_path: str = 'nsw_traffic_signs.json', output_path: str = '
         #sidebar {
             width: var(--sidebar-w);
             min-width: var(--sidebar-w);
-            background: var(--sidebar-bg);
+            background: #fff;
             border-right: 1px solid var(--border);
             padding: 18px 14px;
             position: sticky;
@@ -120,7 +100,7 @@ def build_viewer(json_path: str = 'nsw_traffic_signs.json', output_path: str = '
             letter-spacing: -0.4px;
             margin: 0 0 2px;
         }
-        .sidebar-logo span { font-size: 0.72em; color: var(--muted); }
+        .sidebar-logo span { font-size: 0.72em; color: #9ca3af; }
         .filter-section { display: flex; flex-direction: column; gap: 6px; }
         .filter-section.tech-flex {
             flex: 1 1 auto;
@@ -139,14 +119,14 @@ def build_viewer(json_path: str = 'nsw_traffic_signs.json', output_path: str = '
             border: 1.5px solid var(--border);
             border-radius: 6px;
             font-size: 13px;
-            background: var(--surface-soft);
+            background: #f9fafb;
             transition: border-color 0.2s, box-shadow 0.2s;
-            color: var(--text);
+            color: #111827;
         }
         input[type="text"]:focus {
             border-color: var(--primary);
             outline: none;
-            background: var(--surface);
+            background: #fff;
             box-shadow: 0 0 0 3px rgba(0,38,100,0.1);
         }
         select {
@@ -155,8 +135,8 @@ def build_viewer(json_path: str = 'nsw_traffic_signs.json', output_path: str = '
             border: 1.5px solid var(--border);
             border-radius: 6px;
             font-size: 12px;
-            background: var(--surface-soft);
-            color: var(--text);
+            background: #f9fafb;
+            color: #111827;
             transition: border-color 0.2s;
         }
         select:focus { border-color: var(--primary); outline: none; }
@@ -171,14 +151,14 @@ def build_viewer(json_path: str = 'nsw_traffic_signs.json', output_path: str = '
             display: flex;
             align-items: center;
             font-size: 12px;
-            color: var(--muted-strong);
+            color: #374151;
             cursor: pointer;
             user-select: none;
             padding: 4px 6px;
             border-radius: 5px;
             transition: background 0.12s;
         }
-        .checkbox-item:hover { background: var(--surface-hover); }
+        .checkbox-item:hover { background: #f3f4f6; }
         .checkbox-item input {
             margin-right: 7px;
             width: 14px;
@@ -194,12 +174,12 @@ def build_viewer(json_path: str = 'nsw_traffic_signs.json', output_path: str = '
             margin-right: 6px;
             flex-shrink: 0;
         }
-        .cb-count { margin-left: auto; font-size: 10px; color: var(--muted); font-weight: 600; }
+        .cb-count { margin-left: auto; font-size: 10px; color: #9ca3af; font-weight: 600; }
         .btn-reset {
             width: 100%;
-            background: var(--surface);
+            background: #fff;
             border: 1.5px solid var(--border);
-            color: var(--muted-strong);
+            color: #374151;
             font-weight: 700;
             padding: 8px;
             border-radius: 6px;
@@ -207,7 +187,7 @@ def build_viewer(json_path: str = 'nsw_traffic_signs.json', output_path: str = '
             font-size: 12px;
             transition: all 0.15s;
         }
-        .btn-reset:hover { background: var(--surface-hover); border-color: var(--muted); }
+        .btn-reset:hover { background: #f3f4f6; border-color: #9ca3af; }
         /* ── MAIN ── */
         #main {
             flex: 1;
@@ -220,8 +200,8 @@ def build_viewer(json_path: str = 'nsw_traffic_signs.json', output_path: str = '
         #top-bar { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
         #stats {
             font-weight: 700;
-            color: var(--muted-strong);
-            background: var(--surface);
+            color: #4b5563;
+            background: #fff;
             border: 1px solid var(--border);
             padding: 4px 12px;
             border-radius: 20px;
@@ -234,30 +214,18 @@ def build_viewer(json_path: str = 'nsw_traffic_signs.json', output_path: str = '
             border: 1.5px solid var(--border);
             border-radius: 6px;
             font-size: 12px;
-            background: var(--surface);
-            color: var(--muted-strong);
+            background: #fff;
+            color: #374151;
             font-weight: 600;
             cursor: pointer;
             width: auto;
         }
-        .theme-toggle {
-            border: 1.5px solid var(--border);
-            background: var(--surface);
-            color: var(--muted-strong);
-            border-radius: 6px;
-            padding: 4px 10px;
-            font-size: 12px;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.15s;
-        }
-        .theme-toggle:hover { background: var(--surface-hover); }
         .view-toggle {
             display: flex;
             border: 1.5px solid var(--border);
             border-radius: 6px;
             overflow: hidden;
-            background: var(--surface);
+            background: #fff;
         }
         .view-btn {
             border: none;
@@ -265,21 +233,21 @@ def build_viewer(json_path: str = 'nsw_traffic_signs.json', output_path: str = '
             padding: 4px 9px;
             cursor: pointer;
             font-size: 15px;
-            color: var(--muted);
+            color: #6b7280;
             transition: all 0.12s;
             line-height: 1;
         }
         .view-btn.active { background: var(--primary); color: #fff; }
-        .view-btn:hover:not(.active) { background: var(--surface-hover); }
+        .view-btn:hover:not(.active) { background: #f3f4f6; }
         /* ── ACTIVE CHIPS ── */
         #active-chips { display: flex; flex-wrap: wrap; gap: 5px; min-height: 0; }
         .filter-chip {
             display: flex;
             align-items: center;
             gap: 4px;
-            background: var(--surface-hover);
-            border: 1px solid var(--border);
-            color: var(--primary);
+            background: #eff6ff;
+            border: 1px solid #bfdbfe;
+            color: #1d4ed8;
             border-radius: 20px;
             padding: 3px 10px;
             font-size: 11px;
@@ -318,7 +286,7 @@ def build_viewer(json_path: str = 'nsw_traffic_signs.json', output_path: str = '
         .sign-card.highlight { border: 3px solid var(--secondary); background-color: #fff5f5; }
         .sign-image-container {
             height: 155px;
-            background: var(--surface);
+            background: #fff;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -344,7 +312,7 @@ def build_viewer(json_path: str = 'nsw_traffic_signs.json', output_path: str = '
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            color: var(--muted);
+            color: #9ca3af;
             font-size: 11px;
             gap: 3px;
             width: 100%;
@@ -360,8 +328,8 @@ def build_viewer(json_path: str = 'nsw_traffic_signs.json', output_path: str = '
         .sign-no { font-weight: 800; color: var(--series-color, var(--secondary)); font-size: 1.15em; letter-spacing: -0.02em; }
         .sizes-container { display: flex; flex-wrap: wrap; gap: 3px; margin-bottom: 9px; }
         .size-badge {
-            background: var(--surface-hover);
-            color: var(--muted-strong);
+            background: #f3f4f6;
+            color: #374151;
             border: 1px solid var(--border);
             padding: 1px 5px;
             border-radius: 3px;
@@ -371,14 +339,14 @@ def build_viewer(json_path: str = 'nsw_traffic_signs.json', output_path: str = '
             gap: 3px;
             align-items: center;
         }
-        .size-label { font-weight: 600; color: var(--muted); }
+        .size-label { font-weight: 600; color: #9ca3af; }
         .size-dims { font-weight: 700; }
         .sign-title {
             font-size: 0.87em;
             font-weight: 600;
             margin-bottom: 9px;
             line-height: 1.4;
-            color: var(--text);
+            color: #111827;
             min-height: 2.45em;
             overflow: hidden;
             display: -webkit-box;
@@ -387,8 +355,8 @@ def build_viewer(json_path: str = 'nsw_traffic_signs.json', output_path: str = '
         }
         .internal-link { color: var(--secondary); text-decoration: underline; cursor: pointer; font-weight: 700; }
         .detail-row { font-size: 0.71em; margin-bottom: 3px; display: flex; gap: 6px; align-items: baseline; }
-        .detail-label { font-weight: 700; color: var(--muted); min-width: 52px; text-transform: uppercase; font-size: 0.9em; }
-        .detail-value { color: var(--muted-strong); flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+        .detail-label { font-weight: 700; color: #9ca3af; min-width: 52px; text-transform: uppercase; font-size: 0.9em; }
+        .detail-value { color: #374151; flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
         .tags { margin-top: auto; padding-top: 9px; display: flex; flex-wrap: wrap; gap: 4px; }
         .tag { padding: 2px 8px; border-radius: 20px; font-size: 0.67em; font-weight: 700; text-transform: uppercase; letter-spacing: 0.03em; }
         .tag-standard { background: #dcfce7; color: #166534; }
@@ -396,7 +364,7 @@ def build_viewer(json_path: str = 'nsw_traffic_signs.json', output_path: str = '
         .tag-superseded { background: #f3e8ff; color: #6b21a8; }
         .tag-not-nsw { background: #fee2e2; color: #991b1b; }
         .tag-available { background: #e0f2fe; color: #075985; }
-        .sign-links { padding: 9px 13px; background: var(--surface-soft); border-top: 1px solid var(--border); display: flex; gap: 7px; }
+        .sign-links { padding: 9px 13px; background: #f9fafb; border-top: 1px solid #f3f4f6; display: flex; gap: 7px; }
         .btn { text-decoration: none; color: var(--primary); font-size: 0.77em; font-weight: 700; flex: 1; text-align: center; padding: 6px; border: 1.5px solid var(--primary); border-radius: 5px; cursor: pointer; transition: all 0.15s; }
         .btn:hover { background: var(--primary); color: #fff; }
         .btn-pdf { border-color: var(--secondary); color: var(--secondary); }
@@ -409,18 +377,18 @@ def build_viewer(json_path: str = 'nsw_traffic_signs.json', output_path: str = '
             border: 1px solid var(--border);
             border-radius: 10px;
             overflow: hidden;
-            background: var(--surface);
+            background: #fff;
         }
         #signGrid.list-view .sign-card {
             border-radius: 0;
             border: none;
-            border-bottom: 1px solid var(--border);
+            border-bottom: 1px solid #f3f4f6;
             flex-direction: row;
             align-items: center;
             box-shadow: none;
         }
         #signGrid.list-view .sign-card:last-child { border-bottom: none; }
-        #signGrid.list-view .sign-card:hover { transform: none; background: var(--surface-soft); }
+        #signGrid.list-view .sign-card:hover { transform: none; background: #f8faff; }
         #signGrid.list-view .sign-image-container {
             width: 72px;
             min-width: 72px;
@@ -453,7 +421,7 @@ def build_viewer(json_path: str = 'nsw_traffic_signs.json', output_path: str = '
             padding: 7px 10px;
             background: transparent;
             border-top: none;
-            border-left: 1px solid var(--border);
+            border-left: 1px solid #f3f4f6;
             flex-direction: column;
             min-width: 90px;
             gap: 3px;
@@ -465,11 +433,11 @@ def build_viewer(json_path: str = 'nsw_traffic_signs.json', output_path: str = '
             align-items: center;
             justify-content: center;
             padding: 60px 20px;
-            color: var(--muted);
+            color: #9ca3af;
             gap: 10px;
         }
         #empty-state .empty-icon { font-size: 44px; }
-        #empty-state h3 { margin: 0; color: var(--muted-strong); font-size: 1.05em; }
+        #empty-state h3 { margin: 0; color: #374151; font-size: 1.05em; }
         #empty-state p { margin: 0; font-size: 0.83em; text-align: center; max-width: 280px; }
         #empty-state button {
             margin-top: 6px;
@@ -551,7 +519,6 @@ def build_viewer(json_path: str = 'nsw_traffic_signs.json', output_path: str = '
             <option value="series">Sort: Series</option>
             <option value="title">Sort: Title</option>
         </select>
-        <button class="theme-toggle" id="themeToggle" type="button">Dark</button>
         <div class="view-toggle">
             <button class="view-btn active" id="btnGrid" onclick="setView('grid')" title="Grid view">&#8862;</button>
             <button class="view-btn" id="btnList" onclick="setView('list')" title="List view">&#8801;</button>
@@ -600,22 +567,7 @@ def build_viewer(json_path: str = 'nsw_traffic_signs.json', output_path: str = '
     const filterNSW = document.getElementById('filterNSW');
     const stats = document.getElementById('stats');
     const activeChips = document.getElementById('active-chips');
-    const themeToggle = document.getElementById('themeToggle');
     let currentView = 'grid';
-
-    function applyTheme(theme) {
-        document.documentElement.setAttribute('data-theme', theme);
-        themeToggle.textContent = theme === 'dark' ? 'Light' : 'Dark';
-        themeToggle.setAttribute('title', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
-        try { localStorage.setItem('nsw-viewer-theme', theme); } catch (e) {}
-    }
-
-    function initTheme() {
-        let saved = null;
-        try { saved = localStorage.getItem('nsw-viewer-theme'); } catch (e) {}
-        const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-        applyTheme(saved === 'dark' || saved === 'light' ? saved : (prefersDark ? 'dark' : 'light'));
-    }
 
     function initCountBadges() {
         const counts = {};
@@ -803,11 +755,6 @@ def build_viewer(json_path: str = 'nsw_traffic_signs.json', output_path: str = '
     };
 
     allSigns.sort(function(a, b){ return (a.sign_no || 'ZZZ').localeCompare(b.sign_no || 'ZZZ', undefined, {numeric: true}); });
-    initTheme();
-    themeToggle.addEventListener('click', function() {
-        const current = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
-        applyTheme(current === 'dark' ? 'light' : 'dark');
-    });
     initTechFilter();
     initCountBadges();
     renderSigns(allSigns);
