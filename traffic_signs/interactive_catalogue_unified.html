@@ -115,11 +115,28 @@
         }
         select:focus { border-color: var(--primary); outline: none; }
         select[multiple] { height: 82px; }
-        .filter-section.tech-flex select[multiple] {
-            height: auto;
-            min-height: 120px;
+        .tech-list {
             flex: 1 1 auto;
+            min-height: 120px;
+            overflow-y: auto;
+            border: 1.5px solid var(--border);
+            border-radius: 6px;
+            background: var(--surface-soft);
         }
+        .tech-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 8px;
+            font-size: 12px;
+            color: var(--muted-strong);
+            cursor: pointer;
+            user-select: none;
+            transition: background 0.1s;
+        }
+        .tech-item:hover { background: var(--surface-hover); }
+        .tech-item input { flex-shrink: 0; accent-color: var(--primary); cursor: pointer; margin: 0; }
+        .tech-item span { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; min-width: 0; }
         .checkbox-group { display: flex; flex-direction: column; gap: 2px; }
         .checkbox-item {
             display: flex;
@@ -447,7 +464,7 @@
             body { flex-direction: column; }
             #sidebar { width: 100%; min-width: 0; position: relative; height: auto; border-right: none; border-bottom: 1px solid var(--border); }
             .filter-section.tech-flex { min-height: 0; }
-            .filter-section.tech-flex select[multiple] { height: 82px; min-height: 82px; }
+            .tech-list { max-height: 82px; }
             #main { padding: 12px; }
         }
         /* ── DISCLAIMER MODAL ── */
@@ -568,7 +585,8 @@
     </div>
     <div class="filter-section tech-flex">
         <label class="section-label">Technical Reference</label>
-        <select id="filterTech" multiple title="Hold Ctrl/Cmd for multi-select"></select>
+        <input type="text" id="techSearch" placeholder="Search references…" autocomplete="off">
+        <div id="filterTech" class="tech-list"></div>
     </div>
     <button class="btn-reset" onclick="clearFilters()">&#8635; Reset All Filters</button>
 </aside>
@@ -662,14 +680,27 @@
         const refs = new Set();
         allSigns.forEach(s => {
             const ref = s.primary_technical_reference_filter || s.primary_technical_reference;
-            if (ref && ref !== '-' && ref !== 'NA' && ref.length > 2) {
-                refs.add(ref);
-            }
+            if (ref && ref !== '-' && ref !== 'NA' && ref.length > 2) refs.add(ref);
         });
         Array.from(refs).sort().forEach(ref => {
-            const opt = document.createElement('option');
-            opt.value = opt.textContent = ref;
-            filterTech.appendChild(opt);
+            const label = document.createElement('label');
+            label.className = 'tech-item';
+            label.title = ref;
+            const cb = document.createElement('input');
+            cb.type = 'checkbox';
+            cb.value = ref;
+            cb.addEventListener('change', filterSigns);
+            const span = document.createElement('span');
+            span.textContent = ref;
+            label.appendChild(cb);
+            label.appendChild(span);
+            filterTech.appendChild(label);
+        });
+        document.getElementById('techSearch').addEventListener('input', function() {
+            const q = this.value.toLowerCase();
+            filterTech.querySelectorAll('.tech-item').forEach(function(item) {
+                item.style.display = item.title.toLowerCase().includes(q) ? '' : 'none';
+            });
         });
     }
 
@@ -754,7 +785,7 @@
         }
         if (term) add('"' + term + '"', function() { searchBar.value = ''; filterSigns(); });
         selectedSeries.forEach(function(s) { add('Series: ' + s, function() { filterSeries.querySelector('input[value="' + s + '"]').checked = false; filterSigns(); }); });
-        selectedTech.forEach(function(t) { add('Ref: ' + t, function() { Array.from(filterTech.options).find(function(o){ return o.value === t; }).selected = false; filterSigns(); }); });
+        selectedTech.forEach(function(t) { add('Ref: ' + t, function() { var cb = Array.from(filterTech.querySelectorAll('input')).find(function(i){ return i.value === t; }); if(cb) cb.checked = false; filterSigns(); }); });
         selectedStd.forEach(function(v) { add('Std: ' + v, function() { Array.from(filterStandard.options).find(function(o){ return o.value === v; }).selected = false; filterSigns(); }); });
         selectedStatus.forEach(function(v) { add('Status: ' + v, function() { Array.from(filterStatus.options).find(function(o){ return o.value === v; }).selected = false; filterSigns(); }); });
         if (nswFilter !== 'all') add('NSW: ' + (nswFilter === 'used' ? 'Used' : 'Not Used'), function() { filterNSW.value = 'all'; filterSigns(); });
@@ -777,7 +808,7 @@
 
     function filterSigns() {
         const term = searchBar.value.toLowerCase().trim();
-        const selectedTech = getSelectedValues(filterTech);
+        const selectedTech = getSelectedCheckboxes(filterTech);
         const nswFilter = filterNSW.value;
         const selectedSeries = getSelectedCheckboxes(filterSeries);
         const selectedStd = getSelectedValues(filterStandard);
@@ -807,7 +838,10 @@
     function clearFilters() {
         searchBar.value = '';
         filterNSW.value = 'all';
-        [filterTech, filterStandard, filterStatus].forEach(function(sel){ Array.from(sel.options).forEach(function(o){ o.selected = false; }); });
+        document.getElementById('techSearch').value = '';
+        filterTech.querySelectorAll('input').forEach(function(cb){ cb.checked = false; });
+        filterTech.querySelectorAll('.tech-item').forEach(function(item){ item.style.display = ''; });
+        [filterStandard, filterStatus].forEach(function(sel){ Array.from(sel.options).forEach(function(o){ o.selected = false; }); });
         filterSeries.querySelectorAll('input').forEach(function(cb){ cb.checked = false; });
         document.getElementById('sortSelect').value = 'sign_no';
         filterSigns();
@@ -847,7 +881,7 @@
     renderSigns(allSigns);
     searchBar.addEventListener('input', filterSigns);
     filterSeries.addEventListener('change', filterSigns);
-    [filterTech, filterStandard, filterStatus, filterNSW].forEach(function(el){ el.addEventListener('change', filterSigns); });
+    [filterStandard, filterStatus, filterNSW].forEach(function(el){ el.addEventListener('change', filterSigns); });
     document.getElementById('sortSelect').addEventListener('change', filterSigns);
 </script>
 <div id="disclaimer-overlay" role="dialog" aria-modal="true" aria-labelledby="disclaimer-title" onclick="if(event.target===this)closeDisclaimer()">
