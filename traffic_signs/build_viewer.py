@@ -2,11 +2,13 @@ import json
 import os
 import re
 import csv
+import html
 from pathlib import Path
 
 
 def _norm_ref_key(text: str) -> str:
-    return re.sub(r'\s+', ' ', str(text).replace('&nbsp;', ' ').replace('&amp;', '&').strip()).casefold()
+    clean = html.unescape(str(text)).replace('\xa0', ' ')
+    return re.sub(r'\s+', ' ', clean.strip()).casefold()
 
 
 def _load_ref_mapping(mapping_file: Path) -> dict[str, str]:
@@ -51,14 +53,32 @@ def build_viewer(json_path: str = 'nsw_traffic_signs_unified.json', output_path:
             sign_map[key] = sign
 
     for sign in data:
+        # Normalize common string fields by decoding HTML entities
+        if sign.get('sign_no'):
+            sign['sign_no'] = html.unescape(str(sign['sign_no'])).strip()
+
+        if sign.get('title'):
+            sign['title'] = html.unescape(str(sign['title'])).strip()
+
+        # Normalize sizes entries
+        if sign.get('sizes') and isinstance(sign['sizes'], list):
+            for sz in sign['sizes']:
+                if isinstance(sz.get('label'), str):
+                    sz['label'] = html.unescape(sz['label']).strip()
+                if isinstance(sz.get('h'), str):
+                    sz['h'] = html.unescape(sz['h']).strip()
+                if isinstance(sz.get('w'), str):
+                    sz['w'] = html.unescape(sz['w']).strip()
+
         if sign.get('primary_technical_reference'):
-            sign['primary_technical_reference'] = str(sign['primary_technical_reference']).replace('&amp;', '&').replace('&nbsp;', ' ').strip()
+            # Decode HTML entities robustly (handles &NBSP; and variants)
+            sign['primary_technical_reference'] = html.unescape(str(sign['primary_technical_reference'])).strip()
             mapped = ref_mapping.get(_norm_ref_key(sign['primary_technical_reference']), sign['primary_technical_reference'])
             sign['primary_technical_reference_filter'] = mapped
         else:
             sign['primary_technical_reference_filter'] = ''
         if sign.get('legislative_reference'):
-            sign['legislative_reference'] = str(sign['legislative_reference']).replace('&amp;', '&').replace('&nbsp;', ' ').strip()
+            sign['legislative_reference'] = html.unescape(str(sign['legislative_reference'])).strip()
         
         if sign.get('image_url'):
             filename = sign['image_url'].split('/')[-1].split('?')[0]
@@ -67,7 +87,7 @@ def build_viewer(json_path: str = 'nsw_traffic_signs_unified.json', output_path:
             sign['local_image'] = ''
         
         title_text = sign.get('title') or ""
-        pattern = r'([A-Z]{1,2}\d+-\d+[a-z]?|[A-Z]{1,2}\d+-\d+|[A-Z]{1,2}\d+[a-z]?)'
+        pattern = r'([A-Z]{1,3}\d+(?:-\d+)*(?:[a-z])?(?:\[[A-Z0-9]{1,3}\])*)'
         def replace_with_link(match: re.Match[str]) -> str:
             found_code = match.group(1).upper()
             if found_code in sign_map:
@@ -78,6 +98,21 @@ def build_viewer(json_path: str = 'nsw_traffic_signs_unified.json', output_path:
             sign['title_html'] = re.sub(pattern, replace_with_link, title_text)
         else:
             sign['title_html'] = title_text
+        # Prepare notes (from normalization metadata) as HTML; linkify any sign codes inside notes
+        notes_raw = None
+        if sign.get('normalization_metadata') and isinstance(sign['normalization_metadata'], dict):
+            notes_raw = sign['normalization_metadata'].get('notes')
+        if notes_raw:
+            def linkify_notes(text: str) -> str:
+                def repl(m: re.Match[str]) -> str:
+                    code = m.group(1).upper()
+                    if code in sign_map:
+                        return f'<a href="#" class="internal-link" onclick="window.scrollToSign(\'{code}\'); return false;">{m.group(1)}</a>'
+                    return m.group(1)
+                return re.sub(pattern, repl, html.unescape(str(text)))
+            sign['notes_html'] = linkify_notes(notes_raw)
+        else:
+            sign['notes_html'] = ''
 
     html_template = """<!DOCTYPE html>
 <html lang="en">
@@ -781,6 +816,7 @@ def build_viewer(json_path: str = 'nsw_traffic_signs_unified.json', output_path:
             const card = document.createElement('div');
             card.className = 'sign-card';
             card.id = 'card-' + (sign.sign_no || '').replace(/[^a-zA-Z0-9]/g, '_');
+            card.setAttribute('data-sign-id', sign.sign_no || '');
             card.style.setProperty('--series-color', seriesColor);
 
             let sizesHtml = '';
@@ -812,6 +848,7 @@ def build_viewer(json_path: str = 'nsw_traffic_signs_unified.json', output_path:
                     '<div class="sign-title">' + (sign.title_html || 'Untitled') + '</div>' +
                     (sign.legislative_reference && sign.legislative_reference !== 'NA' ? '<div class="detail-row"><span class="detail-label">Leg</span><span class="detail-value" title="' + sign.legislative_reference + '">' + sign.legislative_reference + '</span></div>' : '') +
                     (sign.primary_technical_reference && sign.primary_technical_reference !== 'NA' ? '<div class="detail-row"><span class="detail-label">Tech</span><span class="detail-value" title="' + sign.primary_technical_reference + '">' + sign.primary_technical_reference + '</span></div>' : '') +
+                    (sign.notes_html ? '<div class="detail-row"><span class="detail-label">Notes</span><span class="detail-value" title="' + (sign.normalization_metadata && sign.normalization_metadata.notes ? sign.normalization_metadata.notes : '') + '">' + sign.notes_html + '</span></div>' : '') +
                     '<div class="tags">' +
                         (sign.standard_sign === 'Yes' ? '<span class="tag tag-standard">Standard</span>' : '<span class="tag tag-non-standard">Non-Standard</span>') +
                         (sign._isSuperseded ? '<span class="tag tag-superseded">Superseded</span>' : '') +
@@ -968,6 +1005,8 @@ def build_viewer(json_path: str = 'nsw_traffic_signs_unified.json', output_path:
         } catch(e) { openDisclaimer(); }
     })();
 </script>
+<script src="sign_embeddings.js"></script>
+<script src="image_search.js"></script>
 </body>
 </html>"""
 
