@@ -5,6 +5,9 @@ import csv
 from pathlib import Path
 
 
+RELEASE_VERSION = "v0.2.0"
+
+
 def _norm_ref_key(text: str) -> str:
     return re.sub(r'\s+', ' ', str(text).replace('&nbsp;', ' ').replace('&amp;', '&').strip()).casefold()
 
@@ -336,6 +339,18 @@ def build_viewer(json_path: str = 'nsw_traffic_signs_unified.json', output_path:
             cursor: pointer;
             width: auto;
         }
+        .top-right-pills {
+            margin-left: auto;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .top-right-pills .btn-disclaimer {
+            margin-left: 0;
+        }
+        .release-pill {
+            cursor: default;
+        }
         .theme-toggle {
             border: 1.5px solid var(--border);
             background: var(--surface);
@@ -659,7 +674,10 @@ def build_viewer(json_path: str = 'nsw_traffic_signs_unified.json', output_path:
             <button class="view-btn active" id="btnGrid" onclick="setView('grid')" title="Grid view">&#8862;</button>
             <button class="view-btn" id="btnList" onclick="setView('list')" title="List view">&#8801;</button>
         </div>
-        <button class="btn-disclaimer" onclick="openDisclaimer()" type="button" title="View data disclaimer and attribution">\u24d8 Disclaimer</button>
+        <div class="top-right-pills">
+            <span id="release-badge" class="btn-disclaimer release-pill">Release %RELEASE_VERSION%</span>
+            <button class="btn-disclaimer" onclick="openDisclaimer()" type="button" title="View data disclaimer and attribution">\u24d8 Disclaimer</button>
+        </div>
     </div>
     <div id="active-chips"></div>
     <div id="signGrid"></div>
@@ -974,7 +992,11 @@ def build_viewer(json_path: str = 'nsw_traffic_signs_unified.json', output_path:
 </body>
 </html>"""
 
-    final_html = html_template.replace('%DATA%', json.dumps(data))
+    final_html = (
+        html_template
+        .replace('%DATA%', json.dumps(data))
+        .replace('%RELEASE_VERSION%', RELEASE_VERSION)
+    )
     with open(output_file, 'w', encoding='utf-8') as f:
         f.write(final_html)
     print(f"Successfully created {output_file} with local image support and Clear button.")

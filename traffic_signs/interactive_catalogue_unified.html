@@ -255,6 +255,18 @@
             cursor: pointer;
             width: auto;
         }
+        .top-right-pills {
+            margin-left: auto;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .top-right-pills .btn-disclaimer {
+            margin-left: 0;
+        }
+        .release-pill {
+            cursor: default;
+        }
         .theme-toggle {
             border: 1.5px solid var(--border);
             background: var(--surface);
@@ -578,7 +590,10 @@
             <button class="view-btn active" id="btnGrid" onclick="setView('grid')" title="Grid view">&#8862;</button>
             <button class="view-btn" id="btnList" onclick="setView('list')" title="List view">&#8801;</button>
         </div>
-        <button class="btn-disclaimer" onclick="openDisclaimer()" type="button" title="View data disclaimer and attribution">ⓘ Disclaimer</button>
+        <div class="top-right-pills">
+            <span id="release-badge" class="btn-disclaimer release-pill">Release v0.2.0</span>
+            <button class="btn-disclaimer" onclick="openDisclaimer()" type="button" title="View data disclaimer and attribution">ⓘ Disclaimer</button>
+        </div>
     </div>
     <div id="active-chips"></div>
     <div id="signGrid"></div>
