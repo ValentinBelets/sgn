@@ -1,14 +1,49 @@
 import json
 import os
 import re
+import csv
+import html
+from pathlib import Path
 
-def build_viewer(json_path='nsw_traffic_signs.json', output_path='interactive_catalogue.html'):
-    if not os.path.exists(json_path):
-        print(f"Error: {json_path} not found.")
+
+def _norm_ref_key(text: str) -> str:
+    clean = html.unescape(str(text)).replace('\xa0', ' ')
+    return re.sub(r'\s+', ' ', clean.strip()).casefold()
+
+
+def _load_ref_mapping(mapping_file: Path) -> dict[str, str]:
+    if not mapping_file.exists():
+        return {}
+    mapping: dict[str, str] = {}
+    with open(mapping_file, 'r', encoding='utf-8-sig', newline='') as f:
+        reader = csv.DictReader(f)
+        for row in reader:
+            original = (row.get('Original Reference') or '').strip()
+            normalized = (row.get('Proposed Normalized Reference') or '').strip()
+            if not original:
+                continue
+            final_label = normalized if normalized else original
+            mapping[_norm_ref_key(original)] = final_label
+    return mapping
+
+def build_viewer(json_path: str = 'nsw_traffic_signs_unified.json', output_path: str = 'interactive_catalogue_unified.html') -> None:
+    base_dir = Path(__file__).resolve().parent
+    json_file = Path(json_path)
+    output_file = Path(output_path)
+
+    if not json_file.is_absolute():
+        json_file = base_dir / json_file
+    if not output_file.is_absolute():
+        output_file = base_dir / output_file
+
+    if not os.path.exists(json_file):
+        print(f"Error: {json_file} not found.")
         return
 
-    with open(json_path, 'r', encoding='utf-8') as f:
+    with open(json_file, 'r', encoding='utf-8') as f:
         data = json.load(f)
+
+    ref_mapping = _load_ref_mapping(base_dir / 'tech_references_mapping.csv')
 
     # Pre-process data
     sign_map = {}
@@ -18,10 +53,32 @@ def build_viewer(json_path='nsw_traffic_signs.json', output_path='interactive_ca
             sign_map[key] = sign
 
     for sign in data:
+        # Normalize common string fields by decoding HTML entities
+        if sign.get('sign_no'):
+            sign['sign_no'] = html.unescape(str(sign['sign_no'])).strip()
+
+        if sign.get('title'):
+            sign['title'] = html.unescape(str(sign['title'])).strip()
+
+        # Normalize sizes entries
+        if sign.get('sizes') and isinstance(sign['sizes'], list):
+            for sz in sign['sizes']:
+                if isinstance(sz.get('label'), str):
+                    sz['label'] = html.unescape(sz['label']).strip()
+                if isinstance(sz.get('h'), str):
+                    sz['h'] = html.unescape(sz['h']).strip()
+                if isinstance(sz.get('w'), str):
+                    sz['w'] = html.unescape(sz['w']).strip()
+
         if sign.get('primary_technical_reference'):
-            sign['primary_technical_reference'] = str(sign['primary_technical_reference']).replace('&amp;', '&').replace('&nbsp;', ' ').strip()
+            # Decode HTML entities robustly (handles &NBSP; and variants)
+            sign['primary_technical_reference'] = html.unescape(str(sign['primary_technical_reference'])).strip()
+            mapped = ref_mapping.get(_norm_ref_key(sign['primary_technical_reference']), sign['primary_technical_reference'])
+            sign['primary_technical_reference_filter'] = mapped
+        else:
+            sign['primary_technical_reference_filter'] = ''
         if sign.get('legislative_reference'):
-            sign['legislative_reference'] = str(sign['legislative_reference']).replace('&amp;', '&').replace('&nbsp;', ' ').strip()
+            sign['legislative_reference'] = html.unescape(str(sign['legislative_reference'])).strip()
         
         if sign.get('image_url'):
             filename = sign['image_url'].split('/')[-1].split('?')[0]
@@ -30,8 +87,8 @@ def build_viewer(json_path='nsw_traffic_signs.json', output_path='interactive_ca
             sign['local_image'] = ''
         
         title_text = sign.get('title') or ""
-        pattern = r'([A-Z]{1,2}\d+-\d+[a-z]?|[A-Z]{1,2}\d+-\d+|[A-Z]{1,2}\d+[a-z]?)'
-        def replace_with_link(match):
+        pattern = r'([A-Z]{1,3}\d+(?:-\d+)*(?:[a-z])?(?:\[[A-Z0-9]{1,3}\])*)'
+        def replace_with_link(match: re.Match[str]) -> str:
             found_code = match.group(1).upper()
             if found_code in sign_map:
                 return f'<a href="#" class="internal-link" onclick="window.scrollToSign(\'{found_code}\'); return false;">{match.group(1)}</a>'
@@ -41,6 +98,21 @@ def build_viewer(json_path='nsw_traffic_signs.json', output_path='interactive_ca
             sign['title_html'] = re.sub(pattern, replace_with_link, title_text)
         else:
             sign['title_html'] = title_text
+        # Prepare notes (from normalization metadata) as HTML; linkify any sign codes inside notes
+        notes_raw = None
+        if sign.get('normalization_metadata') and isinstance(sign['normalization_metadata'], dict):
+            notes_raw = sign['normalization_metadata'].get('notes')
+        if notes_raw:
+            def linkify_notes(text: str) -> str:
+                def repl(m: re.Match[str]) -> str:
+                    code = m.group(1).upper()
+                    if code in sign_map:
+                        return f'<a href="#" class="internal-link" onclick="window.scrollToSign(\'{code}\'); return false;">{m.group(1)}</a>'
+                    return m.group(1)
+                return re.sub(pattern, repl, html.unescape(str(text)))
+            sign['notes_html'] = linkify_notes(notes_raw)
+        else:
+            sign['notes_html'] = ''
 
     html_template = """<!DOCTYPE html>
 <html lang="en">
@@ -50,249 +122,615 @@ def build_viewer(json_path='nsw_traffic_signs.json', output_path='interactive_ca
     <title>NSW Traffic Signs Catalogue</title>
     <style>
         :root {
-            --primary-color: #002664;
-            --secondary-color: #d7153a;
-            --bg-color: #f0f2f5;
+            --primary: #002664;
+            --secondary: #d7153a;
+            --bg: #f0f2f5;
             --card-bg: #ffffff;
-            --text-color: #1a1a1b;
-            --border-color: #d1d5db;
+            --text: #1a1a1b;
+            --border: #e5e7eb;
+            --surface: #ffffff;
+            --surface-soft: #f9fafb;
+            --surface-hover: #f3f4f6;
+            --muted: #9ca3af;
+            --muted-strong: #374151;
+            --sidebar-w: 252px;
+            --series-R: #1d4ed8;
+            --series-W: #d97706;
+            --series-G: #15803d;
+            --series-T: #c2410c;
+            --series-GE: #7c3aed;
+            --series-RM: #0e7490;
         }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: var(--bg-color); color: var(--text-color); margin: 0; padding: 20px; line-height: 1.5; }
-        
-        header { 
-            margin-bottom: 24px; 
-            padding-bottom: 12px; 
-            border-bottom: 3px solid var(--primary-color); 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
+        html[data-theme='dark'] {
+            --primary: #93c5fd;
+            --secondary: #fb7185;
+            --bg: #0f172a;
+            --card-bg: #111827;
+            --text: #e5e7eb;
+            --border: #334155;
+            --surface: #0b1220;
+            --surface-soft: #111827;
+            --surface-hover: #1f2937;
+            --muted: #9ca3af;
+            --muted-strong: #cbd5e1;
         }
-        h1 { color: var(--primary-color); margin: 0; font-size: 1.75em; font-weight: 800; letter-spacing: -0.5px; }
-        
-        .controls { 
+        * { box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            margin: 0;
+            line-height: 1.5;
             display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            margin-bottom: 24px;
-            background: #ffffff;
-            padding: 20px;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-            align-items: flex-start;
-            border: 1px solid #e5e7eb;
+            min-height: 100vh;
         }
-        
-        .control-item { display: flex; flex-direction: column; gap: 6px; }
-        .control-item label { font-size: 11px; font-weight: 700; color: #6b7280; text-transform: uppercase; letter-spacing: 0.05em; }
-        
-        input[type="text"], select { 
-            padding: 8px 12px; 
-            border: 1.5px solid #e5e7eb; 
-            border-radius: 6px; 
-            font-size: 14px; 
-            background-color: #f9fafb;
-            transition: all 0.2s;
-            color: #111827;
+        /* ── SIDEBAR ── */
+        #sidebar {
+            width: var(--sidebar-w);
+            min-width: var(--sidebar-w);
+            background: var(--surface);
+            border-right: 1px solid var(--border);
+            padding: 18px 14px;
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
         }
-        input[type="text"]:focus, select:focus { border-color: var(--primary-color); outline: none; background-color: #fff; box-shadow: 0 0 0 3px rgba(0,38,100,0.1); }
-        
-        select[multiple] { height: 100px; min-width: 180px; }
-        #searchBar { width: 260px; }
-
-        .series-container {
-            background: #f9fafb;
-            border: 1.5px solid #e5e7eb;
+        .sidebar-logo {
+            padding-bottom: 14px;
+            border-bottom: 2px solid var(--primary);
+        }
+        .sidebar-logo h1 {
+            color: var(--primary);
+            font-size: 1.05em;
+            font-weight: 800;
+            letter-spacing: -0.4px;
+            margin: 0 0 2px;
+        }
+        .sidebar-logo span { font-size: 0.72em; color: var(--muted); }
+        .filter-section { display: flex; flex-direction: column; gap: 6px; }
+        .filter-section.tech-flex {
+            flex: 1 1 auto;
+            min-height: 120px;
+        }
+        .section-label {
+            font-size: 10px;
+            font-weight: 800;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 7px 10px;
+            border: 1.5px solid var(--border);
             border-radius: 6px;
-            padding: 10px;
-            min-width: 280px;
+            font-size: 13px;
+            background: var(--surface-soft);
+            transition: border-color 0.2s, box-shadow 0.2s;
+            color: var(--text);
         }
-        .checkbox-group {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 6px 16px;
+        input[type="text"]:focus {
+            border-color: var(--primary);
+            outline: none;
+            background: var(--surface);
+            box-shadow: 0 0 0 3px rgba(0,38,100,0.1);
         }
+        select {
+            width: 100%;
+            padding: 6px 8px;
+            border: 1.5px solid var(--border);
+            border-radius: 6px;
+            font-size: 12px;
+            background: var(--surface-soft);
+            color: var(--text);
+            transition: border-color 0.2s;
+        }
+        select:focus { border-color: var(--primary); outline: none; }
+        select[multiple] { height: 82px; }
+        .tech-list { flex: 1 1 auto; min-height: 120px; overflow-y: auto; border: 1.5px solid var(--border); border-radius: 6px; background: var(--surface-soft); }
+        .tech-item { display: flex; align-items: center; gap: 6px; padding: 4px 8px; font-size: 12px; color: var(--muted-strong); cursor: pointer; user-select: none; transition: background 0.1s; }
+        .tech-item:hover { background: var(--surface-hover); }
+        .tech-item input { flex-shrink: 0; accent-color: var(--primary); cursor: pointer; margin: 0; }
+        .tech-item span { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; min-width: 0; }
+        /* ── DISCLAIMER MODAL ── */
+        #disclaimer-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.55);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+        #disclaimer-overlay.visible { display: flex; }
+        #disclaimer-modal {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 28px 32px;
+            max-width: 540px;
+            width: 90%;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.22);
+            color: var(--text);
+            font-size: 13.5px;
+            line-height: 1.6;
+        }
+        #disclaimer-modal h2 { font-size: 1em; font-weight: 800; color: var(--primary); margin: 0 0 14px; }
+        #disclaimer-modal p { margin: 0 0 10px; }
+        #disclaimer-modal p:last-of-type { margin-bottom: 0; }
+        .disclaimer-actions {
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+        }
+        .disclaimer-actions small { color: var(--muted); font-size: 11px; line-height: 1.4; }
+        .disclaimer-actions a { color: inherit; }
+        #disclaimer-close {
+            background: var(--primary);
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            padding: 8px 20px;
+            font-weight: 700;
+            font-size: 13px;
+            cursor: pointer;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+        #disclaimer-close:hover { opacity: 0.85; }
+        .btn-disclaimer {
+            border: 1.5px solid var(--border);
+            background: var(--surface);
+            color: var(--muted-strong);
+            border-radius: 6px;
+            padding: 4px 10px;
+            font-size: 12px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.15s;
+            margin-left: auto;
+            white-space: nowrap;
+        }
+        .btn-disclaimer:hover { background: var(--surface-hover); }
+        .checkbox-group { display: flex; flex-direction: column; gap: 2px; }
         .checkbox-item {
             display: flex;
             align-items: center;
-            font-size: 13px;
-            color: #374151;
+            font-size: 12px;
+            color: var(--muted-strong);
             cursor: pointer;
             user-select: none;
-            font-weight: 500;
+            padding: 4px 6px;
+            border-radius: 5px;
+            transition: background 0.12s;
         }
-        .checkbox-item input { 
-            margin-right: 8px; 
-            width: 16px; 
-            height: 16px; 
-            cursor: pointer; 
-            accent-color: var(--primary-color);
+        .checkbox-item:hover { background: var(--surface-hover); }
+        .checkbox-item input {
+            margin-right: 7px;
+            width: 14px;
+            height: 14px;
+            cursor: pointer;
+            accent-color: var(--primary);
+            flex-shrink: 0;
         }
-        .checkbox-item:hover { color: var(--primary-color); }
-
-        .filter-group-vertical { display: flex; flex-direction: column; gap: 12px; }
-
-        .sign-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); 
-            gap: 20px; 
+        .series-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            margin-right: 6px;
+            flex-shrink: 0;
         }
-        
-        .sign-card { 
-            background: var(--card-bg); 
-            border-radius: 12px; 
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1); 
-            overflow: hidden; 
-            transition: transform 0.2s, box-shadow 0.2s; 
-            display: flex; 
-            flex-direction: column; 
-            border: 1px solid #e5e7eb;
+        .cb-count { margin-left: auto; font-size: 10px; color: var(--muted); font-weight: 600; }
+        .btn-reset {
+            width: 100%;
+            background: var(--surface);
+            border: 1.5px solid var(--border);
+            color: var(--muted-strong);
+            font-weight: 700;
+            padding: 8px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 12px;
+            transition: all 0.15s;
         }
-        .sign-card:hover { transform: translateY(-4px); box-shadow: 0 10px 20px rgba(0,0,0,0.08); border-color: var(--primary-color); }
-        .sign-card.highlight { border: 3px solid var(--secondary-color); background-color: #fff5f5; }
-        
-        .sign-image-container { 
-            height: 180px; 
-            background: #fff; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            padding: 12px; 
-            border-bottom: 1px solid #f3f4f6;
+        .btn-reset:hover { background: var(--surface-hover); border-color: var(--muted); }
+        /* ── MAIN ── */
+        #main {
+            flex: 1;
+            min-width: 0;
+            padding: 18px 22px;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+        #top-bar { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+        #stats {
+            font-weight: 700;
+            color: var(--muted-strong);
+            background: var(--surface);
+            border: 1px solid var(--border);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+            white-space: nowrap;
+        }
+        .sort-select {
+            padding: 4px 8px;
+            border: 1.5px solid var(--border);
+            border-radius: 6px;
+            font-size: 12px;
+            background: var(--surface);
+            color: var(--muted-strong);
+            font-weight: 600;
+            cursor: pointer;
+            width: auto;
+        }
+        .theme-toggle {
+            border: 1.5px solid var(--border);
+            background: var(--surface);
+            color: var(--muted-strong);
+            border-radius: 6px;
+            padding: 4px 10px;
+            font-size: 12px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.15s;
+        }
+        .theme-toggle:hover { background: var(--surface-hover); }
+        .view-toggle {
+            display: flex;
+            border: 1.5px solid var(--border);
+            border-radius: 6px;
+            overflow: hidden;
+            background: var(--surface);
+        }
+        .view-btn {
+            border: none;
+            background: transparent;
+            padding: 4px 9px;
+            cursor: pointer;
+            font-size: 15px;
+            color: var(--muted);
+            transition: all 0.12s;
+            line-height: 1;
+        }
+        .view-btn.active { background: var(--primary); color: #fff; }
+        .view-btn:hover:not(.active) { background: var(--surface-hover); }
+        /* ── ACTIVE CHIPS ── */
+        #active-chips { display: flex; flex-wrap: wrap; gap: 5px; min-height: 0; }
+        .filter-chip {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            background: var(--surface-hover);
+            border: 1px solid var(--border);
+            color: var(--primary);
+            border-radius: 20px;
+            padding: 3px 10px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+        .chip-remove {
+            cursor: pointer;
+            font-size: 13px;
+            line-height: 1;
+            color: #93c5fd;
+            margin-left: 2px;
+            transition: color 0.12s;
+        }
+        .chip-remove:hover { color: var(--secondary); }
+        /* ── GRID VIEW ── */
+        #signGrid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(255px, 1fr));
+            gap: 16px;
+        }
+        .sign-card {
+            background: var(--card-bg);
+            border-radius: 10px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.07);
+            overflow: hidden;
+            transition: transform 0.18s, box-shadow 0.18s;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid var(--border);
+        }
+        .sign-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+            border-color: var(--series-color, var(--primary));
+        }
+        .sign-card.highlight { border: 3px solid var(--secondary); background-color: #fff5f5; }
+        .sign-image-container {
+            height: 155px;
+            background: var(--surface);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px;
+            border-bottom: 3px solid var(--series-color, #e5e7eb);
             position: relative;
         }
-        .sign-image-container img { 
-            max-width: 100%; 
-            max-height: 100%; 
-            object-fit: contain; 
-        }
-
-        .sign-info { padding: 16px; flex-grow: 1; display: flex; flex-direction: column; }
-        .sign-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px; }
-        .sign-no { font-weight: 800; color: var(--secondary-color); font-size: 1.25em; letter-spacing: -0.02em; }
-        
-        .sizes-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 4px;
-            margin-bottom: 12px;
-        }
-        .size-badge { 
-            background: #374151; 
-            color: #fff; 
-            padding: 2px 6px; 
+        .sign-image-container img { max-width: 100%; max-height: 100%; object-fit: contain; }
+        .series-badge {
+            position: absolute;
+            top: 7px;
+            right: 7px;
+            background: var(--series-color, #6b7280);
+            color: #fff;
+            font-size: 10px;
+            font-weight: 800;
+            padding: 2px 7px;
             border-radius: 4px;
-            font-family: 'SF Mono', 'Consolas', monospace;
-            font-size: 0.7em;
+            letter-spacing: 0.05em;
+        }
+        .img-error-state {
             display: flex;
-            gap: 4px;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--muted);
+            font-size: 11px;
+            gap: 3px;
+            width: 100%;
+            height: 100%;
+        }
+        .img-error-state .sign-no-placeholder {
+            font-size: 1.4em;
+            font-weight: 800;
+            color: var(--series-color, #d1d5db);
+        }
+        .sign-info { padding: 13px; flex-grow: 1; display: flex; flex-direction: column; }
+        .sign-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 5px; }
+        .sign-no { font-weight: 800; color: var(--series-color, var(--secondary)); font-size: 1.15em; letter-spacing: -0.02em; }
+        .sizes-container { display: flex; flex-wrap: wrap; gap: 3px; margin-bottom: 9px; }
+        .size-badge {
+            background: var(--surface-hover);
+            color: var(--muted-strong);
+            border: 1px solid var(--border);
+            padding: 1px 5px;
+            border-radius: 3px;
+            font-family: 'SF Mono', 'Consolas', monospace;
+            font-size: 0.67em;
+            display: flex;
+            gap: 3px;
             align-items: center;
         }
-        .size-label { font-weight: 600; color: #9ca3af; }
+        .size-label { font-weight: 600; color: var(--muted); }
         .size-dims { font-weight: 700; }
-
-        .sign-title { font-size: 0.95em; font-weight: 700; margin-bottom: 12px; line-height: 1.4; color: #111827; min-height: 2.8em; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
-        .internal-link { color: var(--secondary-color); text-decoration: underline; cursor: pointer; font-weight: 700; }
-        
-        .detail-row { font-size: 0.75em; margin-bottom: 4px; display: flex; gap: 8px; align-items: baseline; }
-        .detail-label { font-weight: 700; color: #6b7280; min-width: 60px; text-transform: uppercase; font-size: 0.9em; }
-        .detail-value { color: #1f2937; flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: 500; }
-
-        .tags { margin-top: auto; padding-top: 12px; display: flex; flex-wrap: wrap; gap: 6px; }
-        .tag { padding: 2px 8px; border-radius: 6px; font-size: 0.7em; font-weight: 700; text-transform: uppercase; letter-spacing: 0.02em; }
-        .tag-standard { background-color: #dcfce7; color: #166534; }
-        .tag-non-standard { background-color: #fef3c7; color: #92400e; }
-        .tag-superseded { background-color: #f3e8ff; color: #6b21a8; }
-        .tag-not-nsw { background-color: #fee2e2; color: #991b1b; }
-        .tag-available { background-color: #e0f2fe; color: #075985; }
-
-        .sign-links { padding: 12px 16px; background: #f9fafb; border-top: 1px solid #f3f4f6; display: flex; gap: 8px; }
-        .btn { text-decoration: none; color: var(--primary-color); font-size: 0.8em; font-weight: 700; flex: 1; text-align: center; padding: 8px; border: 1.5px solid var(--primary-color); border-radius: 6px; cursor: pointer; transition: all 0.2s; }
-        .btn:hover { background: var(--primary-color); color: white; }
-        .btn-pdf { border-color: var(--secondary-color); color: var(--secondary-color); }
-        .btn-pdf:hover { background: var(--secondary-color); color: white; }
-        
-        .btn-clear { background: #fff; border: 1.5px solid #d1d5db; color: #374151; font-weight: 600; padding: 10px 20px; border-radius: 6px; }
-        .btn-clear:hover { background: #f3f4f6; border-color: #9ca3af; color: #111827; }
-
-        #stats { font-weight: 700; color: #4b5563; background: #fff; border: 1px solid #e5e7eb; padding: 6px 12px; border-radius: 20px; font-size: 0.85em; box-shadow: 0 1px 2px rgba(0,0,0,0.05); }
-        
-        @media (max-width: 1200px) {
-            .controls { grid-template-columns: repeat(2, 1fr); }
+        .sign-title {
+            font-size: 0.87em;
+            font-weight: 600;
+            margin-bottom: 9px;
+            line-height: 1.4;
+            color: var(--text);
+            min-height: 2.45em;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
         }
+        .internal-link { color: var(--secondary); text-decoration: underline; cursor: pointer; font-weight: 700; }
+        .detail-row { font-size: 0.71em; margin-bottom: 3px; display: flex; gap: 6px; align-items: baseline; }
+        .detail-label { font-weight: 700; color: var(--muted); min-width: 52px; text-transform: uppercase; font-size: 0.9em; }
+        .detail-value { color: var(--muted-strong); flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+        .tags { margin-top: auto; padding-top: 9px; display: flex; flex-wrap: wrap; gap: 4px; }
+        .tag { padding: 2px 8px; border-radius: 20px; font-size: 0.67em; font-weight: 700; text-transform: uppercase; letter-spacing: 0.03em; }
+        .tag-standard { background: #dcfce7; color: #166534; }
+        .tag-non-standard { background: #fef3c7; color: #92400e; }
+        .tag-superseded { background: #f3e8ff; color: #6b21a8; }
+        .tag-not-nsw { background: #fee2e2; color: #991b1b; }
+        .tag-available { background: #e0f2fe; color: #075985; }
+        .sign-links { padding: 9px 13px; background: var(--surface-soft); border-top: 1px solid var(--border); display: flex; gap: 7px; }
+        .btn { text-decoration: none; color: var(--primary); font-size: 0.77em; font-weight: 700; flex: 1; text-align: center; padding: 6px; border: 1.5px solid var(--primary); border-radius: 5px; cursor: pointer; transition: all 0.15s; }
+        .btn:hover { background: var(--primary); color: #fff; }
+        .btn-pdf { border-color: var(--secondary); color: var(--secondary); }
+        .btn-pdf:hover { background: var(--secondary); color: #fff; }
+        /* ── LIST VIEW ── */
+        #signGrid.list-view {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            overflow: hidden;
+            background: var(--surface);
+        }
+        #signGrid.list-view .sign-card {
+            border-radius: 0;
+            border: none;
+            border-bottom: 1px solid var(--border);
+            flex-direction: row;
+            align-items: center;
+            box-shadow: none;
+        }
+        #signGrid.list-view .sign-card:last-child { border-bottom: none; }
+        #signGrid.list-view .sign-card:hover { transform: none; background: var(--surface-hover); }
+        #signGrid.list-view .sign-image-container {
+            width: 72px;
+            min-width: 72px;
+            height: 54px;
+            border-bottom: none;
+            border-right: 3px solid var(--series-color, #e5e7eb);
+            border-radius: 0;
+        }
+        #signGrid.list-view .series-badge { display: none; }
+        #signGrid.list-view .sign-info {
+            flex-direction: row;
+            align-items: center;
+            padding: 8px 12px;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        #signGrid.list-view .sign-no { min-width: 72px; font-size: 0.9em; margin-bottom: 0; }
+        #signGrid.list-view .sign-header { margin-bottom: 0; flex-shrink: 0; }
+        #signGrid.list-view .sign-title {
+            flex: 1;
+            min-width: 160px;
+            min-height: 0;
+            -webkit-line-clamp: 1;
+            margin-bottom: 0;
+        }
+        #signGrid.list-view .sizes-container { display: none; }
+        #signGrid.list-view .detail-row { display: none; }
+        #signGrid.list-view .tags { padding-top: 0; margin-top: 0; }
+        #signGrid.list-view .sign-links {
+            padding: 7px 10px;
+            background: transparent;
+            border-top: none;
+            border-left: 1px solid var(--border);
+            flex-direction: column;
+            min-width: 90px;
+            gap: 3px;
+        }
+        /* ── EMPTY STATE ── */
+        #empty-state {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 60px 20px;
+            color: var(--muted);
+            gap: 10px;
+        }
+        #empty-state .empty-icon { font-size: 44px; }
+        #empty-state h3 { margin: 0; color: var(--muted-strong); font-size: 1.05em; }
+        #empty-state p { margin: 0; font-size: 0.83em; text-align: center; max-width: 280px; }
+        #empty-state button {
+            margin-top: 6px;
+            background: var(--primary);
+            color: #fff;
+            border: none;
+            padding: 7px 18px;
+            border-radius: 6px;
+            font-weight: 700;
+            cursor: pointer;
+            font-size: 12px;
+        }
+        html[data-theme='dark'] .sign-card.highlight { background-color: #312e81; }
+        html[data-theme='dark'] .tag-standard { background: #14532d; color: #bbf7d0; }
+        html[data-theme='dark'] .tag-non-standard { background: #78350f; color: #fde68a; }
+        html[data-theme='dark'] .tag-superseded { background: #581c87; color: #e9d5ff; }
+        html[data-theme='dark'] .tag-not-nsw { background: #7f1d1d; color: #fecaca; }
+        html[data-theme='dark'] .tag-available { background: #0c4a6e; color: #bae6fd; }
+        /* ── RESPONSIVE ── */
         @media (max-width: 768px) {
-            body { padding: 10px; }
-            .controls { flex-direction: column; width: 100%; box-sizing: border-box; }
-            #searchBar, .series-container { width: 100%; min-width: 0; }
+            body { flex-direction: column; }
+            #sidebar { width: 100%; min-width: 0; position: relative; height: auto; border-right: none; border-bottom: 1px solid var(--border); }
+            .filter-section.tech-flex { min-height: 0; }
+            .tech-list { max-height: 82px; }
+            #main { padding: 12px; }
         }
     </style>
 </head>
 <body>
-<header>
-    <h1>NSW Traffic Signs</h1>
-    <div id="stats">...</div>
-</header>
-
-<div class="controls">
-    <div class="filter-group-vertical">
-        <div class="control-item">
-            <label>Search Signs</label>
-            <input type="text" id="searchBar" placeholder="Search Code, Title, Rule...">
-        </div>
-        <div class="control-item">
-            <select id="filterNSW">
-                <option value="all">Any NSW Usage</option>
-                <option value="used">Used in NSW</option>
-                <option value="not-used">Not Used in NSW</option>
-            </select>
-        </div>
+<aside id="sidebar">
+    <div class="sidebar-logo">
+        <h1>NSW Traffic Signs</h1>
+        <span>Interactive Catalogue</span>
     </div>
-    
-    <div class="control-item">
-        <label>Filter by Series</label>
-        <div class="series-container">
-            <div class="checkbox-group" id="seriesCheckboxes">
-                <label class="checkbox-item"><input type="checkbox" value="R"> Regulatory (R)</label>
-                <label class="checkbox-item"><input type="checkbox" value="W"> Warning (W)</label>
-                <label class="checkbox-item"><input type="checkbox" value="G"> Guide (G)</label>
-                <label class="checkbox-item"><input type="checkbox" value="T"> Temporary (T)</label>
-                <label class="checkbox-item"><input type="checkbox" value="GE"> Motorway (GE)</label>
-                <label class="checkbox-item"><input type="checkbox" value="RM"> Markings (RM)</label>
-            </div>
+    <div class="filter-section">
+        <label class="section-label">Search</label>
+        <input type="text" id="searchBar" placeholder="Sign code, title, rule\u2026">
+    </div>
+    <div class="filter-section">
+        <label class="section-label">Series</label>
+        <div class="checkbox-group" id="seriesCheckboxes">
+            <label class="checkbox-item"><input type="checkbox" value="R"><span class="series-dot" style="background:var(--series-R)"></span>Regulatory (R)<span class="cb-count" data-series="R"></span></label>
+            <label class="checkbox-item"><input type="checkbox" value="W"><span class="series-dot" style="background:var(--series-W)"></span>Warning (W)<span class="cb-count" data-series="W"></span></label>
+            <label class="checkbox-item"><input type="checkbox" value="G"><span class="series-dot" style="background:var(--series-G)"></span>Guide (G)<span class="cb-count" data-series="G"></span></label>
+            <label class="checkbox-item"><input type="checkbox" value="T"><span class="series-dot" style="background:var(--series-T)"></span>Temporary (T)<span class="cb-count" data-series="T"></span></label>
+            <label class="checkbox-item"><input type="checkbox" value="GE"><span class="series-dot" style="background:var(--series-GE)"></span>Motorway (GE)<span class="cb-count" data-series="GE"></span></label>
+            <label class="checkbox-item"><input type="checkbox" value="RM"><span class="series-dot" style="background:var(--series-RM)"></span>Markings (RM)<span class="cb-count" data-series="RM"></span></label>
         </div>
     </div>
-
-    <div class="control-item">
-        <label>Technical Reference</label>
-        <select id="filterTech" multiple title="Hold Ctrl to multi-select"></select>
-    </div>
-
-    <div class="control-item">
-        <label>Standardization</label>
+    <div class="filter-section">
+        <label class="section-label">Standardisation</label>
         <select id="filterStandard" multiple>
             <option value="Yes">Standard Sign</option>
             <option value="No">Non-Standard</option>
             <option value="-">Undefined</option>
         </select>
     </div>
-
-    <div class="control-item">
-        <label>Usage Status</label>
+    <div class="filter-section">
+        <label class="section-label">Usage Status</label>
         <select id="filterStatus" multiple>
-            <option value="Active">Active Only</option>
+            <option value="Active">Active</option>
             <option value="Superseded">Superseded</option>
         </select>
     </div>
-
-    <div class="control-item" style="align-self: center; margin-left: auto;">
-        <button class="btn btn-clear" onclick="clearFilters()">Reset All</button>
+    <div class="filter-section">
+        <label class="section-label">NSW Usage</label>
+        <select id="filterNSW">
+            <option value="all">Any</option>
+            <option value="used">Used in NSW</option>
+            <option value="not-used">Not Used in NSW</option>
+        </select>
     </div>
-</div>
+    <div class="filter-section tech-flex">
+        <label class="section-label">Technical Reference</label>
+        <input type="text" id="techSearch" placeholder="Search references\u2026" autocomplete="off">
+        <div id="filterTech" class="tech-list"></div>
+    </div>
+    <button class="btn-reset" onclick="clearFilters()">&#8635; Reset All Filters</button>
+</aside>
 
-<div class="sign-grid" id="signGrid"></div>
+<main id="main">
+    <div id="top-bar">
+        <span id="stats">\u2026</span>
+        <select class="sort-select" id="sortSelect">
+            <option value="sign_no">Sort: Sign #</option>
+            <option value="series">Sort: Series</option>
+            <option value="title">Sort: Title</option>
+        </select>
+        <button class="theme-toggle" id="themeToggle" type="button" title="Toggle color theme">Dark mode</button>
+        <div class="view-toggle">
+            <button class="view-btn active" id="btnGrid" onclick="setView('grid')" title="Grid view">&#8862;</button>
+            <button class="view-btn" id="btnList" onclick="setView('list')" title="List view">&#8801;</button>
+        </div>
+        <button class="btn-disclaimer" onclick="openDisclaimer()" type="button" title="View data disclaimer and attribution">\u24d8 Disclaimer</button>
+    </div>
+    <div id="active-chips"></div>
+    <div id="signGrid"></div>
+    <div id="empty-state">
+        <div class="empty-icon">&#x1F6A7;</div>
+        <h3>No signs match your filters</h3>
+        <p>Try adjusting or clearing your search criteria.</p>
+        <button onclick="clearFilters()">Clear All Filters</button>
+    </div>
+</main>
 
 <script>
+    const SERIES_COLORS = { R:'#1d4ed8', W:'#d97706', G:'#15803d', T:'#c2410c', GE:'#7c3aed', RM:'#0e7490' };
+
+    function getSeriesFromCode(code) {
+        if (!code) return null;
+        const c = code.toUpperCase();
+        if (c.startsWith('RM')) return 'RM';
+        if (c.startsWith('GE')) return 'GE';
+        if (c.startsWith('R')) return 'R';
+        if (c.startsWith('W')) return 'W';
+        if (c.startsWith('G')) return 'G';
+        if (c.startsWith('T')) return 'T';
+        return null;
+    }
+
     const allSigns = %DATA%;
+    allSigns.forEach(s => {
+        s._series = getSeriesFromCode(s.sign_no);
+        s._isSuperseded = (s.title || '').toLowerCase().includes('superseded') || (s.sign_no || '').toLowerCase().includes('superseded');
+        s._isNotNSW = (s.title || '').toLowerCase().includes('not used in nsw') ||
+            (s.normalization_metadata && s.normalization_metadata.note && s.normalization_metadata.note.toLowerCase().includes('not used in nsw'));
+    });
+
     const signGrid = document.getElementById('signGrid');
+    const emptyState = document.getElementById('empty-state');
     const searchBar = document.getElementById('searchBar');
     const filterTech = document.getElementById('filterTech');
     const filterSeries = document.getElementById('seriesCheckboxes');
@@ -300,167 +738,285 @@ def build_viewer(json_path='nsw_traffic_signs.json', output_path='interactive_ca
     const filterStatus = document.getElementById('filterStatus');
     const filterNSW = document.getElementById('filterNSW');
     const stats = document.getElementById('stats');
+    const activeChips = document.getElementById('active-chips');
+    const themeToggle = document.getElementById('themeToggle');
+    let currentView = 'grid';
 
-    window.scrollToSign = function(signCode) {
-        clearFilters();
-        searchBar.value = signCode;
-        filterSigns();
-        setTimeout(() => {
-            const card = Array.from(document.querySelectorAll('.sign-card')).find(c => c.querySelector('.sign-no').innerText.toUpperCase() === signCode.toUpperCase());
-            if (card) {
-                card.classList.add('highlight');
-                card.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                setTimeout(() => card.classList.remove('highlight'), 3000);
-            }
-        }, 50);
-    };
+    function applyTheme(theme) {
+        const next = theme === 'dark' ? 'dark' : 'light';
+        document.documentElement.setAttribute('data-theme', next);
+        themeToggle.textContent = next === 'dark' ? 'Light mode' : 'Dark mode';
+    }
 
-    function clearFilters() {
-        searchBar.value = '';
-        filterNSW.value = 'all';
-        [filterTech, filterStandard, filterStatus].forEach(sel => {
-            Array.from(sel.options).forEach(opt => opt.selected = false);
+    function initTheme() {
+        const saved = localStorage.getItem('nsw-signs-theme');
+        if (saved === 'dark' || saved === 'light') {
+            applyTheme(saved);
+            return;
+        }
+        applyTheme(window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    }
+
+    function initCountBadges() {
+        const counts = {};
+        allSigns.forEach(s => { if (s._series) counts[s._series] = (counts[s._series] || 0) + 1; });
+        document.querySelectorAll('.cb-count').forEach(el => {
+            const s = el.dataset.series;
+            el.textContent = counts[s] ? counts[s] : '';
         });
-        filterSeries.querySelectorAll('input').forEach(cb => cb.checked = false);
-        filterSigns();
     }
 
     function initTechFilter() {
         const refs = new Set();
         allSigns.forEach(s => {
-            const ref = s.primary_technical_reference;
-            if (ref && ref !== '-' && ref !== 'NA' && ref.length > 2) {
-                const core = ref.split('(')[0].split('-')[0].trim();
-                if (core.length > 2) refs.add(core);
-            }
+            const ref = s.primary_technical_reference_filter || s.primary_technical_reference;
+            if (ref && ref !== '-' && ref !== 'NA' && ref.length > 2) refs.add(ref);
         });
         Array.from(refs).sort().forEach(ref => {
-            const opt = document.createElement('option');
-            opt.value = opt.innerText = ref;
-            filterTech.appendChild(opt);
+            const label = document.createElement('label');
+            label.className = 'tech-item';
+            label.title = ref;
+            const cb = document.createElement('input');
+            cb.type = 'checkbox';
+            cb.value = ref;
+            cb.addEventListener('change', filterSigns);
+            const span = document.createElement('span');
+            span.textContent = ref;
+            label.appendChild(cb);
+            label.appendChild(span);
+            filterTech.appendChild(label);
+        });
+        document.getElementById('techSearch').addEventListener('input', function() {
+            const q = this.value.toLowerCase();
+            filterTech.querySelectorAll('.tech-item').forEach(function(item) {
+                item.style.display = item.title.toLowerCase().includes(q) ? '' : 'none';
+            });
         });
     }
 
     function renderSigns(signs) {
         signGrid.innerHTML = '';
-        const fallbackImg = 'https://www.transport.nsw.gov.au/themes/tfnsw_corp_theme/source/tfnsw/components/header/images/logo-TfNSW.png';
-        
+        if (signs.length === 0) {
+            emptyState.style.display = 'flex';
+            signGrid.style.display = 'none';
+            return;
+        }
+        emptyState.style.display = 'none';
+        if (currentView === 'list') {
+            signGrid.style.display = 'flex';
+            signGrid.classList.add('list-view');
+        } else {
+            signGrid.style.display = 'grid';
+            signGrid.classList.remove('list-view');
+        }
+
+        const fragment = document.createDocumentFragment();
         signs.forEach(sign => {
+            const seriesColor = SERIES_COLORS[sign._series] || '#6b7280';
             const card = document.createElement('div');
             card.className = 'sign-card';
-            
-            const isSuperseded = (sign.title || '').toLowerCase().includes('superseded') || (sign.sign_no || '').toLowerCase().includes('superseded');
-            const isNotNSW = (sign.title || '').toLowerCase().includes('not used in nsw') || (sign.normalization_metadata && sign.normalization_metadata.note && sign.normalization_metadata.note.toLowerCase().includes('not used in nsw'));
+            card.id = 'card-' + (sign.sign_no || '').replace(/[^a-zA-Z0-9]/g, '_');
+            card.setAttribute('data-sign-id', sign.sign_no || '');
+            card.style.setProperty('--series-color', seriesColor);
 
             let sizesHtml = '';
             (sign.sizes || []).forEach(sz => {
                 const label = (sz.label || '').replace(/&nbsp;/g, '').trim();
                 const w = (sz.w || '').replace(/&nbsp;/g, '').trim();
                 const h = (sz.h || '').replace(/&nbsp;/g, '').trim();
-                
-                const dims = (w !== '-' && h !== '-' && w !== '' && h !== '') ? `${w}x${h}` : '';
-                const hasLabel = (label !== '-' && label !== '');
-                
+                const dims = (w && w !== '-' && h && h !== '-') ? w + '\\xd7' + h : '';
+                const hasLabel = label && label !== '-';
                 if (hasLabel || dims) {
-                    sizesHtml += `<div class="size-badge"><span class="size-label">${hasLabel ? label : ''}</span><span class="size-dims">${dims || 'TBD'}</span></div>`;
+                    sizesHtml += '<div class="size-badge"><span class="size-label">' + (hasLabel ? label : '') + '</span><span class="size-dims">' + (dims || '\\u2014') + '</span></div>';
                 }
             });
 
-            const imgSrc = sign.local_image;
-            const remoteImg = sign.image_url;
+            const imgSrc = sign.local_image || '';
+            const remoteImg = sign.image_url || '';
+            const signCode = sign.sign_no || 'TBD';
+            const seriesBadge = sign._series ? '<div class="series-badge">' + sign._series + '</div>' : '';
 
-            card.innerHTML = `
-                <div class="sign-image-container">
-                    <img src="${imgSrc}" loading="lazy" onerror="this.onerror=null; this.src='${remoteImg}'; this.onerror=function(){this.src='${fallbackImg}'; this.style.opacity='0.1'}">
-                </div>
-                <div class="sign-info">
-                    <div class="sign-header"><div class="sign-no">${sign.sign_no || 'TBD'}</div></div>
-                    <div class="sizes-container">${sizesHtml}</div>
-                    <div class="sign-title">${sign.title_html || 'Untitled'}</div>
-                    ${sign.legislative_reference && sign.legislative_reference !== 'NA' ? `<div class="detail-row"><span class="detail-label">Leg:</span><span class="detail-value" title="${sign.legislative_reference}">${sign.legislative_reference}</span></div>` : ''}
-                    ${sign.primary_technical_reference && sign.primary_technical_reference !== 'NA' ? `<div class="detail-row"><span class="detail-label">Tech:</span><span class="detail-value" title="${sign.primary_technical_reference}">${sign.primary_technical_reference}</span></div>` : ''}
-                    <div class="tags">
-                        ${sign.standard_sign === 'Yes' ? '<span class="tag tag-standard">Std</span>' : '<span class="tag tag-non-standard">Non</span>'}
-                        ${isSuperseded ? '<span class="tag tag-superseded">Sup</span>' : ''}
-                        ${isNotNSW ? '<span class="tag tag-not-nsw">Not NSW</span>' : ''}
-                        ${sign.use_by_council && sign.use_by_council.toLowerCase().includes('available') ? '<span class="tag tag-available">OK</span>' : ''}
-                    </div>
-                </div>
-                <div class="sign-links">
-                    <a href="${sign.url}" target="_blank" class="btn">Detail</a>
-                    ${sign.pdf_url ? `<a href="${sign.pdf_url}" target="_blank" class="btn btn-pdf">PDF</a>` : ''}
-                </div>`;
-            signGrid.appendChild(card);
+            card.innerHTML =
+                '<div class="sign-image-container">' +
+                    '<img src="' + imgSrc + '" loading="lazy" alt="' + signCode + '" data-remote="' + remoteImg + '" onerror="if(this.dataset.remote&&this.src!==this.dataset.remote){this.src=this.dataset.remote;}else{this.style.display=\\\'none\\\';this.nextElementSibling.style.display=\\\'flex\\\';}">' +
+                    '<div class="img-error-state" style="display:none"><div class="sign-no-placeholder">' + signCode + '</div><span>No image</span></div>' +
+                    seriesBadge +
+                '</div>' +
+                '<div class="sign-info">' +
+                    '<div class="sign-header"><div class="sign-no">' + signCode + '</div></div>' +
+                    '<div class="sizes-container">' + sizesHtml + '</div>' +
+                    '<div class="sign-title">' + (sign.title_html || 'Untitled') + '</div>' +
+                    (sign.legislative_reference && sign.legislative_reference !== 'NA' ? '<div class="detail-row"><span class="detail-label">Leg</span><span class="detail-value" title="' + sign.legislative_reference + '">' + sign.legislative_reference + '</span></div>' : '') +
+                    (sign.primary_technical_reference && sign.primary_technical_reference !== 'NA' ? '<div class="detail-row"><span class="detail-label">Tech</span><span class="detail-value" title="' + sign.primary_technical_reference + '">' + sign.primary_technical_reference + '</span></div>' : '') +
+                    (sign.notes_html ? '<div class="detail-row"><span class="detail-label">Notes</span><span class="detail-value" title="' + (sign.normalization_metadata && sign.normalization_metadata.notes ? sign.normalization_metadata.notes : '') + '">' + sign.notes_html + '</span></div>' : '') +
+                    '<div class="tags">' +
+                        (sign.standard_sign === 'Yes' ? '<span class="tag tag-standard">Standard</span>' : '<span class="tag tag-non-standard">Non-Standard</span>') +
+                        (sign._isSuperseded ? '<span class="tag tag-superseded">Superseded</span>' : '') +
+                        (sign._isNotNSW ? '<span class="tag tag-not-nsw">Not NSW</span>' : '') +
+                        (sign.use_by_council && sign.use_by_council.toLowerCase().includes('available') ? '<span class="tag tag-available">Available</span>' : '') +
+                    '</div>' +
+                '</div>' +
+                '<div class="sign-links">' +
+                    '<a href="' + sign.url + '" target="_blank" rel="noopener" class="btn">Detail</a>' +
+                    (sign.pdf_url ? '<a href="' + sign.pdf_url + '" target="_blank" rel="noopener" class="btn btn-pdf">PDF</a>' : '') +
+                '</div>';
+            fragment.appendChild(card);
         });
-        stats.innerText = `Showing ${signs.length} of ${allSigns.length}`;
+        signGrid.appendChild(fragment);
+        stats.textContent = 'Showing ' + signs.length.toLocaleString() + ' of ' + allSigns.length.toLocaleString() + ' signs';
     }
 
-    function getSelectedValues(select) {
-        return Array.from(select.selectedOptions).map(opt => opt.value);
+    function renderChips(term, selectedTech, selectedSeries, selectedStd, selectedStatus, nswFilter) {
+        activeChips.innerHTML = '';
+        function add(label, onRemove) {
+            const chip = document.createElement('div');
+            chip.className = 'filter-chip';
+            chip.innerHTML = label + '<span class="chip-remove" title="Remove">&times;</span>';
+            chip.querySelector('.chip-remove').onclick = onRemove;
+            activeChips.appendChild(chip);
+        }
+        if (term) add('"' + term + '"', function() { searchBar.value = ''; filterSigns(); });
+        selectedSeries.forEach(function(s) { add('Series: ' + s, function() { filterSeries.querySelector('input[value="' + s + '"]').checked = false; filterSigns(); }); });
+        selectedTech.forEach(function(t) { add('Ref: ' + t, function() { var cb = Array.from(filterTech.querySelectorAll('input')).find(function(c){ return c.value === t; }); if(cb) cb.checked = false; filterSigns(); }); });
+        selectedStd.forEach(function(v) { add('Std: ' + v, function() { Array.from(filterStandard.options).find(function(o){ return o.value === v; }).selected = false; filterSigns(); }); });
+        selectedStatus.forEach(function(v) { add('Status: ' + v, function() { Array.from(filterStatus.options).find(function(o){ return o.value === v; }).selected = false; filterSigns(); }); });
+        if (nswFilter !== 'all') add('NSW: ' + (nswFilter === 'used' ? 'Used' : 'Not Used'), function() { filterNSW.value = 'all'; filterSigns(); });
     }
 
-    function getSelectedCheckboxes(container) {
-        return Array.from(container.querySelectorAll('input:checked')).map(cb => cb.value);
+    function getSelectedValues(sel) { return Array.from(sel.selectedOptions).map(function(o){ return o.value; }); }
+    function getSelectedCheckboxes(container) { return Array.from(container.querySelectorAll('input:checked')).map(function(cb){ return cb.value; }); }
+
+    function getSortedSigns(signs) {
+        const by = document.getElementById('sortSelect').value;
+        return signs.slice().sort(function(a, b) {
+            if (by === 'title') return (a.title || '').localeCompare(b.title || '');
+            if (by === 'series') {
+                const sc = (a._series || 'ZZ').localeCompare(b._series || 'ZZ');
+                if (sc !== 0) return sc;
+            }
+            return (a.sign_no || 'ZZZ').localeCompare(b.sign_no || 'ZZZ', undefined, {numeric: true});
+        });
     }
 
     function filterSigns() {
-        const term = searchBar.value.toLowerCase();
-        const selectedTech = getSelectedValues(filterTech);
+        const term = searchBar.value.toLowerCase().trim();
+        const selectedTech = getSelectedCheckboxes(filterTech);
         const nswFilter = filterNSW.value;
-        
         const selectedSeries = getSelectedCheckboxes(filterSeries);
         const selectedStd = getSelectedValues(filterStandard);
         const selectedStatus = getSelectedValues(filterStatus);
 
-        const filtered = allSigns.filter(s => {
-            const searchText = `${s.sign_no || ''} ${s.title || ''} ${s.legislative_reference || ''} ${s.primary_technical_reference || ''}`.toLowerCase();
-            if (term && !searchText.includes(term)) return false;
-            
-            if (selectedTech.length > 0) {
-                if (!s.primary_technical_reference || !selectedTech.some(t => s.primary_technical_reference.includes(t))) return false;
+        const filtered = allSigns.filter(function(s) {
+            if (term) {
+                const searchText = ((s.sign_no || '') + ' ' + (s.title || '') + ' ' + (s.legislative_reference || '') + ' ' + (s.primary_technical_reference || '')).toLowerCase();
+                if (!searchText.includes(term)) return false;
             }
-            
-            if (selectedSeries.length > 0) {
-                const sCode = (s.sign_no || '').toUpperCase();
-                if (!selectedSeries.some(prefix => sCode.startsWith(prefix))) return false;
-            }
-            
-            if (selectedStd.length > 0) {
-                if (!selectedStd.includes(s.standard_sign)) return false;
-            }
-            
-            const isSup = (s.title || '').toLowerCase().includes('superseded') || (s.sign_no || '').toLowerCase().includes('superseded');
+            const techRef = s.primary_technical_reference_filter || s.primary_technical_reference;
+            if (selectedTech.length > 0 && (!techRef || !selectedTech.includes(techRef))) return false;
+            if (selectedSeries.length > 0 && (!s._series || !selectedSeries.includes(s._series))) return false;
+            if (selectedStd.length > 0 && !selectedStd.includes(s.standard_sign)) return false;
             if (selectedStatus.length > 0) {
-                const status = isSup ? 'Superseded' : 'Active';
+                const status = s._isSuperseded ? 'Superseded' : 'Active';
                 if (!selectedStatus.includes(status)) return false;
             }
-            
-            const isNotNSW = (s.title || '').toLowerCase().includes('not used in nsw');
-            if (nswFilter === 'used' && isNotNSW) return false;
-            if (nswFilter === 'not-used' && !isNotNSW) return false;
-
+            if (nswFilter === 'used' && s._isNotNSW) return false;
+            if (nswFilter === 'not-used' && !s._isNotNSW) return false;
             return true;
         });
-        renderSigns(filtered);
+        renderChips(term, selectedTech, selectedSeries, selectedStd, selectedStatus, nswFilter);
+        renderSigns(getSortedSigns(filtered));
     }
 
+    function clearFilters() {
+        searchBar.value = '';
+        filterNSW.value = 'all';
+        var ts = document.getElementById('techSearch');
+        if (ts) ts.value = '';
+        filterTech.querySelectorAll('input').forEach(function(cb){ cb.checked = false; });
+        filterTech.querySelectorAll('.tech-item').forEach(function(item){ item.style.display = ''; });
+        [filterStandard, filterStatus].forEach(function(sel){ Array.from(sel.options).forEach(function(o){ o.selected = false; }); });
+        filterSeries.querySelectorAll('input').forEach(function(cb){ cb.checked = false; });
+        document.getElementById('sortSelect').value = 'sign_no';
+        filterSigns();
+    }
+
+    function setView(mode) {
+        currentView = mode;
+        document.getElementById('btnGrid').classList.toggle('active', mode === 'grid');
+        document.getElementById('btnList').classList.toggle('active', mode === 'list');
+        filterSigns();
+    }
+
+    window.scrollToSign = function(signCode) {
+        clearFilters();
+        searchBar.value = signCode;
+        filterSigns();
+        setTimeout(function() {
+            const card = document.getElementById('card-' + signCode.replace(/[^a-zA-Z0-9]/g, '_'));
+            if (card) {
+                card.classList.add('highlight');
+                card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                setTimeout(function(){ card.classList.remove('highlight'); }, 3000);
+            }
+        }, 60);
+    };
+
+    allSigns.sort(function(a, b){ return (a.sign_no || 'ZZZ').localeCompare(b.sign_no || 'ZZZ', undefined, {numeric: true}); });
+    initTheme();
+    themeToggle.addEventListener('click', function() {
+        const current = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+        const next = current === 'dark' ? 'light' : 'dark';
+        localStorage.setItem('nsw-signs-theme', next);
+        applyTheme(next);
+    });
+    initTechFilter();
+    initCountBadges();
+    renderSigns(allSigns);
     searchBar.addEventListener('input', filterSigns);
     filterSeries.addEventListener('change', filterSigns);
-    [filterTech, filterStandard, filterStatus, filterNSW].forEach(el => el.addEventListener('change', filterSigns));
-    allSigns.sort((a, b) => (a.sign_no || 'ZZZ').localeCompare(b.sign_no || 'ZZZ', undefined, {numeric: true}));
-    initTechFilter();
-    renderSigns(allSigns);
+    [filterStandard, filterStatus, filterNSW].forEach(function(el){ el.addEventListener('change', filterSigns); });
+    document.getElementById('sortSelect').addEventListener('change', filterSigns);
 </script>
+<div id="disclaimer-overlay" role="dialog" aria-modal="true" aria-labelledby="disclaimer-title" onclick="if(event.target===this)closeDisclaimer()">
+    <div id="disclaimer-modal">
+        <h2 id="disclaimer-title">Data Disclaimer &amp; Attribution</h2>
+        <p><strong>Source &amp; scope:</strong> Traffic sign data sourced from the publicly accessible Transport for NSW (TfNSW) signage catalogue. Data reflects a point-in-time snapshot collected on 14&nbsp;May&nbsp;2026 and may not reflect current standards or approvals.</p>
+        <p><strong>Normalizations:</strong> Some field values have been remapped for consistency (e.g.&nbsp;technical reference names). All transformations are transparent and visible in the repository scripts, mappings, and patch files.</p>
+        <p><strong>Not official:</strong> This is an independent reference tool. It is not endorsed by, affiliated with, or an official publication of Transport for NSW or the NSW Government.</p>
+        <p><strong>No warranty / use at own risk:</strong> Always verify requirements against current official TfNSW standards, legislation, and approvals before use in any design, engineering, or compliance context. The maintainers accept no liability for any decisions, works, or outcomes arising from use of this tool.</p>
+        <p><strong>Copyright:</strong> Tool code &copy;&nbsp;2026 Val Belets, MIT licence. Sign images and source data remain &copy;&nbsp;Transport for NSW / NSW Government.</p>
+        <div class="disclaimer-actions">
+            <small>Data collected 14&nbsp;May&nbsp;2026 &middot; <a href="https://github.com/ValentinBelets/sgn" target="_blank" rel="noopener noreferrer">View source &amp; licence</a></small>
+            <button id="disclaimer-close" onclick="closeDisclaimer()" type="button">Got it</button>
+        </div>
+    </div>
+</div>
+<script>
+    function openDisclaimer() {
+        document.getElementById('disclaimer-overlay').classList.add('visible');
+    }
+    function closeDisclaimer() {
+        document.getElementById('disclaimer-overlay').classList.remove('visible');
+        try { sessionStorage.setItem('disclaimer-seen', '1'); } catch(e) {}
+    }
+    (function() {
+        try {
+            if (!sessionStorage.getItem('disclaimer-seen')) openDisclaimer();
+        } catch(e) { openDisclaimer(); }
+    })();
+</script>
+<script src="sign_embeddings.js"></script>
+<script src="image_search.js"></script>
 </body>
 </html>"""
 
     final_html = html_template.replace('%DATA%', json.dumps(data))
-    with open(output_path, 'w', encoding='utf-8') as f:
+    with open(output_file, 'w', encoding='utf-8') as f:
         f.write(final_html)
-    print(f"Successfully created {output_path} with local image support and Clear button.")
+    print(f"Successfully created {output_file} with local image support and Clear button.")
 
 if __name__ == "__main__":
     import sys
-    inp = sys.argv[1] if len(sys.argv) > 1 else 'nsw_traffic_signs.json'
-    out = sys.argv[2] if len(sys.argv) > 2 else 'interactive_catalogue.html'
+    inp = sys.argv[1] if len(sys.argv) > 1 else 'nsw_traffic_signs_unified.json'
+    out = sys.argv[2] if len(sys.argv) > 2 else 'interactive_catalogue_unified.html'
     build_viewer(inp, out)

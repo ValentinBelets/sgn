@@ -128,8 +128,7 @@
     "height": "-",
     "width": "-",
     "normalization_metadata": {
-      "note": "Superseded Use W3-3-1",
-      "replacement_ref": "W3-3-1"
+      "notes": "Superseded Use W3-3-1"
     }
   },
   {
@@ -559,7 +558,7 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/r4-229n-speed-limit-variable-truck-bus-speed-limit",
-    "title": "Speed Limit (variable) Truck &amp; Bus Speed Limit",
+    "title": "Speed Limit (variable) Truck & Bus Speed Limit",
     "sign_no": "R4-229n",
     "standard_sign": "No",
     "use_by_council": "No \u2013 restricted. Any use requires written authorisation from Transport for NSW.",
@@ -594,7 +593,7 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/r4-220n-end-truck-bus-speed-limit",
-    "title": "End Truck &amp; Bus Speed Limit",
+    "title": "End Truck & Bus Speed Limit",
     "sign_no": "R4-220n",
     "standard_sign": "No",
     "use_by_council": "No \u2013 restricted. Any use requires written authorisation from Transport for NSW.",
@@ -1059,7 +1058,7 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/g9-349n-trucks-over-t-gvm-buses-divert-to-heavy",
-    "title": "Trucks Over ___t Gvm &amp; Buses Divert To Heavy Vehicle Checking Station&nbsp;",
+    "title": "Trucks Over ___t Gvm & Buses Divert To Heavy Vehicle Checking Station",
     "sign_no": "G9-349n",
     "standard_sign": "No",
     "use_by_council": null,
@@ -1184,7 +1183,7 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/r4-237-2n-high-pedestrian-activity-40",
-    "title": "High Pedestrian Activity 40&nbsp;",
+    "title": "High Pedestrian Activity 40",
     "sign_no": "R4-237-2n",
     "standard_sign": "No",
     "use_by_council": "No \u2013 restricted. Any use requires written authorisation from Transport for NSW.",
@@ -1404,7 +1403,7 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/g9-343n-trucks-buses-divert-to-safety-station",
-    "title": "Trucks &amp; Buses Divert To Safety Station",
+    "title": "Trucks & Buses Divert To Safety Station",
     "sign_no": "G9-343n",
     "standard_sign": "No",
     "use_by_council": null,
@@ -1469,7 +1468,7 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/g9-400n-vineyards-phylloxera-free-prohibited-unless",
-    "title": "Vineyards Phylloxera Free (Prohibited Unless Authorised) Vineyard Machinery/ Grapes/ Soil &amp; Grapevines Ph1800084881",
+    "title": "Vineyards Phylloxera Free (Prohibited Unless Authorised) Vineyard Machinery/ Grapes/ Soil & Grapevines Ph1800084881",
     "sign_no": "G9-400n",
     "standard_sign": "No",
     "use_by_council": null,
@@ -1575,7 +1574,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/g9-73-1nl-merge-right-tunnel-use-only",
     "title": "Merge Right",
-    "sign_no": "G9-73-1N_L",
+    "sign_no": "G9-73-1n",
     "standard_sign": "Yes",
     "use_by_council": null,
     "legislative_reference": "NA",
@@ -1590,7 +1589,10 @@
     "image_url": "https://www.transport.nsw.gov.au/sites/default/files/media/images/rww/business-industry/partners-suppliers/signage/trafficsigns/images/g9-73-1n_l_thumb.gif",
     "pdf_url": "https://www.transport.nsw.gov.au/sites/default/files/media/documents/rww//business-industry/partners-suppliers/signage/trafficsigns/pdf/g9-73-1n_l.pdf",
     "height": "750",
-    "width": "2000"
+    "width": "2000",
+    "normalization_metadata": {
+      "notes": "_l"
+    }
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/g9-73-1nr-merge-right-tunnel-use-only",
@@ -1812,9 +1814,9 @@
         "w": "800"
       },
       {
-        "label": "&nbsp;",
-        "h": "&nbsp;",
-        "w": "&nbsp;"
+        "label": "",
+        "h": "",
+        "w": ""
       }
     ],
     "image_url": "https://www.transport.nsw.gov.au/sites/default/files/media/images/rww/business-industry/partners-suppliers/signage/trafficsigns/images/g9-79_thumb.gif",
@@ -1984,7 +1986,7 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/ge11-2-tourist-feature-name-use-name-exit-example-only",
-    "title": "Tourist Feature (name) USE (Name) EXIT&nbsp;(Example Only)",
+    "title": "Tourist Feature (name) USE (Name) EXIT (Example Only)",
     "sign_no": "GE11-2",
     "standard_sign": "Yes",
     "use_by_council": "Yes \u2013 available.",
@@ -2204,8 +2206,8 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/bus-stop-blue-yellow-plinth-red-plinths-yellow-j-poles",
-    "title": "Bus Stop (Blue &amp; Yellow Plinth, Red Plinths, Yellow J Poles, Blue &amp; yellow Flags on Poles, Black Strip Signs) Superseded Use Bus Stop B Pole",
-    "sign_no": "BUS_STOP_J_POLE",
+    "title": "Bus Stop (Blue & Yellow Plinth, Red Plinths, Yellow J Poles, Blue & yellow Flags on Poles, Black Strip Signs) Superseded Use Bus Stop B Pole",
+    "sign_no": "bus_stop_j_pole",
     "standard_sign": "Yes",
     "use_by_council": "Unavailable",
     "legislative_reference": "NA",
@@ -2469,7 +2471,7 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/g8-9-10-tourist-drive-route-marker-route-number-symbol",
-    "title": "Tourist Drive Route Marker (Route Number, Symbol &amp; Arrow Left/Right) (Not Used in NSW)",
+    "title": "Tourist Drive Route Marker (Route Number, Symbol & Arrow Left/Right) (Not Used in NSW)",
     "sign_no": "G8-9-10",
     "standard_sign": "Yes",
     "use_by_council": "Unavailable",
@@ -2509,7 +2511,7 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/g8-9-12-tourist-drive-route-marker-route-number-symbol",
-    "title": "Tourist Drive Route Marker (Route Number, symbol &amp; END) (Not Used in NSW)",
+    "title": "Tourist Drive Route Marker (Route Number, symbol & END) (Not Used in NSW)",
     "sign_no": "G8-9-12",
     "standard_sign": "Yes",
     "use_by_council": "Unavailable",
@@ -2969,7 +2971,7 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/w3-204-3n-cars-queued-symbolic-prepare-to-stop",
-    "title": "Cars Queued (Symbolic) Prepare To Stop&nbsp;",
+    "title": "Cars Queued (Symbolic) Prepare To Stop",
     "sign_no": "W3-204-3n",
     "standard_sign": "No",
     "use_by_council": "Yes \u2013 available.",
@@ -3264,7 +3266,7 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/w2-211-2n-curved-road-side-road-junction-symbolic",
-    "title": "Curved Road Side Road Junction (Symbolic Right) &amp; Reduce Speed",
+    "title": "Curved Road Side Road Junction (Symbolic Right) & Reduce Speed",
     "sign_no": "W2-211-2n",
     "standard_sign": "No",
     "use_by_council": "Yes - available.",
@@ -3289,7 +3291,7 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/w2-211-1n-curved-road-side-road-junction-symbolic-left",
-    "title": "Curved Road Side Road Junction (Symbolic Left) &amp; Reduce Speed",
+    "title": "Curved Road Side Road Junction (Symbolic Left) & Reduce Speed",
     "sign_no": "W2-211-1n",
     "standard_sign": "No",
     "use_by_council": "Yes - available.",
@@ -3389,7 +3391,7 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/w2-211-9n-slippery-symbolic-when-icy-next-xkm-reduce",
-    "title": "Slippery (Symbolic) When Icy Next (X)km &amp; Reduce Speed",
+    "title": "Slippery (Symbolic) When Icy Next (X)km & Reduce Speed",
     "sign_no": "W2-211-9n",
     "standard_sign": "No",
     "use_by_council": "Yes - available.",
@@ -3414,7 +3416,7 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/w2-211-6n-slippery-symbolic-when-wet-reduce-speed",
-    "title": "Slippery (Symbolic) When Wet &amp; Reduce Speed",
+    "title": "Slippery (Symbolic) When Wet & Reduce Speed",
     "sign_no": "W2-211-6n",
     "standard_sign": "No",
     "use_by_council": "Yes - available.",
@@ -3489,7 +3491,7 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/w2-211-3n-t-junction-symbolic-reduce-speed",
-    "title": "T-Junction (Symbolic) &amp; Reduce Speed",
+    "title": "T-Junction (Symbolic) & Reduce Speed",
     "sign_no": "W2-211-3n",
     "standard_sign": "No",
     "use_by_council": "Yes - available.",
@@ -3514,7 +3516,7 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/w2-211-4n-roundabout-symbolic-reduce-speed",
-    "title": "Roundabout (Symbolic) &amp; Reduce Speed",
+    "title": "Roundabout (Symbolic) & Reduce Speed",
     "sign_no": "W2-211-4n",
     "standard_sign": "No",
     "use_by_council": "Yes - available.",
@@ -3539,7 +3541,7 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/w2-211-5n-gravel-road-reduce-speed",
-    "title": "Gravel Road &amp; Reduce Speed",
+    "title": "Gravel Road & Reduce Speed",
     "sign_no": "W2-211-5n",
     "standard_sign": "No",
     "use_by_council": "Yes - available.",
@@ -5640,7 +5642,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/w2-14l-t-intersection-beyond-a-curve-left-symbolic",
     "title": "T-Intersection, beyond a curve (Left Symbolic)",
-    "sign_no": "W2-14(L",
+    "sign_no": "W2-14",
     "standard_sign": "Yes",
     "use_by_council": "Yes \u2013 available.",
     "legislative_reference": "NA",
@@ -5670,7 +5672,10 @@
     "image_url": "https://www.transport.nsw.gov.au/sites/default/files/media/images/rww/business-industry/partners-suppliers/signage/trafficsigns/images/w2-14_l_thumb.gif",
     "pdf_url": "https://www.transport.nsw.gov.au/sites/default/files/media/documents/rww//business-industry/partners-suppliers/signage/trafficsigns/pdf/w2-14_l.pdf",
     "height": "600",
-    "width": "600"
+    "width": "600",
+    "normalization_metadata": {
+      "notes": "(L"
+    }
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/w2-14r-t-intersection-beyond-a-curve-right-symbolic",
@@ -6239,7 +6244,7 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/w6-214n-share-road-symbolic-cyclist-vehicle",
-    "title": "Share The Road (Symbolic) Cyclist &amp; Vehicle",
+    "title": "Share The Road (Symbolic) Cyclist & Vehicle",
     "sign_no": "W6-214n",
     "standard_sign": "No",
     "use_by_council": "Yes \u2013 available.",
@@ -6339,7 +6344,7 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/r7-8-4n-buses-only-lane-am-pm",
-    "title": "Buses Only Lane (AM &amp; PM)",
+    "title": "Buses Only Lane (AM & PM)",
     "sign_no": "R7-8-4n",
     "standard_sign": "No",
     "use_by_council": null,
@@ -6540,7 +6545,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm8-2lb-pedestrians-left-arrow-mms-insert-to-be-used",
     "title": "Pedestrians (Left Arrow) (Mms Insert - To Be used on Multi Message Sign panels Only)",
-    "sign_no": "TM8-2(L)",
+    "sign_no": "TM8-2(L)[B]",
     "standard_sign": "Yes",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -6594,7 +6599,7 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/t8-5-look-both-ways-arrow-left-right-two-way-traffic",
-    "title": "Look Both Ways (Arrow Left &amp; Right) Two Way Traffic",
+    "title": "Look Both Ways (Arrow Left & Right) Two Way Traffic",
     "sign_no": "T8-5",
     "standard_sign": "Yes",
     "use_by_council": "Yes - available.",
@@ -6615,7 +6620,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm1-10a-traffic-hazard-mms-insert-to-be-used-on-multi",
     "title": "Traffic Hazard (MMS Insert - To Be used on Multi Message Sign Panels Only)",
-    "sign_no": "TM1-10(A)",
+    "sign_no": "TM1-10[A]",
     "standard_sign": "Yes",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -6634,8 +6639,8 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm1-1b-road-work-ahead-mms-insert-to-be-used-on-multi",
-    "title": "Road Work Ahead (MMS Insert - To Be used on Multi Message Sign Panels Only)&nbsp;",
-    "sign_no": "TM1-1(B)&NBSP;",
+    "title": "Road Work Ahead (MMS Insert - To Be used on Multi Message Sign Panels Only)",
+    "sign_no": "TM1-1[B]",
     "standard_sign": "Yes",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -6654,8 +6659,8 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm1-1a-road-work-ahead-mms-insert-to-be-used-on-multi",
-    "title": "Road Work Ahead (MMS Insert - To Be used on Multi Message Sign Panels Only)&nbsp;",
-    "sign_no": "TM1-1(A)",
+    "title": "Road Work Ahead (MMS Insert - To Be used on Multi Message Sign Panels Only)",
+    "sign_no": "TM1-1[A]",
     "standard_sign": "Yes",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -6675,7 +6680,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm1-1c-road-work-ahead-mms-insert-to-be-used-on-multi",
     "title": "Road Work Ahead (MMS Insert - To Be used on Multi Message Sign Panels Only",
-    "sign_no": "TM1-1(C)&NBSP;",
+    "sign_no": "TM1-1[C]",
     "standard_sign": "Yes",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -6695,7 +6700,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm1-10c-traffic-hazard-mms-insert-to-be-used-on-multi",
     "title": "Traffic Hazard (MMS Insert - To Be used on Multi Message Sign Panels Only)",
-    "sign_no": "TM1-10(C)&NBSP;",
+    "sign_no": "TM1-10[C]",
     "standard_sign": "Yes",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -6715,7 +6720,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm1-18a-prepare-to-stop-mms-insert-to-be-used-on-multi",
     "title": "Prepare To Stop (MMS Insert - To Be used on Multi Message Sign Panels Only)",
-    "sign_no": "TM1-18(A)&NBSP;",
+    "sign_no": "TM1-18[A]",
     "standard_sign": "Yes",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -6735,7 +6740,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm1-100nb-blank-plate-mms-insert-to-be-used-on-multi",
     "title": "Blank Plate (MMS Insert - To Be used on Multi Message Sign Panels Only)",
-    "sign_no": "TM1-100n(B)",
+    "sign_no": "TM1-100n[B]",
     "standard_sign": "No",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -6755,7 +6760,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm1-100nd-blank-plate-mms-insert-to-be-used-on-multi",
     "title": "Blank Plate (MMS Insert - To Be used on Multi Message Sign Panels Only)",
-    "sign_no": "TM1-100n(D)&NBSP;",
+    "sign_no": "TM1-100n[D]",
     "standard_sign": "No",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -6775,7 +6780,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm1-100na-blank-plate-mms-insert-to-be-used-on-multi",
     "title": "Blank Plate (MMS Insert - To Be used on Multi Message Sign Panels Only)",
-    "sign_no": "TM1-100n(A)&NBSP;",
+    "sign_no": "TM1-100n[A]",
     "standard_sign": "No",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -6825,7 +6830,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm1-10nd-traffic-hazard-mms-insert-to-be-used-on-multi",
     "title": "Traffic Hazard (MMS Insert - To Be used on Multi Message Sign Panels Only)",
-    "sign_no": "TM1-10n(D)",
+    "sign_no": "TM1-10n[D]",
     "standard_sign": "No",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -6845,7 +6850,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm1-1nd-road-work-ahead-mms-insert-to-be-used-on-multi",
     "title": "Road Work Ahead (Mms Insert - To Be used on Multi Message Sign Panels Only)",
-    "sign_no": "TM1-1n(D)",
+    "sign_no": "TM1-1n[D]",
     "standard_sign": "No",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -6865,7 +6870,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm1-18nd-prepare-to-stop-mms-insert-to-be-used-on",
     "title": "Prepare To Stop (MMS Insert - To Be used on Multi Message Sign Panels Only)",
-    "sign_no": "TM1-18n(D)",
+    "sign_no": "TM1-18n[D]",
     "standard_sign": "No",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -6885,7 +6890,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm1-18b-prepare-to-stop-mms-insert-to-be-used-on-multi",
     "title": "Prepare To Stop (MMS Insert - To Be used on Multi Message Sign Panels Only)",
-    "sign_no": "TM1-18(B)&NBSP;",
+    "sign_no": "TM1-18[B]",
     "standard_sign": "Yes",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -6905,7 +6910,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm1-25c-roadwork-on-side-road-mms-insert-to-be-used-on",
     "title": "Roadwork On Side Road (MMS Insert - To Be used on Multi Message Sign Panels Only)",
-    "sign_no": "TM1-25(C)",
+    "sign_no": "TM1-25[C]",
     "standard_sign": "Yes",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -7084,8 +7089,8 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm1-27c-road-plant-on-side-road-mms-insert-to-be-used",
-    "title": "Road Plant on Side Road (MMS Insert - To Be used on Multi Message Sign Panels Only)&nbsp;",
-    "sign_no": "TM1-27(C)&NBSP;",
+    "title": "Road Plant on Side Road (MMS Insert - To Be used on Multi Message Sign Panels Only)",
+    "sign_no": "TM1-27[C]",
     "standard_sign": "Yes",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -7105,7 +7110,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm1-25nd-roadwork-on-side-road-mms-insert-to-be-used",
     "title": "Roadwork On Side Road (MMS Insert - To Be used on Multi Message Sign panels Only)",
-    "sign_no": "TM1-25n(D)",
+    "sign_no": "TM1-25n[D]",
     "standard_sign": "No",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -7125,7 +7130,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm1-2c-bridge-work-ahead-mms-insert-to-be-used-on",
     "title": "Bridge Work Ahead (MMS Insert - To Be used on Multi Message Sign Panels Only)",
-    "sign_no": "TM1-2(C)",
+    "sign_no": "TM1-2[C]",
     "standard_sign": "Yes",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -7145,7 +7150,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm1-2a-bridge-work-ahead-mms-insert-to-be-used-on",
     "title": "Bridge Work Ahead (MMS Insert - To Be used on Multi Message Sign Panels Only)",
-    "sign_no": "TM1-2(A)&NBSP;",
+    "sign_no": "TM1-2[A]",
     "standard_sign": "Yes",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -7165,7 +7170,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm1-28a-next-xkm-mms-insert-to-be-used-on-multi",
     "title": "Next x(km) (MMS Insert - To Be used on Multi Message Sign Panels Only",
-    "sign_no": "TM1-28(A)&NBSP;",
+    "sign_no": "TM1-28[A]",
     "standard_sign": "Yes",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -7185,7 +7190,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm1-28b-next-xkm-mms-insert-to-be-used-on-multi",
     "title": "Next x(km) (MMS Insert - To Be used on Multi Message Sign Panels Only",
-    "sign_no": "TM1-28(B)&NBSP;",
+    "sign_no": "TM1-28[B]",
     "standard_sign": "Yes",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -7205,7 +7210,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm1-28nd-next-xkm-mms-insert-to-be-used-on-multi",
     "title": "Next (x)km (MMS Insert - To Be used on Multi Message Sign Panels Only)",
-    "sign_no": "TM1-28n(D)&NBSP;",
+    "sign_no": "TM1-28n[D]",
     "standard_sign": "No",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -7260,7 +7265,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm1-27nd-road-plant-on-side-road-mms-insert-to-be-used",
     "title": "Road Plant On Side Road (MMS Insert - To Be used on Multi Message Sign Panels Only)",
-    "sign_no": "TM1-27n(D)&NBSP;",
+    "sign_no": "TM1-27n[D]",
     "standard_sign": "No",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -7279,8 +7284,8 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm1-3-1nc-road-plant-ahead-mms-insert-to-be-used-on",
-    "title": "Road Plant Ahead (MMS Insert - To Be used on Multi Message Sign Panels Only)&nbsp;",
-    "sign_no": "TM1-3-1n(C)",
+    "title": "Road Plant Ahead (MMS Insert - To Be used on Multi Message Sign Panels Only)",
+    "sign_no": "TM1-3-1n[C]",
     "standard_sign": "No",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -7299,8 +7304,8 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm1-34a-traffic-controller-symbolic-mms-insert-to-be",
-    "title": "Traffic Controller (Symbolic) (MMS Insert - To Be used on Multi Message Sign Panels Only)&nbsp;",
-    "sign_no": "TM1-34(A)",
+    "title": "Traffic Controller (Symbolic) (MMS Insert - To Be used on Multi Message Sign Panels Only)",
+    "sign_no": "TM1-34[A]",
     "standard_sign": "Yes",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -7320,7 +7325,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm1-30nd-signals-ahead-symbolic-mms-insert-to-be-used",
     "title": "Signals Ahead (Symbolic) (MMS Insert - To Be used on Multi Message Sign Panels Only)",
-    "sign_no": "TM1-30n(D)&NBSP;",
+    "sign_no": "TM1-30n[D]",
     "standard_sign": "No",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -7340,7 +7345,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm1-30a-signals-ahead-symbolic-mms-insert-to-be-used",
     "title": "Signals Ahead (Symbolic) (MMS Insert - To Be used on Multi Message Sign panels Only)",
-    "sign_no": "TM1-30(A)",
+    "sign_no": "TM1-30[A]",
     "standard_sign": "Yes",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -7359,8 +7364,8 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm1-3-1nd-road-plant-ahead-mms-insert-to-be-used-on",
-    "title": "Road Plant Ahead (MMS Insert - To Be used on Multi Message Sign Panels Only)&nbsp;",
-    "sign_no": "TM1-3-1n(D)",
+    "title": "Road Plant Ahead (MMS Insert - To Be used on Multi Message Sign Panels Only)",
+    "sign_no": "TM1-3-1n[D]",
     "standard_sign": "No",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -7380,7 +7385,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm1-2nd-bridge-work-ahead-mms-insert-to-be-used-on",
     "title": "Bridge Work Ahead (MMS Insert - To Be used on Multi Message Sign Panels Only)",
-    "sign_no": "TM1-2n(D)&NBSP;",
+    "sign_no": "TM1-2n[D]",
     "standard_sign": "No",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -7399,8 +7404,8 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm1-3-1a-road-plant-ahead-mms-insert-to-be-used-on",
-    "title": "Road Plant Ahead (MMS Insert - To Be used on Multi Message Sign Panels Only)&nbsp;",
-    "sign_no": "TM1-3-1(A)",
+    "title": "Road Plant Ahead (MMS Insert - To Be used on Multi Message Sign Panels Only)",
+    "sign_no": "TM1-3-1[A]",
     "standard_sign": "Yes",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -7420,7 +7425,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm1-32nd-side-road-closed-mms-insert-to-be-used-on",
     "title": "Side Road Closed (MMS Insert - To Be used on Multi Message Sign Panels Only)",
-    "sign_no": "TM1-32n(D)",
+    "sign_no": "TM1-32n[D]",
     "standard_sign": "No",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -7440,7 +7445,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm1-32a-side-road-closed-mms-insert-to-be-used-on",
     "title": "Side Road Closed (MMS Insert - To Be used on Multi Message Sign Panels Only)",
-    "sign_no": "TM1-32(A)&NBSP;",
+    "sign_no": "TM1-32[A]",
     "standard_sign": "Yes",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -7460,7 +7465,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm1-4a-grader-ahead-mms-insert-to-be-used-on-multi",
     "title": "Grader Ahead (MMS Insert - To Be used on Multi Message Sign Panels Only)",
-    "sign_no": "TM1-4(A)",
+    "sign_no": "TM1-4[A]",
     "standard_sign": "Yes",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -7479,8 +7484,8 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm1-34nd-traffic-controller-symbolic-mms-insert-to-be",
-    "title": "Traffic Controller (Symbolic) (MMS Insert - To Be used on Multi Message Sign Panels Only)&nbsp;",
-    "sign_no": "TM1-34n(D)",
+    "title": "Traffic Controller (Symbolic) (MMS Insert - To Be used on Multi Message Sign Panels Only)",
+    "sign_no": "TM1-34n[D]",
     "standard_sign": "No",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -7500,7 +7505,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm1-47a-queued-traffic-symbolic-mms-insert-to-be-used",
     "title": "Queued Traffic (Symbolic) (MMS Insert - To Be used on Multi Message Sign Panels Only)",
-    "sign_no": "TM1-47(A)&NBSP;",
+    "sign_no": "TM1-47[A]",
     "standard_sign": "Yes",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -7520,7 +7525,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm1-35nd-stop-here-when-directed-mms-insert-to-be-used",
     "title": "Stop Here When Directed (MMS Insert - To Be used on Multi Message Sign Panels Only)",
-    "sign_no": "TM1-35n(D)",
+    "sign_no": "TM1-35n[D]",
     "standard_sign": "No",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -7539,8 +7544,8 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm1-35c-stop-here-when-directed-mms-insert-to-be-used",
-    "title": "Stop Here When Directed (MMS Insert - To Be used on Multi Message Sign Panels Only)&nbsp;",
-    "sign_no": "TM1-35(C)",
+    "title": "Stop Here When Directed (MMS Insert - To Be used on Multi Message Sign Panels Only)",
+    "sign_no": "TM1-35[C]",
     "standard_sign": "Yes",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -7560,7 +7565,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm1-46a-queued-traffic-ahead-mms-insert-to-be-used-on",
     "title": "Queued Traffic Ahead (MMS Insert - To Be used on Multi Message Sign panels Only)",
-    "sign_no": "TM1-46(A)",
+    "sign_no": "TM1-46[A]",
     "standard_sign": "Yes",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -7580,7 +7585,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm1-47nd-queued-traffic-symbolic-mms-insert-to-be-used",
     "title": "Queued Traffic (Symbolic) (MMS Insert - To Be used on Multi Message Sign Panels Only)",
-    "sign_no": "TM1-47n(D)&NBSP;",
+    "sign_no": "TM1-47n[D]",
     "standard_sign": "No",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -7600,7 +7605,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm1-46nd-queued-traffic-ahead-mms-insert-to-be-used-on",
     "title": "Queued Traffic Ahead (MMS Insert - To Be used on Multi Message Sign panels Only)",
-    "sign_no": "TM1-46n(D)",
+    "sign_no": "TM1-46n[D]",
     "standard_sign": "No",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -7619,8 +7624,8 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm1-5a-workers-symbolic-mms-insert-to-be-used-on-multi",
-    "title": "&nbsp;Workers (Symbolic) (MMS Insert - To Be used on Multi Message Sign Panels Only)&nbsp;",
-    "sign_no": "TM1-5(A)&NBSP;",
+    "title": "Workers (Symbolic) (MMS Insert - To Be used on Multi Message Sign Panels Only)",
+    "sign_no": "TM1-5[A]",
     "standard_sign": "Yes",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -7639,8 +7644,8 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm1-4nd-grader-ahead-mms-insert-to-be-used-on-multi",
-    "title": "Grader Ahead (MMS Insert - To Be used on Multi Message Sign Panels Only)&nbsp;",
-    "sign_no": "TM1-4n(D)&NBSP;",
+    "title": "Grader Ahead (MMS Insert - To Be used on Multi Message Sign Panels Only)",
+    "sign_no": "TM1-4n[D]",
     "standard_sign": "Yes",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -7772,9 +7777,9 @@
         "w": "600"
       },
       {
-        "label": "&nbsp;",
-        "h": "&nbsp;",
-        "w": "&nbsp;"
+        "label": "",
+        "h": "",
+        "w": ""
       }
     ],
     "image_url": "https://www.transport.nsw.gov.au/sites/default/files/media/images/2023/r9-16_1.gif",
@@ -7827,9 +7832,9 @@
         "w": "900"
       },
       {
-        "label": "&nbsp;",
-        "h": "&nbsp;",
-        "w": "&nbsp;"
+        "label": "",
+        "h": "",
+        "w": ""
       }
     ],
     "image_url": "https://www.transport.nsw.gov.au/sites/default/files/media/images/2023/r9-18_0.gif",
@@ -8017,9 +8022,9 @@
         "w": "900"
       },
       {
-        "label": "&nbsp;",
-        "h": "&nbsp;",
-        "w": "&nbsp;"
+        "label": "",
+        "h": "",
+        "w": ""
       }
     ],
     "image_url": "https://www.transport.nsw.gov.au/sites/default/files/media/images/2023/r9-17_1.gif",
@@ -8145,7 +8150,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/rm2-4nc-no-entry-mms-insert-to-be-used-on-multi",
     "title": "No Entry (Mms Insert - To Be used on Multi Message Sign panels Only)",
-    "sign_no": "RM2-4n(C)",
+    "sign_no": "RM2-4n[C]",
     "standard_sign": "No",
     "use_by_council": null,
     "legislative_reference": "NA",
@@ -8204,8 +8209,8 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm1-5nd-workers-symbolic-mms-insert-to-be-used-on",
-    "title": "Workers (Symbolic) (MMS Insert - To Be used on Multi Message Sign Panels Only)&nbsp;",
-    "sign_no": "TM1-5n(D)",
+    "title": "Workers (Symbolic) (MMS Insert - To Be used on Multi Message Sign Panels Only)",
+    "sign_no": "TM1-5n[D]",
     "standard_sign": "No",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -8224,8 +8229,8 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm1-5c-workers-symbolic-mms-insert-to-be-used-on-multi",
-    "title": "Workers (Symbolic) (MMS Insert - To Be used on Multi Message Sign Panels Only)&nbsp;",
-    "sign_no": "TM1-5(C)&NBSP;",
+    "title": "Workers (Symbolic) (MMS Insert - To Be used on Multi Message Sign Panels Only)",
+    "sign_no": "TM1-5[C]",
     "standard_sign": "Yes",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -8244,8 +8249,8 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm2-17c-end-road-work-mms-insert-to-be-used-on-multi",
-    "title": "End Road Work (MMS&nbsp;Insert - To Be used on Multi Message Sign panels Only)",
-    "sign_no": "TM2-17(C)",
+    "title": "End Road Work (MMS Insert - To Be used on Multi Message Sign panels Only)",
+    "sign_no": "TM2-17[C]",
     "standard_sign": "Yes",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -8264,8 +8269,8 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm1-6nd-detour-ahead-mms-insert-to-be-used-on-multi",
-    "title": "Detour Ahead (MMS Insert - To Be used on Multi Message Sign Panels Only)&nbsp;",
-    "sign_no": "TM1-6n(D)&NBSP;",
+    "title": "Detour Ahead (MMS Insert - To Be used on Multi Message Sign Panels Only)",
+    "sign_no": "TM1-6n[D]",
     "standard_sign": "No",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -8284,8 +8289,8 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm1-6b-detour-ahead-mms-insert-to-be-used-on-multi",
-    "title": "Detour Ahead (MMS Insert - To Be used on Multi Message Sign Panels Only)&nbsp;",
-    "sign_no": "TM1-6(B)",
+    "title": "Detour Ahead (MMS Insert - To Be used on Multi Message Sign Panels Only)",
+    "sign_no": "TM1-6[B]",
     "standard_sign": "Yes",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -8305,7 +8310,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm1-6a-detour-ahead-mms-insert-to-be-used-on-multi",
     "title": "Detour Ahead (MMS Insert - To Be used on Multi Message Sign Panels Only)",
-    "sign_no": "TM1-6(A)",
+    "sign_no": "TM1-6[A]",
     "standard_sign": "Yes",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -8345,7 +8350,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm2-17nb-end-roadwork-mms-insert-to-be-used-on-multi",
     "title": "End Roadwork (MMS Insert - To Be used on Multi Message Sign panels Only)",
-    "sign_no": "TM2-17n(B)&NBSP;",
+    "sign_no": "TM2-17n[B]",
     "standard_sign": "No",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -8365,7 +8370,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm2-23c-end-detour-mms-insert-to-be-used-on-multi",
     "title": "End Detour (MMS Insert - To Be used on Multi Message Sign panels Only)",
-    "sign_no": "TM2-23(C)",
+    "sign_no": "TM2-23[C]",
     "standard_sign": "Yes",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -8385,7 +8390,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm2-23a-end-detour-mms-insert-to-be-used-on-multi",
     "title": "End Detour (MMS Insert - To Be used on Multi Message Sign panels Only)",
-    "sign_no": "TM2-23(A)",
+    "sign_no": "TM2-23[A]",
     "standard_sign": "Yes",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -8465,7 +8470,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm2-17a-end-road-work-mms-insert-to-be-used-on-multi",
     "title": "End Road Work (Mms Insert - To Be used on Multi Message Sign panels Only)",
-    "sign_no": "TM2-17(A)",
+    "sign_no": "TM2-17[A]",
     "standard_sign": "Yes",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -8505,7 +8510,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm2-25nd-trucks-crossing-or-entering-symbolic-mms",
     "title": "Trucks Crossing or Entering (Symbolic) (MMS Insert - To Be used on Multi Message Sign panels Only)",
-    "sign_no": "TM2-25n(D)",
+    "sign_no": "TM2-25n[D]",
     "standard_sign": "No",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -8525,7 +8530,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm2-24nd-one-lane-each-way-mms-insert-to-be-used-on",
     "title": "One Lane Each Way (MMS Insert - To Be used on Multi Message Sign panels Only)",
-    "sign_no": "TM2-24n(D)",
+    "sign_no": "TM2-24n[D]",
     "standard_sign": "No",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -8544,8 +8549,8 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm2-24a-one-lane-each-way-mms-insert-to-be-used-on",
-    "title": "One Lane Each Way (MMS Insert - To Be used on Multi Message Sign panels Only)&nbsp;",
-    "sign_no": "TM2-24(A)",
+    "title": "One Lane Each Way (MMS Insert - To Be used on Multi Message Sign panels Only)",
+    "sign_no": "TM2-24[A]",
     "standard_sign": "Yes",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -8565,7 +8570,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm2-17nd-end-road-work-mms-insert-to-be-used-on-multi",
     "title": "End Road Work (MMS Insert - To Be used on Multi Message Sign panels Only)",
-    "sign_no": "TM2-17n(D)",
+    "sign_no": "TM2-17n[D]",
     "standard_sign": "No",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -8585,7 +8590,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm2-23nd-end-detour-mms-insert-to-be-used-on-multi",
     "title": "End Detour (MMS Insert - To Be used on Multi Message Sign panels Only)",
-    "sign_no": "TM2-23n(D)",
+    "sign_no": "TM2-23n[D]",
     "standard_sign": "No",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -8685,7 +8690,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm2-25a-trucks-crossing-or-entering-symbolic-mms",
     "title": "Trucks Crossing Or Entering (Symbolic) (MMS Insert - To Be used on Multi Message Sign panels Only)",
-    "sign_no": "TM2-25(A)",
+    "sign_no": "TM2-25[A]",
     "standard_sign": "Yes",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -8814,7 +8819,7 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/r9-238n-buses-taxis-excepted",
-    "title": "Buses &amp; Taxis Excepted",
+    "title": "Buses & Taxis Excepted",
     "sign_no": "R9-238n",
     "standard_sign": "No",
     "use_by_council": "Yes \u2013 available.",
@@ -9045,7 +9050,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/t5-1s-detour-arrow-straight",
     "title": "Detour (Arrow Straight)",
-    "sign_no": "T5-1(S)",
+    "sign_no": "T5-1[S]",
     "standard_sign": "Yes",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -9229,7 +9234,7 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/r6-250n-bus-symbolic-lane-24hrs-and-t3%C2%A0symbolic-ahead",
-    "title": "Bus (Symbolic) LANE 24hrs and T3&nbsp;(symbolic) AHEAD",
+    "title": "Bus (Symbolic) LANE 24hrs and T3 (symbolic) AHEAD",
     "sign_no": "R6-250n",
     "standard_sign": "No",
     "use_by_council": "Yes \u2013 available.",
@@ -9519,7 +9524,7 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/r6-8-stopslow-bat-stop-face-stop-railway-gate-sign",
-    "title": "Stop/Slow bat (Stop Face) &amp; Stop railway Gate sign",
+    "title": "Stop/Slow bat (Stop Face) & Stop railway Gate sign",
     "sign_no": "R6-8",
     "standard_sign": "Yes",
     "use_by_council": null,
@@ -9860,7 +9865,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/t6-1nl-line-marking-left-chevrons",
     "title": "Line Marking (left chevrons)",
-    "sign_no": "T6-1n(L)&NBSP;",
+    "sign_no": "T6-1n(L)",
     "standard_sign": "No",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -10009,7 +10014,7 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/r7-1-1-5n-bus-lane-am-pm-overhead",
-    "title": "Bus Lane (AM &amp; PM) (Overhead)",
+    "title": "Bus Lane (AM & PM) (Overhead)",
     "sign_no": "R7-1-1-5n",
     "standard_sign": "No",
     "use_by_council": null,
@@ -10250,7 +10255,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/t6-5-1nvms-follow-me-no-overtaking-vms-panel-temporary",
     "title": "Follow Me No Overtaking VMS Panel (Temporary Traffic Management Use Only)",
-    "sign_no": "T6-5-1N_VMS&NBSP;",
+    "sign_no": "T6-5-1n",
     "standard_sign": "No",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -10265,7 +10270,10 @@
     "image_url": "https://www.transport.nsw.gov.au/sites/default/files/media/images/2025/t6-5-1n.png",
     "pdf_url": null,
     "height": "900",
-    "width": "1200"
+    "width": "1200",
+    "normalization_metadata": {
+      "notes": "_VMS"
+    }
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/r7-240-1n-overhead-transit-lane-t2-single-period-times",
@@ -10309,7 +10317,7 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/r7-235n-transit-lane-t3-repeater-am-pm-times-as",
-    "title": "Transit Lane (T3 - repeater) (Am &amp; Pm - times as required)",
+    "title": "Transit Lane (T3 - repeater) (Am & Pm - times as required)",
     "sign_no": "R7-235n",
     "standard_sign": "No",
     "use_by_council": null,
@@ -10389,8 +10397,8 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm9-7-1nc-cyclists-ahead-symbolic-mms-insert-to-be",
-    "title": "Cyclists Ahead (Symbolic) (MMS Insert - To Be used on Multi Message Sign panels Only)&nbsp;",
-    "sign_no": "TM9-7-1n(C)",
+    "title": "Cyclists Ahead (Symbolic) (MMS Insert - To Be used on Multi Message Sign panels Only)",
+    "sign_no": "TM9-7-1n[C]",
     "standard_sign": "No",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -10410,7 +10418,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm9-4nb-event-on-side-road-mms-insert-to-be-used-on",
     "title": "Event On Side Road (MMS Insert - To Be used on Multi Message Sign Panels Only)",
-    "sign_no": "TM9-4n(B)",
+    "sign_no": "TM9-4n[B]",
     "standard_sign": "No",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -10430,7 +10438,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm9-4c-event-on-side-road-mms-insert-to-be-used-on",
     "title": "Event On Side Road (MMS Insert - To Be used on Multi Message Sign Panels Only)",
-    "sign_no": "TM9-4(C)",
+    "sign_no": "TM9-4[C]",
     "standard_sign": "Yes",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -10450,7 +10458,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm9-1a-event-ahead-mms-insert-to-be-used-on-multi",
     "title": "Event Ahead (MMS Insert - To Be used on Multi Message Sign Panels Only)",
-    "sign_no": "TM9-1(A)&NBSP;",
+    "sign_no": "TM9-1[A]",
     "standard_sign": "Yes",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -10469,7 +10477,7 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm9-5bl-event-on-side-road-left-arrow-mms-insert-to-be",
-    "title": "Event On Side Road (Left Arrow) (MMS Insert - To Be used on Multi Message Sign panels Only)&nbsp;",
+    "title": "Event On Side Road (Left Arrow) (MMS Insert - To Be used on Multi Message Sign panels Only)",
     "sign_no": "TM9-5B(L)",
     "standard_sign": "Yes",
     "use_by_council": "Yes - available.",
@@ -10490,7 +10498,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm9-4na-event-on-side-road-mms-insert-to-be-used-on",
     "title": "Event On Side Road (MMS Insert - To Be used on Multi Message Sign Panels Only)",
-    "sign_no": "TM9-4n(A)",
+    "sign_no": "TM9-4n[A]",
     "standard_sign": "No",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -10804,7 +10812,7 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm9-5br-event-on-side-road-right-arrow-mms-insert-to",
-    "title": "Event On Side Road (Right Arrow) (MMS Insert - To Be used on Multi Message Sign panels Only)&nbsp;",
+    "title": "Event On Side Road (Right Arrow) (MMS Insert - To Be used on Multi Message Sign panels Only)",
     "sign_no": "TM9-5B(R)",
     "standard_sign": "Yes",
     "use_by_council": "Yes - available.",
@@ -10824,8 +10832,8 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm9-7-1nb-cyclists-ahead-symbolic-mms-insert-to-be",
-    "title": "Cyclists Ahead (Symbolic) (MMS Insert - To Be used on Multi Message Sign panels Only)&nbsp;",
-    "sign_no": "TM9-7-1n(B)&NBSP;",
+    "title": "Cyclists Ahead (Symbolic) (MMS Insert - To Be used on Multi Message Sign panels Only)",
+    "sign_no": "TM9-7-1n[B]",
     "standard_sign": "No",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -10844,8 +10852,8 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm9-7-3nb-cycling-event-symbolic-mms-insert-to-be-used",
-    "title": "Cycling Event (Symbolic) (MMS Insert - To Be used on Multi Message Sign panels Only)&nbsp;",
-    "sign_no": "TM9-7-3n(B)&NBSP;",
+    "title": "Cycling Event (Symbolic) (MMS Insert - To Be used on Multi Message Sign panels Only)",
+    "sign_no": "TM9-7-3n[B]",
     "standard_sign": "No",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -10864,8 +10872,8 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm9-8-1nb-runners-ahead-symbolic-mms-insert-to-be-used",
-    "title": "Runners Ahead (Symbolic) (MMS Insert - To Be used on Multi Message Sign panels Only)&nbsp;",
-    "sign_no": "TM9-8-1n(B)&NBSP;",
+    "title": "Runners Ahead (Symbolic) (MMS Insert - To Be used on Multi Message Sign panels Only)",
+    "sign_no": "TM9-8-1n[B]",
     "standard_sign": "No",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -10884,8 +10892,8 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm9-7-3nc-cycling-event-symbolic-mms-insert-to-be-used",
-    "title": "Cycling Event (Symbolic) (MMS Insert - To Be used on Multi Message Sign panels Only)&nbsp;",
-    "sign_no": "TM9-7-3n(C)&NBSP;",
+    "title": "Cycling Event (Symbolic) (MMS Insert - To Be used on Multi Message Sign panels Only)",
+    "sign_no": "TM9-7-3n[C]",
     "standard_sign": "No",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -10904,8 +10912,8 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm9-8-1nc-runners-ahead-symbolic-mms-insert-to-be-used",
-    "title": "Runners Ahead (Symbolic) (MMS Insert - To Be used on Multi Message Sign panels Only)&nbsp;",
-    "sign_no": "TM9-8-1n(C)&NBSP;",
+    "title": "Runners Ahead (Symbolic) (MMS Insert - To Be used on Multi Message Sign panels Only)",
+    "sign_no": "TM9-8-1n[C]",
     "standard_sign": "No",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -10925,7 +10933,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm9-7a-cyclist-racing-mms-insert-to-be-used-on-multi",
     "title": "Cyclist Racing (MMS Insert - To Be used on Multi Message Sign Panels Only)",
-    "sign_no": "TM9-7(A)&NBSP;",
+    "sign_no": "TM9-7[A]",
     "standard_sign": "Yes",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -10944,8 +10952,8 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm9-8-3nc-running-event-symbolic-mms-insert-to-be-used",
-    "title": "Running Event (Symbolic) (MMS Insert - To Be used on Multi Message Sign panels Only)&nbsp;",
-    "sign_no": "TM9-8-3n(C)&NBSP;",
+    "title": "Running Event (Symbolic) (MMS Insert - To Be used on Multi Message Sign panels Only)",
+    "sign_no": "TM9-8-3n[C]",
     "standard_sign": "No",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -10965,7 +10973,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm9-8a-runner-mms-insert-to-be-used-on-multi-message",
     "title": "Runner (MMS Insert - To Be used on Multi Message Sign Panels Only)",
-    "sign_no": "TM9-8(A)&NBSP;",
+    "sign_no": "TM9-8[A]",
     "standard_sign": "Yes",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -10985,7 +10993,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm9-7-2nc-cyclists-following-symbolic-vehicle-mounted",
     "title": "Cyclists Following (Symbolic) (Vehicle Mounted Sign)",
-    "sign_no": "TM9-7-2n(C)&NBSP;",
+    "sign_no": "TM9-7-2n[C]",
     "standard_sign": "No",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -11005,7 +11013,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm9-8-2nc-runners-following-symbolic-vehicle-mounted",
     "title": "Runners Following (Symbolic) (Vehicle Mounted Sign)",
-    "sign_no": "TM9-8-2n(C)&NBSP;",
+    "sign_no": "TM9-8-2n[C]",
     "standard_sign": "No",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -11105,7 +11113,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm8-5c-look-both-ways-two-way-traffic-arrows-symbolic",
     "title": "Look Both Ways Two-Way Traffic (Arrows Symbolic) (Mms Insert - To Be used on Multi Message Sign panels Only)",
-    "sign_no": "TM8-5(C)",
+    "sign_no": "TM8-5[C]",
     "standard_sign": "Yes",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -11124,8 +11132,8 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm9-8-3nb-running-event-symbolic-mms-insert-to-be-used",
-    "title": "Running Event (Symbolic) (MMS Insert - To Be used on Multi Message Sign panels Only)&nbsp;",
-    "sign_no": "TM9-8-3n(B)",
+    "title": "Running Event (Symbolic) (MMS Insert - To Be used on Multi Message Sign panels Only)",
+    "sign_no": "TM9-8-3n[B]",
     "standard_sign": "No",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -11144,8 +11152,8 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm9-9-3nb-walking-event-symbolic-mms-insert-to-be-used",
-    "title": "Walking Event (Symbolic) (MMS Insert - To Be used on Multi Message Sign panels Only)&nbsp;",
-    "sign_no": "TM9-9-3n(B)&NBSP;",
+    "title": "Walking Event (Symbolic) (MMS Insert - To Be used on Multi Message Sign panels Only)",
+    "sign_no": "TM9-9-3n[B]",
     "standard_sign": "No",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -11165,7 +11173,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm9-9-1nb-walkers-ahead-symbolic-mms-insert-to-be-used",
     "title": "Walkers Ahead (Symbolic) (MMS Insert - To Be used on Multi Message Sign panels Only)",
-    "sign_no": "TM9-9-1n(B)&NBSP;",
+    "sign_no": "TM9-9-1n[B]",
     "standard_sign": "No",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -11185,7 +11193,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm9-9-1na-walkers-ahead-symbolic-mms-insert-to-be-used",
     "title": "Walkers Ahead (Symbolic) (MMS Insert - To Be used on Multi Message Sign panels Only)",
-    "sign_no": "TM9-9-1n(A)&NBSP;",
+    "sign_no": "TM9-9-1n[A]",
     "standard_sign": "No",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -11204,8 +11212,8 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm9-9-3nc-walking-event-symbolic-mms-insert-to-be-used",
-    "title": "Walking Event (Symbolic) (MMS Insert - To Be used on Multi Message Sign panels Only)&nbsp;",
-    "sign_no": "TM9-9-3n(C)&NBSP;",
+    "title": "Walking Event (Symbolic) (MMS Insert - To Be used on Multi Message Sign panels Only)",
+    "sign_no": "TM9-9-3n[C]",
     "standard_sign": "No",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -11225,7 +11233,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm9-9-1nc-walkers-ahead-symbolic-mms-insert-to-be-used",
     "title": "Walkers Ahead (Symbolic) (MMS Insert - To Be used on Multi Message Sign panels Only)",
-    "sign_no": "TM9-9-1n(C)&NBSP;",
+    "sign_no": "TM9-9-1n[C]",
     "standard_sign": "No",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -11245,7 +11253,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm9-1b-event-ahead-mms-insert-to-be-used-on-multi",
     "title": "Event Ahead (MMS Insert - To Be used on Multi Message Sign Panels Only)",
-    "sign_no": "TM9-1(B)&NBSP;",
+    "sign_no": "TM9-1[B]",
     "standard_sign": "Yes",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -11264,8 +11272,8 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm9-2b-end-event-mms-insert-to-be-used-on-multi",
-    "title": "End Event&nbsp;(MMS Insert - To Be used on Multi Message Sign Panels Only)",
-    "sign_no": "TM9-2(B)&NBSP;",
+    "title": "End Event (MMS Insert - To Be used on Multi Message Sign Panels Only)",
+    "sign_no": "TM9-2[B]",
     "standard_sign": "Yes",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -11285,7 +11293,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm9-1-1na-event-mms-insert-to-be-used-on-multi-message",
     "title": "Event (MMS Insert - To Be used on Multi Message Sign Panels Only)",
-    "sign_no": "TM9-1-1n(A)&NBSP;",
+    "sign_no": "TM9-1-1n[A]",
     "standard_sign": "No",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -11305,7 +11313,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm9-1-1nb-event-mms-insert-to-be-used-on-multi-message",
     "title": "Event (MMS Insert - To Be used on Multi Message Sign Panels Only)",
-    "sign_no": "TM9-1-1n(B)&NBSP;",
+    "sign_no": "TM9-1-1n[B]",
     "standard_sign": "No",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -11349,8 +11357,8 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm9-2a-end-event-mms-insert-to-be-used-on-multi",
-    "title": "End Event&nbsp;(MMS Insert - To Be used on Multi Message Sign Panels Only)",
-    "sign_no": "TM9-2(A)&NBSP;",
+    "title": "End Event (MMS Insert - To Be used on Multi Message Sign Panels Only)",
+    "sign_no": "TM9-2[A]",
     "standard_sign": "Yes",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -11450,7 +11458,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm8-2rb-pedestrians-right-arrow-mms-insert-to-be-used",
     "title": "Pedestrians (Right Arrow) (Mms Insert - To Be used on Multi Message Sign panels Only)",
-    "sign_no": "TM8-2(R)",
+    "sign_no": "TM8-2(R)[B]",
     "standard_sign": "Yes",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -11470,7 +11478,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm8-3a-use-other-footpath-mms-insert-to-be-used-on",
     "title": "Use Other Footpath (Mms Insert - To Be used on Multi Message Sign panels Only)",
-    "sign_no": "TM8-3(A)",
+    "sign_no": "TM8-3[A]",
     "standard_sign": "Yes",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -11490,7 +11498,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm8-4a-footpath-closed-mms-insert-to-be-used-on-multi",
     "title": "Footpath Closed (Mms Insert - To Be used on Multi Message Sign panels Only)",
-    "sign_no": "TM8-4(A)",
+    "sign_no": "TM8-4[A]",
     "standard_sign": "Yes",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -11510,7 +11518,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm9-9-2nc-walkers-following-symbolic-vehicle-mounted",
     "title": "Walkers Following (Symbolic) (Vehicle Mounted Sign)",
-    "sign_no": "TM9-9-2n(C)&NBSP;",
+    "sign_no": "TM9-9-2n[C]",
     "standard_sign": "No",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -11530,7 +11538,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm8-4nd-footpath-closed-mms-insert-to-be-used-on-multi",
     "title": "Footpath Closed (Mms Insert - To Be used on Multi Message Sign panels Only)",
-    "sign_no": "TM8-4n(D)",
+    "sign_no": "TM8-4n[D]",
     "standard_sign": "No",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -11550,7 +11558,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm8-3nd-use-other-footpath-mms-insert-to-be-used-on",
     "title": "Use Other Footpath (Mms Insert - To Be used on Multi Message Sign panels Only)",
-    "sign_no": "TM8-3n(D)",
+    "sign_no": "TM8-3n[D]",
     "standard_sign": "No",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -11630,7 +11638,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm8-5nd-look-both-ways-two-way-traffic-mms-insert-to",
     "title": "Look Both Ways Two Way Traffic (Mms Insert - To Be used on Multi Message Sign panels Only)",
-    "sign_no": "TM8-5n(D)",
+    "sign_no": "TM8-5n[D]",
     "standard_sign": "No",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -11650,7 +11658,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm8-2rd-pedestrians-arrow-right-mms-insert-to-be-used",
     "title": "Pedestrians (Arrow Right) (Mms Insert - To Be used on Multi Message Sign panels Only)",
-    "sign_no": "TM8-2(R)",
+    "sign_no": "TM8-2(R)[D]",
     "standard_sign": "No",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -11670,7 +11678,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm8-1c-pedestrians-watch-your-step-mms-insert-to-be",
     "title": "Pedestrians Watch Your Step (Mms Insert - To Be used on Multi Message Sign panels Only)",
-    "sign_no": "TM8-1(C)",
+    "sign_no": "TM8-1[C]",
     "standard_sign": "Yes",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -11690,7 +11698,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm8-1d-pedestrians-watch-your-step-mms-insert-to-be",
     "title": "Pedestrians Watch Your Step (Mms Insert - To Be used on Multi Message Sign panels Only)",
-    "sign_no": "TM8-1(D)",
+    "sign_no": "TM8-1[D]",
     "standard_sign": "Yes",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -11710,7 +11718,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm8-2ld-pedestrians-arrow-left-mms-insert-to-be-used",
     "title": "Pedestrians (Arrow Left) (Mms Insert - To Be used on Multi Message Sign panels Only)",
-    "sign_no": "TM8-2(L)",
+    "sign_no": "TM8-2(L)[D]",
     "standard_sign": "No",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -11990,7 +11998,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm2-36c-road-plates-use-mms-insert-to-be-used-om-multi",
     "title": "Road Plates In Use (MMS Insert-To be used om Multi Message Sign panels Only)",
-    "sign_no": "TM2-36(C)",
+    "sign_no": "TM2-36[C]",
     "standard_sign": "Yes",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -12010,7 +12018,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm2-36a-road-plates-use-mms-insert-to-be-used-om-multi",
     "title": "Road Plates In Use (MMS Insert-To be used om Multi Message Sign panels Only)",
-    "sign_no": "TM2-36(A)",
+    "sign_no": "TM2-36[A]",
     "standard_sign": "Yes",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -12030,7 +12038,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm2-4nd-road-closed-mms-insert-to-be-used-on-multi",
     "title": "Road Closed (MMS Insert - To Be used on Multi Message Sign panels Only)",
-    "sign_no": "TM2-4n(D)&NBSP;",
+    "sign_no": "TM2-4n[D]",
     "standard_sign": "No",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -12050,7 +12058,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm2-4b-road-closed-mms-insert-to-be-used-on-multi",
     "title": "Road Closed (MMS Insert - To Be used on Multi Message Sign panels Only)",
-    "sign_no": "TM2-4(B)",
+    "sign_no": "TM2-4[B]",
     "standard_sign": "Yes",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -12070,7 +12078,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm2-4c-road-closed-mms-insert-to-be-used-on-multi",
     "title": "Road Closed (MMS Insert - To Be used on Multi Message Sign panels Only)",
-    "sign_no": "TM2-4(C)",
+    "sign_no": "TM2-4[C]",
     "standard_sign": "Yes",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -12090,7 +12098,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm2-52a-boom-barrier-symbolic-mms-insert-to-be-used-on",
     "title": "Boom Barrier (Symbolic) (MMS Insert - To Be used on Multi Message Sign panels Only)",
-    "sign_no": "TM2-52(A)",
+    "sign_no": "TM2-52[A]",
     "standard_sign": "Yes",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -12185,7 +12193,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/rm2-11nb-two-way-symbolic-mms-insert-to-be-used-on",
     "title": "Two Way (Symbolic) (Mms Insert - To Be used on Multi Message Sign panels Only)",
-    "sign_no": "RM2-11n(B)&NBSP;",
+    "sign_no": "RM2-11n[B]",
     "standard_sign": "No",
     "use_by_council": "Yes \u2013 available.",
     "legislative_reference": "NA",
@@ -12205,7 +12213,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/rm2-11na-two-way-symbolic-mms-insert-to-be-used-on",
     "title": "Two Way (Symbolic) (Mms Insert - To Be used on Multi Message Sign panels Only)",
-    "sign_no": "RM2-11n(A)",
+    "sign_no": "RM2-11n[A]",
     "standard_sign": "No",
     "use_by_council": "Yes \u2013 available.",
     "legislative_reference": "NA",
@@ -12244,7 +12252,7 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/r9-301n-pick-up-set-down-area",
-    "title": "Pick Up &amp; Set Down Area",
+    "title": "Pick Up & Set Down Area",
     "sign_no": "R9-301n",
     "standard_sign": "No",
     "use_by_council": "Yes \u2013 available.",
@@ -12282,9 +12290,9 @@
         "w": "-"
       },
       {
-        "label": "&nbsp;",
-        "h": "&nbsp;",
-        "w": "&nbsp;"
+        "label": "",
+        "h": "",
+        "w": ""
       }
     ],
     "image_url": "https://www.transport.nsw.gov.au/sites/default/files/media/images/2023/r9-240n_0.gif",
@@ -12314,7 +12322,7 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/r9-302n-kiss-ride-area",
-    "title": "Kiss &amp; Ride Area",
+    "title": "Kiss & Ride Area",
     "sign_no": "R9-302n",
     "standard_sign": "No",
     "use_by_council": "Yes \u2013 available.",
@@ -12445,7 +12453,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm2-52nd-boom-barrier-symbolic-mms-insert-to-be-used",
     "title": "Boom Barrier (Symbolic) (Mms Insert - To Be used on Multi Message Sign panels Only)",
-    "sign_no": "TM2-52n(D)",
+    "sign_no": "TM2-52n[D]",
     "standard_sign": "No",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -12465,7 +12473,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm3-12c-no-lines-do-not-overtake-unless-safe-mms",
     "title": "No Lines Do Not Overtake Unless Safe (Mms Insert - To Be used on Multi Message Sign panels Only)",
-    "sign_no": "TM3-12(C)",
+    "sign_no": "TM3-12[C]",
     "standard_sign": "Yes",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -12485,7 +12493,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm3-11nd-new-work-no-lines-marked-mms-insert-to-be",
     "title": "New Work No Lines Marked (Mms Insert - To Be used on Multi Message Sign panels Only)",
-    "sign_no": "TM3-11n(D)&NBSP;",
+    "sign_no": "TM3-11n[D]",
     "standard_sign": "No",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -12505,7 +12513,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm3-11c-new-work-no-lines-marked-mms-insert-to-be-used",
     "title": "New Work No Lines Marked (Mms Insert - To Be used on Multi Message Sign panels Only)",
-    "sign_no": "TM3-11(C)",
+    "sign_no": "TM3-11[C]",
     "standard_sign": "Yes",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -12525,7 +12533,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/rm2-11nc-two-way-symbolic-mms-insert-to-be-used-on",
     "title": "Two Way (Symbolic) (Mms Insert - To Be used on Multi Message Sign panels Only)",
-    "sign_no": "RM2-11n(C)",
+    "sign_no": "RM2-11n[C]",
     "standard_sign": "No",
     "use_by_council": "Yes \u2013 available.",
     "legislative_reference": "NA",
@@ -12545,7 +12553,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm3-13d-gravel-road-mms-insert-to-be-used-on-multi",
     "title": "Gravel Road (Mms Insert - To Be used on Multi Message Sign panels Only)",
-    "sign_no": "TM3-13(D)",
+    "sign_no": "TM3-13[D]",
     "standard_sign": "No",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -12565,7 +12573,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm3-13b-gravel-road-mms-insert-to-be-used-on-multi",
     "title": "Gravel Road (Mms Insert - To Be used on Multi Message Sign panels Only)",
-    "sign_no": "TM3-13(B)",
+    "sign_no": "TM3-13[B]",
     "standard_sign": "Yes",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -12585,7 +12593,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm3-13a-gravel-road-mms-insert-to-be-used-on-multi",
     "title": "Gravel Road (Mms Insert - To Be used on Multi Message Sign panels Only)",
-    "sign_no": "TM3-13(A)&NBSP;",
+    "sign_no": "TM3-13[A]",
     "standard_sign": "Yes",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -12605,7 +12613,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/rm2-11nd-two-way-symbolic-mms-insert-to-be-used-on",
     "title": "Two Way (Symbolic) (Mms Insert - To Be used on Multi Message Sign panels Only)",
-    "sign_no": "RM2-11n(D)&NBSP;",
+    "sign_no": "RM2-11n[D]",
     "standard_sign": "No",
     "use_by_council": "Yes \u2013 available.",
     "legislative_reference": "NA",
@@ -12690,7 +12698,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/rm2-14la-all-traffic-left-symbolic-only-mms-insert-to",
     "title": "All Traffic (Left Symbolic) Only (Mms Insert - To Be used on Multi Message Sign panels Only)",
-    "sign_no": "RM2-14(L)",
+    "sign_no": "RM2-14(L)[A]",
     "standard_sign": "Yes",
     "use_by_council": "Yes \u2013 available.",
     "legislative_reference": "NA",
@@ -12710,7 +12718,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm3-12nd-no-lines-do-not-overtake-unless-safe-mms",
     "title": "No Lines Do Not Overtake Unless Safe (Mms Insert - To Be used on Multi Message Sign panels Only)",
-    "sign_no": "TM3-12n(D)",
+    "sign_no": "TM3-12n[D]",
     "standard_sign": "No",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -12730,7 +12738,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm3-3a-slippery-when-wet-symbolic-mms-insert-to-be",
     "title": "Slippery When Wet (Symbolic) (Mms Insert - To Be used on Multi Message Sign panels Only)",
-    "sign_no": "TM3-3(A)",
+    "sign_no": "TM3-3[A]",
     "standard_sign": "Yes",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -12750,7 +12758,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm3-14b-loose-surface-mms-insert-to-be-used-on-multi",
     "title": "Loose Surface (Mms Insert - To Be used on Multi Message Sign panels Only)",
-    "sign_no": "TM3-14(B)",
+    "sign_no": "TM3-14[B]",
     "standard_sign": "Yes",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -12770,7 +12778,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/rm2-14nlb-left-only-mms-insert-to-be-used-on-multi",
     "title": "Left Only (Mms Insert - To Be used on Multi Message Sign panels Only)",
-    "sign_no": "RM2-14n(L)",
+    "sign_no": "RM2-14n(L)[B]",
     "standard_sign": "No",
     "use_by_council": "Yes \u2013 available.",
     "legislative_reference": "NA",
@@ -12790,7 +12798,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/rm2-14nld-all-traffic-left-symbolic-mms-insert-to-be",
     "title": "All Traffic (Left Symbolic) (Mms Insert - To Be used on Multi Message Sign panels Only)",
-    "sign_no": "RM2-14n(L)",
+    "sign_no": "RM2-14n(L)[D]",
     "standard_sign": "No",
     "use_by_council": "Yes \u2013 available.",
     "legislative_reference": "NA",
@@ -12810,7 +12818,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm3-3d-slippery-when-wet-symbolic-mms-insert-to-be",
     "title": "Slippery When Wet (Symbolic) (Mms Insert - To Be used on Multi Message Sign panels Only)",
-    "sign_no": "TM3-3(D)",
+    "sign_no": "TM3-3[D]",
     "standard_sign": "No",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -12830,7 +12838,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/rm2-14nlc-left-only-mms-insert-to-be-used-on-multi",
     "title": "Left Only (Mms Insert - To Be used on Multi Message Sign panels Only)",
-    "sign_no": "RM2-14n(L)",
+    "sign_no": "RM2-14n(L)[C]",
     "standard_sign": "No",
     "use_by_council": "Yes \u2013 available.",
     "legislative_reference": "NA",
@@ -12850,7 +12858,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm3-14d-loose-surface-mms-insert-to-be-used-on-multi",
     "title": "Loose Surface (Mms Insert - To Be used on Multi Message Sign panels Only)",
-    "sign_no": "TM3-14(D)",
+    "sign_no": "TM3-14[D]",
     "standard_sign": "No",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -12870,7 +12878,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm3-14a-loose-surface-mms-insert-to-be-used-on-multi",
     "title": "Loose Surface (Mms Insert - To Be used on Multi Message Sign panels Only)",
-    "sign_no": "TM3-14(A)",
+    "sign_no": "TM3-14[A]",
     "standard_sign": "Yes",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -12890,7 +12898,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm3-16-1nd-x-kmhr-mms-insert-to-be-used-on-multi",
     "title": "x km/hr (MMS Insert - To Be used on Multi Message Sign Panels Only)",
-    "sign_no": "TM3-16-1n(D)&NBSP;",
+    "sign_no": "TM3-16-1n[D]",
     "standard_sign": "No",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -12910,7 +12918,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm3-16-1a-xkmhr-mms-insert-to-be-used-on-multi-message",
     "title": "X(km/hr) (Mms Insert - To Be used on Multi Message Sign panels Only)",
-    "sign_no": "TM3-16-1(A)",
+    "sign_no": "TM3-16-1[A]",
     "standard_sign": "Yes",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -12930,7 +12938,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm3-9b-loose-stones-avoid-windscreen-damage-symbolic",
     "title": "Loose Stones - Avoid Windscreen Damage (symbolic) (Mms Insert - To Be used on Multi Message Sign panels Only)",
-    "sign_no": "TM3-9(B)",
+    "sign_no": "TM3-9[B]",
     "standard_sign": "No",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -12950,7 +12958,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm3-9a-loose-stones-avoid-windscreen-damage-symbolic",
     "title": "Loose Stones - Avoid Windscreen Damage (symbolic) (Mms Insert - To Be used on Multi Message Sign panels Only)",
-    "sign_no": "TM3-9(A)",
+    "sign_no": "TM3-9[A]",
     "standard_sign": "Yes",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -12970,7 +12978,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm3-7d-rough-surface-symbolic-mms-insert-to-be-used-on",
     "title": "Rough Surface (Symbolic) (Mms Insert - To Be used on Multi Message Sign panels Only)",
-    "sign_no": "TM3-7(D)",
+    "sign_no": "TM3-7[D]",
     "standard_sign": "No",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -12990,7 +12998,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm3-9d-loose-stones-symbolic-mms-insert-to-be-used-on",
     "title": "Loose Stones (Symbolic) (Mms Insert - To Be used on Multi Message Sign panels Only)",
-    "sign_no": "TM3-9(D)",
+    "sign_no": "TM3-9[D]",
     "standard_sign": "No",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -13010,7 +13018,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/rm2-14nrb-right-only-mms-insert-to-be-used-on-multi",
     "title": "Right Only (Mms Insert - To Be used on Multi Message Sign panels Only)",
-    "sign_no": "RM2-14n(R)",
+    "sign_no": "RM2-14n(R)[B]",
     "standard_sign": "No",
     "use_by_council": "Yes \u2013 available.",
     "legislative_reference": "NA",
@@ -13030,7 +13038,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm3-7b-rough-surface-mms-insert-to-be-used-on-multi",
     "title": "Rough Surface (Mms Insert - To Be used on Multi Message Sign panels Only)",
-    "sign_no": "TM3-7(B)",
+    "sign_no": "TM3-7[B]",
     "standard_sign": "Yes",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -13050,7 +13058,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm3-7a-rough-surface-mms-insert-to-be-used-on-multi",
     "title": "Rough Surface (Mms Insert - To Be used on Multi Message Sign panels Only)",
-    "sign_no": "TM3-7(A)",
+    "sign_no": "TM3-7[A]",
     "standard_sign": "Yes",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -13070,7 +13078,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/rm2-14ra-all-traffic-left-symbolic-only-mms-insert-to",
     "title": "All Traffic (Left Symbolic) Only (Mms Insert - To Be used on Multi Message Sign panels Only)",
-    "sign_no": "RM2-14(R)",
+    "sign_no": "RM2-14(R)[A]",
     "standard_sign": "Yes",
     "use_by_council": "Yes \u2013 available.",
     "legislative_reference": "NA",
@@ -13090,7 +13098,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm4-5nd-power-line-works-progress-mms-insert-to-be",
     "title": "Power Line Works In Progress (Mms Insert - To Be used on Multi Message Sign panels Only)",
-    "sign_no": "TM4-5n(D)",
+    "sign_no": "TM4-5n[D]",
     "standard_sign": "No",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -13110,7 +13118,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm4-5c-power-line-works-progress-mms-insert-to-be-used",
     "title": "Power Line Works In Progress (Mms Insert - To Be used on Multi Message Sign panels Only)",
-    "sign_no": "TM4-5(C)",
+    "sign_no": "TM4-5[C]",
     "standard_sign": "Yes",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -13130,7 +13138,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm4-3nd-end-blasting-area-mms-insert-to-be-used-on",
     "title": "End Blasting Area (Mms Insert - To Be used on Multi Message Sign panels Only)",
-    "sign_no": "TM4-3n(D)",
+    "sign_no": "TM4-3n[D]",
     "standard_sign": "No",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -13150,7 +13158,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm4-3c-end-blasting-area-mms-insert-to-be-used-on",
     "title": "End Blasting Area (Mms Insert - To Be used on Multi Message Sign panels Only)",
-    "sign_no": "TM4-3(C)",
+    "sign_no": "TM4-3[C]",
     "standard_sign": "Yes",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -13170,7 +13178,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/rm2-14nrc-right-only-mms-insert-to-be-used-on-multi",
     "title": "Right Only (Mms Insert - To Be used on Multi Message Sign panels Only)",
-    "sign_no": "RM2-14n(R)",
+    "sign_no": "RM2-14n(R)[C]",
     "standard_sign": "No",
     "use_by_council": "Yes \u2013 available.",
     "legislative_reference": "NA",
@@ -13190,7 +13198,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm4-6nd-smoke-hazard-mms-insert-to-be-used-on-multi",
     "title": "Smoke Hazard (Mms Insert - To Be used on Multi Message Sign panels Only)",
-    "sign_no": "TM4-6n(D)",
+    "sign_no": "TM4-6n[D]",
     "standard_sign": "No",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -13210,7 +13218,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/rm2-14nrd-all-traffic-right-symbolic-mms-insert-to-be",
     "title": "All Traffic (Right Symbolic) (Mms Insert - To Be used on Multi Message Sign panels Only)",
-    "sign_no": "RM2-14n(R)",
+    "sign_no": "RM2-14n(R)[D]",
     "standard_sign": "No",
     "use_by_council": "Yes \u2013 available.",
     "legislative_reference": "NA",
@@ -13230,7 +13238,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm5-1nds-detour-arrow-straight-mms-insert-to-be-used",
     "title": "Detour (Arrow Straight) (Mms Insert - To Be used on Multi Message Sign panels Only)",
-    "sign_no": "TM5-1n(D)",
+    "sign_no": "TM5-1n[D][S]",
     "standard_sign": "No",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -13250,7 +13258,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm5-1sb-detour-straight-arrow-mms-insert-to-be-used-on",
     "title": "Detour (Straight Arrow) (Mms Insert - To Be used on Multi Message Sign panels Only)",
-    "sign_no": "TM5-1(S)",
+    "sign_no": "TM5-1[S][B]",
     "standard_sign": "Yes",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -13270,7 +13278,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm5-1rb-detour-right-arrow-mms-insert-to-be-used-on",
     "title": "Detour (Right Arrow) (Mms Insert - To Be used on Multi Message Sign panels Only)",
-    "sign_no": "TM5-1(R)",
+    "sign_no": "TM5-1(R)[B]",
     "standard_sign": "Yes",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -13290,7 +13298,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm5-1lb-detour-left-arrow-mms-insert-to-be-used-on",
     "title": "Detour (Left Arrow) (Mms Insert - To Be used on Multi Message Sign panels Only)",
-    "sign_no": "TM5-1(L)",
+    "sign_no": "TM5-1(L)[B]",
     "standard_sign": "Yes",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -13310,7 +13318,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm3-6a-soft-edges-mms-insert-to-be-used-on-multi",
     "title": "Soft Edges (Mms Insert - To Be used on Multi Message Sign panels Only)",
-    "sign_no": "TM3-6(A)",
+    "sign_no": "TM3-6[A]",
     "standard_sign": "Yes",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -13330,7 +13338,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm3-6b-soft-edges-mms-insert-to-be-used-on-multi",
     "title": "Soft Edges (Mms Insert - To Be used on Multi Message Sign panels Only)",
-    "sign_no": "TM3-6(B)",
+    "sign_no": "TM3-6[B]",
     "standard_sign": "Yes",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -13350,7 +13358,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm5-5nd-temporary-hazard-marker-mms-insert-to-be-used",
     "title": "Temporary Hazard Marker (Mms Insert - To Be used on Multi Message Sign panels Only)",
-    "sign_no": "TM5-5n(D)",
+    "sign_no": "TM5-5n[D]",
     "standard_sign": "No",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -13370,7 +13378,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm5-1nld-detour-arrow-left-mms-insert-to-be-used-on",
     "title": "Detour (Arrow Left) (Mms Insert - To Be used on Multi Message Sign panels Only)",
-    "sign_no": "TM5-1n(L)",
+    "sign_no": "TM5-1n(L)[D]",
     "standard_sign": "No",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -13390,7 +13398,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/rm2-4nd-no-entry-mms-insert-to-be-used-on-multi",
     "title": "No Entry (Mms Insert - To Be used on Multi Message Sign panels Only)",
-    "sign_no": "RM2-4n(D)",
+    "sign_no": "RM2-4n[D]",
     "standard_sign": "No",
     "use_by_council": "Yes \u2013 available.",
     "legislative_reference": "NA",
@@ -13410,7 +13418,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm5-6nd-arrow-marker-mms-insert-to-be-used-on-multi",
     "title": "Arrow Marker (Mms Insert - To Be used on Multi Message Sign panels Only)",
-    "sign_no": "TM5-6n(D)",
+    "sign_no": "TM5-6n[D]",
     "standard_sign": "Yes",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -13430,7 +13438,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm3-6d-soft-edges-mms-insert-to-be-used-on-multi",
     "title": "Soft Edges (Mms Insert - To Be used on Multi Message Sign panels Only)",
-    "sign_no": "TM3-6(D)&NBSP;",
+    "sign_no": "TM3-6[D]",
     "standard_sign": "No",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -13450,7 +13458,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/rm2-4nb-no-entry-mms-insert-to-be-used-on-multi",
     "title": "No Entry (Mms Insert - To Be used on Multi Message Sign panels Only)",
-    "sign_no": "RM2-4n(B)",
+    "sign_no": "RM2-4n[B]",
     "standard_sign": "No",
     "use_by_council": "Yes \u2013 available.",
     "legislative_reference": "NA",
@@ -13470,7 +13478,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/rm2-4a-no-entry-mms-insert-to-be-used-on-multi-message",
     "title": "No Entry (Mms Insert - To Be used on Multi Message Sign panels Only)",
-    "sign_no": "RM2-4(A)",
+    "sign_no": "RM2-4[A]",
     "standard_sign": "Yes",
     "use_by_council": "Yes \u2013 available.",
     "legislative_reference": "NA",
@@ -13490,7 +13498,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm5-5na-temporary-hazard-marker-mms-insert-to-be-used",
     "title": "Temporary Hazard Marker (Mms Insert - To Be used on Multi Message Sign panels Only)",
-    "sign_no": "TM5-5n(A)",
+    "sign_no": "TM5-5n[A]",
     "standard_sign": "No",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -13510,7 +13518,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm5-6a-arrow-marker-mms-insert-to-be-used-on-multi",
     "title": "Arrow Marker (Mms Insert - To Be used on Multi Message Sign panels Only)",
-    "sign_no": "TM5-6(A)",
+    "sign_no": "TM5-6[A]",
     "standard_sign": "Yes",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -13530,7 +13538,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/rm2-6nrb-no-right-turn-symbolic-mms-insert-to-be-used",
     "title": "No Right Turn (Symbolic) (Mms Insert - To Be used on Multi Message Sign panels Only)",
-    "sign_no": "RM2-6n(R)",
+    "sign_no": "RM2-6n(R)[B]",
     "standard_sign": "No",
     "use_by_council": "Yes \u2013 available.",
     "legislative_reference": "NA",
@@ -13550,7 +13558,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/rm2-6nrd-no-right-turn-symbolic-mms-insert-to-be-used",
     "title": "No Right Turn (Symbolic) (Mms Insert - To Be used on Multi Message Sign panels Only)",
-    "sign_no": "RM2-6n(R)",
+    "sign_no": "RM2-6n(R)[D]",
     "standard_sign": "No",
     "use_by_council": "Yes \u2013 available.",
     "legislative_reference": "NA",
@@ -13570,7 +13578,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/rm2-6nrc-no-right-turn-symbolic-mms-insert-to-be-used",
     "title": "No Right Turn (Symbolic) (Mms Insert - To Be used on Multi Message Sign panels Only)",
-    "sign_no": "RM2-6n(R)",
+    "sign_no": "RM2-6n(R)[C]",
     "standard_sign": "No",
     "use_by_council": "Yes \u2013 available.",
     "legislative_reference": "NA",
@@ -13590,7 +13598,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/rm2-6nlb-no-left-turn-symbolic-mms-insert-to-be-used",
     "title": "No Left Turn (Symbolic) (Mms Insert - To Be used on Multi Message Sign panels Only)",
-    "sign_no": "RM2-6n(L)",
+    "sign_no": "RM2-6n(L)[B]",
     "standard_sign": "No",
     "use_by_council": "Yes \u2013 available.",
     "legislative_reference": "NA",
@@ -13610,7 +13618,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/rm2-6nld-no-left-turn-symbolic-mms-insert-to-be-used",
     "title": "No Left Turn (Symbolic) (Mms Insert - To Be used on Multi Message Sign panels Only)",
-    "sign_no": "RM2-6n(L)",
+    "sign_no": "RM2-6n(L)[D]",
     "standard_sign": "No",
     "use_by_council": "Yes \u2013 available.",
     "legislative_reference": "NA",
@@ -13630,7 +13638,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/rm2-6nlc-no-left-turn-symbolic-mms-insert-to-be-used",
     "title": "No Left Turn (Symbolic) (Mms Insert - To Be used on Multi Message Sign panels Only)",
-    "sign_no": "RM2-6n(L)",
+    "sign_no": "RM2-6n(L)[C]",
     "standard_sign": "No",
     "use_by_council": "Yes \u2013 available.",
     "legislative_reference": "NA",
@@ -13650,7 +13658,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/rm2-7na-no-turns-symbolic-only-mms-insert-to-be-used",
     "title": "No Turns (Symbolic) Only (Mms Insert - To Be used on Multi Message Sign panels Only)",
-    "sign_no": "RM2-7n(A)",
+    "sign_no": "RM2-7n[A]",
     "standard_sign": "No",
     "use_by_council": "Yes \u2013 available.",
     "legislative_reference": "NA",
@@ -13670,7 +13678,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tm5-1ndr-detour-arrow-right-mms-insert-to-be-used-on",
     "title": "Detour (Arrow Right) (Mms Insert - To Be used on Multi Message Sign panels Only)",
-    "sign_no": "TM5-1n(D)",
+    "sign_no": "TM5-1n(R)[D]",
     "standard_sign": "No",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -13690,7 +13698,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/rm2-7nc-no-turns-symbolic-only-mms-insert-to-be-used",
     "title": "No Turns (Symbolic) Only (Mms Insert - To Be used on Multi Message Sign panels Only)",
-    "sign_no": "RM2-7n(C)",
+    "sign_no": "RM2-7n[C]",
     "standard_sign": "No",
     "use_by_council": "Yes \u2013 available.",
     "legislative_reference": "NA",
@@ -13710,7 +13718,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/rm6-1nd-no-overtaking-or-passing-mms-insert-to-be-used",
     "title": "No Overtaking Or Passing (Mms Insert - To Be used on Multi Message Sign panels Only)",
-    "sign_no": "RM6-1n(D)",
+    "sign_no": "RM6-1n[D]",
     "standard_sign": "No",
     "use_by_council": "Yes \u2013 available.",
     "legislative_reference": "NA",
@@ -13730,7 +13738,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/rm6-1c-no-overtaking-or-passing-mms-insert-to-be-used",
     "title": "No Overtaking Or Passing (Mms Insert - To Be used on Multi Message Sign panels Only)",
-    "sign_no": "RM6-1(C)",
+    "sign_no": "RM6-1[C]",
     "standard_sign": "Yes",
     "use_by_council": "Yes \u2013 available.",
     "legislative_reference": "NA",
@@ -13750,7 +13758,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/rm9-9d-one-lane-mms-insert-to-be-used-on-multi-message",
     "title": "One Lane (Mms Insert - To Be used on Multi Message Sign panels Only)",
-    "sign_no": "RM9-9(D)",
+    "sign_no": "RM9-9[D]",
     "standard_sign": "No",
     "use_by_council": "Yes \u2013 available.",
     "legislative_reference": "NA",
@@ -13770,7 +13778,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/rm9-9a-one-lane-mms-insert-to-be-used-on-multi-message",
     "title": "One Lane (Mms Insert - To Be used on Multi Message Sign panels Only)",
-    "sign_no": "RM9-9(A)",
+    "sign_no": "RM9-9[A]",
     "standard_sign": "No",
     "use_by_council": "Yes \u2013 available.",
     "legislative_reference": "NA",
@@ -13880,7 +13888,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/rm4-212nd-speed-restriction-road-work-mms-insert-to-be",
     "title": "Speed Restriction Road Work (Mms Insert - To Be used on Multi Message Sign panels Only)",
-    "sign_no": "RM4-212n(D)",
+    "sign_no": "RM4-212n[D]",
     "standard_sign": "Yes",
     "use_by_council": "Yes \u2013 available.",
     "legislative_reference": "NA",
@@ -13900,7 +13908,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/rm2-7nd-no-turns-symbolic-only-mms-insert-to-be-used",
     "title": "No Turns (Symbolic) Only (Mms Insert - To Be used on Multi Message Sign panels Only)",
-    "sign_no": "RM2-7n(D)",
+    "sign_no": "RM2-7n[D]",
     "standard_sign": "No",
     "use_by_council": "Yes \u2013 available.",
     "legislative_reference": "NA",
@@ -13920,7 +13928,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/rm2-7nb-no-turns-symbolic-only-mms-insert-to-be-used",
     "title": "No Turns (Symbolic) Only (Mms Insert - To Be used on Multi Message Sign panels Only)",
-    "sign_no": "RM2-7n(B)",
+    "sign_no": "RM2-7n[B]",
     "standard_sign": "No",
     "use_by_council": "Yes \u2013 available.",
     "legislative_reference": "NA",
@@ -14099,7 +14107,7 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/w1-8-5-tilting-truck-symbolic-hairpin-bend-w1-7",
-    "title": "Tilting Truck (Symbolic) with Hairpin Bend (W1-7 Symbolic) &amp; Speed (Left or Right)",
+    "title": "Tilting Truck (Symbolic) with Hairpin Bend (W1-7 Symbolic) & Speed (Left or Right)",
     "sign_no": "W1-8-5",
     "standard_sign": "Yes",
     "use_by_council": "Yes \u2013 available.",
@@ -14119,7 +14127,7 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/w1-8-4-tilting-truck-symbolic-reverse-curve-w1-4",
-    "title": "Tilting Truck (Symbolic) with Reverse Curve (W1-4 Symbolic) &amp; Speed (Left or Right)",
+    "title": "Tilting Truck (Symbolic) with Reverse Curve (W1-4 Symbolic) & Speed (Left or Right)",
     "sign_no": "W1-8-4",
     "standard_sign": "Yes",
     "use_by_council": "Yes \u2013 available.",
@@ -14139,7 +14147,7 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/w1-8-2-tilting-truck-symbolic-curve-w1-3-symbolic",
-    "title": "Tilting Truck (Symbolic) with Curve (W1-3 Symbolic) &amp; Speed (Left or Right)",
+    "title": "Tilting Truck (Symbolic) with Curve (W1-3 Symbolic) & Speed (Left or Right)",
     "sign_no": "W1-8-2",
     "standard_sign": "Yes",
     "use_by_council": "Yes \u2013 available.",
@@ -14159,7 +14167,7 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/w1-8-3-tilting-truck-symbolic-turn-w1-1-symbolic-speed",
-    "title": "Tilting Truck (Symbolic) with Turn (W1-1 Symbolic) &amp; Speed (Left or Right)",
+    "title": "Tilting Truck (Symbolic) with Turn (W1-1 Symbolic) & Speed (Left or Right)",
     "sign_no": "W1-8-3",
     "standard_sign": "Yes",
     "use_by_council": "Yes \u2013 available.",
@@ -14179,7 +14187,7 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/w1-8-1-tilting-truck-symbolic-speed-left-or-right",
-    "title": "Tilting Truck (Symbolic) &nbsp;&amp; Speed (Left or Right)",
+    "title": "Tilting Truck (Symbolic) & Speed (Left or Right)",
     "sign_no": "W1-8-1",
     "standard_sign": "Yes",
     "use_by_council": "Yes \u2013 available.",
@@ -14255,7 +14263,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/wm3-2nd-give-way-sign-ahead-symbolic-mms-insert-to-be",
     "title": "Give Way Sign Ahead (Symbolic) (Mms Insert - To Be used on Multi Message Sign panels Only)",
-    "sign_no": "WM3-2n(D)",
+    "sign_no": "WM3-2n[D]",
     "standard_sign": "No",
     "use_by_council": "Yes \u2013 available.",
     "legislative_reference": "NA",
@@ -14275,7 +14283,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/wm3-2a-give-way-sign-ahead-symbolic-mms-insert-to-be",
     "title": "Give Way Sign Ahead (Symbolic) (Mms Insert - To Be used on Multi Message Sign panels Only)",
-    "sign_no": "WM3-2(A)",
+    "sign_no": "WM3-2[A]",
     "standard_sign": "Yes",
     "use_by_council": "Yes \u2013 available.",
     "legislative_reference": "NA",
@@ -14827,14 +14835,14 @@
         "w": "600"
       },
       {
-        "label": "&nbsp;",
-        "h": "&nbsp;",
-        "w": "&nbsp;"
+        "label": "",
+        "h": "",
+        "w": ""
       },
       {
-        "label": "&nbsp;",
-        "h": "&nbsp;",
-        "w": "&nbsp;"
+        "label": "",
+        "h": "",
+        "w": ""
       }
     ],
     "image_url": "https://www.transport.nsw.gov.au/sites/default/files/media/images/rww/business-industry/partners-suppliers/signage/trafficsigns/images/d4-1-2_thumb.gif",
@@ -14926,7 +14934,7 @@
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/d4-4-sighting-screen-no-longer-used-use-2-x-d4-1-1",
     "title": "Sighting Screen (No Longer used - Use 2 x D4-1-1)",
     "sign_no": "D4-4",
-    "standard_sign": "&nbsp;",
+    "standard_sign": "",
     "use_by_council": "Unavailable.",
     "legislative_reference": "NA",
     "primary_technical_reference": "No longer used",
@@ -15449,7 +15457,7 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/g11-209n-tourist-attraction-name-tourist-symbols-turn",
-    "title": "Tourist Attraction name + Tourist symbols + Turn Right (Left) &nbsp;(xxx)m (example only",
+    "title": "Tourist Attraction name + Tourist symbols + Turn Right (Left) (xxx)m (example only",
     "sign_no": "G11-209n",
     "standard_sign": "Yes",
     "use_by_council": "Yes \u2013 available.",
@@ -15879,7 +15887,7 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/w5-240-1n-prepare-to-stop-stock-symbolic-flashing",
-    "title": "Prepare To Stop (Stock symbolic)&nbsp; (with flashing lights)",
+    "title": "Prepare To Stop (Stock symbolic) (with flashing lights)",
     "sign_no": "W5-240-1n",
     "standard_sign": "No",
     "use_by_council": "Yes \u2013 available.",
@@ -16824,7 +16832,7 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/w5-53-horse-rider-symbolic",
-    "title": "Horse &amp; Rider (Symbolic)",
+    "title": "Horse & Rider (Symbolic)",
     "sign_no": "W5-53",
     "standard_sign": "Yes",
     "use_by_council": "Yes \u2013 available.",
@@ -17275,7 +17283,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/w7-13l-railway-crossing-ahead-diagrammatic-crossing-on",
     "title": "W7-13(L) - Railway Crossing Ahead Diagrammatic - Crossing On Cross Road (L illustrated)",
-    "sign_no": "W7-13(L)&NBSP;",
+    "sign_no": "W7-13(L)",
     "standard_sign": "Yes",
     "use_by_council": "Yes \u2013 available.",
     "legislative_reference": "NA",
@@ -17424,7 +17432,7 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/w7-14-4-railway-crossing-pedestrian-warning-look-for",
-    "title": "Railway Crossing Pedestrian Warning Look For Trains (symbolic) (number) Tracks (2 illustrated)&nbsp;",
+    "title": "Railway Crossing Pedestrian Warning Look For Trains (symbolic) (number) Tracks (2 illustrated)",
     "sign_no": "W7-14-4",
     "standard_sign": "Yes",
     "use_by_council": "Yes \u2013 available.",
@@ -17910,7 +17918,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/w7-7r-railway-crossing-ahead-passive-control-r",
     "title": "Railway Crossing Ahead (Passive Control) (R illustrated)",
-    "sign_no": "W7-7(R)&NBSP;",
+    "sign_no": "W7-7(R)",
     "standard_sign": "Yes",
     "use_by_council": "Yes \u2013 available.",
     "legislative_reference": "NA",
@@ -18575,7 +18583,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/w8-236nl-left-turn-symbolic-supplementary-plate",
     "title": "Left Turn (Symbolic) Supplementary Plate",
-    "sign_no": "W8-236n(L)&NBSP;",
+    "sign_no": "W8-236n(L)",
     "standard_sign": "No",
     "use_by_council": "Yes \u2013 available.",
     "legislative_reference": "NA",
@@ -19174,7 +19182,7 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/g2-5-major-intersection-direction-narrow-format-road",
-    "title": "Major Intersection Direction - narrow format -road name &amp; destination &amp; route marker (example only)",
+    "title": "Major Intersection Direction - narrow format -road name & destination & route marker (example only)",
     "sign_no": "G2-5",
     "standard_sign": "Yes",
     "use_by_council": "Yes \u2013 available.",
@@ -19356,7 +19364,7 @@
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/maximum-loaded-weight-for-all-vehicles-tonnes-period",
     "title": "Maximum Loaded Weight For All Vehicles __ Tonnes Period From ____ To ____ (No longer used)",
     "sign_no": "R6-205",
-    "standard_sign": "&nbsp;",
+    "standard_sign": "",
     "use_by_council": "Unavailable.",
     "legislative_reference": "NA",
     "primary_technical_reference": "No longer used",
@@ -19461,7 +19469,7 @@
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/r2-218n-weekends-and-public-holidays-no-longer-used",
     "title": "Weekends And Public Holidays (No longer used)",
     "sign_no": "R2-218n",
-    "standard_sign": "&nbsp;",
+    "standard_sign": "",
     "use_by_council": "Unavailable.",
     "legislative_reference": "NA",
     "primary_technical_reference": "No longer used",
@@ -19562,9 +19570,9 @@
         "w": "900"
       },
       {
-        "label": "&nbsp;",
-        "h": "&nbsp;",
-        "w": "&nbsp;"
+        "label": "",
+        "h": "",
+        "w": ""
       }
     ],
     "image_url": "https://www.transport.nsw.gov.au/sites/default/files/media/images/2025/w6-14-1.png",
@@ -19602,7 +19610,7 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/w6-14-2-r-priority-path-crossing-ahead-right-angled",
-    "title": "Priority Path Crossing Ahead (Right angled arrow symbolic)&nbsp;",
+    "title": "Priority Path Crossing Ahead (Right angled arrow symbolic)",
     "sign_no": "W6-14-2(R)",
     "standard_sign": "Yes",
     "use_by_council": "Yes \u2013 available.",
@@ -19625,9 +19633,9 @@
         "w": "900"
       },
       {
-        "label": "&nbsp;",
-        "h": "&nbsp;",
-        "w": "&nbsp;"
+        "label": "",
+        "h": "",
+        "w": ""
       }
     ],
     "image_url": "https://www.transport.nsw.gov.au/sites/default/files/media/images/2025/w6-14-2%28R%29.png",
@@ -19637,7 +19645,7 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/w6-14-2-l-priority-path-crossing-ahead-left-angled-0",
-    "title": "Priority Path Crossing Ahead (Left angled arrow symbolic)&nbsp;",
+    "title": "Priority Path Crossing Ahead (Left angled arrow symbolic)",
     "sign_no": "W6-14-2(L)",
     "standard_sign": "Yes",
     "use_by_council": "Yes \u2013 available.",
@@ -19660,9 +19668,9 @@
         "w": "900"
       },
       {
-        "label": "&nbsp;",
-        "h": "&nbsp;",
-        "w": "&nbsp;"
+        "label": "",
+        "h": "",
+        "w": ""
       }
     ],
     "image_url": "https://www.transport.nsw.gov.au/sites/default/files/media/images/2025/w6-14-2%28L%29.png",
@@ -19672,7 +19680,7 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/w6-14-3-r-priority-path-crossing-ahead-right-arrow",
-    "title": "Priority Path Crossing Ahead (Right arrow symbolic)&nbsp;",
+    "title": "Priority Path Crossing Ahead (Right arrow symbolic)",
     "sign_no": "W6-14-3(R)",
     "standard_sign": "Yes",
     "use_by_council": "Yes \u2013 available.",
@@ -19695,9 +19703,9 @@
         "w": "900"
       },
       {
-        "label": "&nbsp;",
-        "h": "&nbsp;",
-        "w": "&nbsp;"
+        "label": "",
+        "h": "",
+        "w": ""
       }
     ],
     "image_url": "https://www.transport.nsw.gov.au/sites/default/files/media/images/2025/w6-14-3%28R%29.png",
@@ -19707,7 +19715,7 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/w6-14-3-l-priority-path-crossing-ahead-left-arrow",
-    "title": "Priority Path Crossing Ahead (Left arrow symbolic)&nbsp;",
+    "title": "Priority Path Crossing Ahead (Left arrow symbolic)",
     "sign_no": "W6-14-3(L)",
     "standard_sign": "Yes",
     "use_by_council": "Yes \u2013 available.",
@@ -19730,9 +19738,9 @@
         "w": "900"
       },
       {
-        "label": "&nbsp;",
-        "h": "&nbsp;",
-        "w": "&nbsp;"
+        "label": "",
+        "h": "",
+        "w": ""
       }
     ],
     "image_url": "https://www.transport.nsw.gov.au/sites/default/files/media/images/2025/w6-14-3%28L%29.png",
@@ -19765,9 +19773,9 @@
         "w": "900"
       },
       {
-        "label": "&nbsp;",
-        "h": "&nbsp;",
-        "w": "&nbsp;"
+        "label": "",
+        "h": "",
+        "w": ""
       }
     ],
     "image_url": "https://www.transport.nsw.gov.au/sites/default/files/media/images/2025/w6-5-2%28R%29.png",
@@ -19800,9 +19808,9 @@
         "w": "900"
       },
       {
-        "label": "&nbsp;",
-        "h": "&nbsp;",
-        "w": "&nbsp;"
+        "label": "",
+        "h": "",
+        "w": ""
       }
     ],
     "image_url": "https://www.transport.nsw.gov.au/sites/default/files/media/images/2025/w6-2-2%28R%29.png",
@@ -19835,9 +19843,9 @@
         "w": "900"
       },
       {
-        "label": "&nbsp;",
-        "h": "&nbsp;",
-        "w": "&nbsp;"
+        "label": "",
+        "h": "",
+        "w": ""
       }
     ],
     "image_url": "https://www.transport.nsw.gov.au/sites/default/files/media/images/2025/w6-5-2%28L%29.png",
@@ -19870,9 +19878,9 @@
         "w": "900"
       },
       {
-        "label": "&nbsp;",
-        "h": "&nbsp;",
-        "w": "&nbsp;"
+        "label": "",
+        "h": "",
+        "w": ""
       }
     ],
     "image_url": "https://www.transport.nsw.gov.au/sites/default/files/media/images/2025/w6-2-2%28L%29.png",
@@ -19905,9 +19913,9 @@
         "w": "900"
       },
       {
-        "label": "&nbsp;",
-        "h": "&nbsp;",
-        "w": "&nbsp;"
+        "label": "",
+        "h": "",
+        "w": ""
       }
     ],
     "image_url": "https://www.transport.nsw.gov.au/sites/default/files/media/images/2025/w6-2-3%28R%29.png",
@@ -19940,9 +19948,9 @@
         "w": "900"
       },
       {
-        "label": "&nbsp;",
-        "h": "&nbsp;",
-        "w": "&nbsp;"
+        "label": "",
+        "h": "",
+        "w": ""
       }
     ],
     "image_url": "https://www.transport.nsw.gov.au/sites/default/files/media/images/2025/w6-5-3%28R%29.png",
@@ -19975,9 +19983,9 @@
         "w": "900"
       },
       {
-        "label": "&nbsp;",
-        "h": "&nbsp;",
-        "w": "&nbsp;"
+        "label": "",
+        "h": "",
+        "w": ""
       }
     ],
     "image_url": "https://www.transport.nsw.gov.au/sites/default/files/media/images/2025/w6-2-3%28L%29.png",
@@ -19987,7 +19995,7 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/w6-5-1-children%E2%80%99s-crossing-ahead-symbolic",
-    "title": "Children\u2019s Crossing Ahead (Symbolic)&nbsp;",
+    "title": "Children\u2019s Crossing Ahead (Symbolic)",
     "sign_no": "W6-5-1",
     "standard_sign": "Yes",
     "use_by_council": "Yes \u2013 available.",
@@ -20010,9 +20018,9 @@
         "w": "900"
       },
       {
-        "label": "&nbsp;",
-        "h": "&nbsp;",
-        "w": "&nbsp;"
+        "label": "",
+        "h": "",
+        "w": ""
       }
     ],
     "image_url": "https://www.transport.nsw.gov.au/sites/default/files/media/images/2025/w6-5-1.png",
@@ -20040,14 +20048,14 @@
         "w": "500"
       },
       {
-        "label": "&nbsp;",
-        "h": "&nbsp;",
-        "w": "&nbsp;"
+        "label": "",
+        "h": "",
+        "w": ""
       },
       {
-        "label": "&nbsp;",
-        "h": "&nbsp;",
-        "w": "&nbsp;"
+        "label": "",
+        "h": "",
+        "w": ""
       }
     ],
     "image_url": "https://www.transport.nsw.gov.au/sites/default/files/media/images/2025/w8-32.png",
@@ -20057,7 +20065,7 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/w8-31-raised-crossing",
-    "title": "Raised Crossing&nbsp;",
+    "title": "Raised Crossing",
     "sign_no": "W8-31",
     "standard_sign": "Yes",
     "use_by_council": "Yes \u2013 available.",
@@ -20080,9 +20088,9 @@
         "w": "900"
       },
       {
-        "label": "&nbsp;",
-        "h": "&nbsp;",
-        "w": "&nbsp;"
+        "label": "",
+        "h": "",
+        "w": ""
       }
     ],
     "image_url": "https://www.transport.nsw.gov.au/sites/default/files/media/images/2025/w8-31.png",
@@ -20105,19 +20113,19 @@
         "w": "1300"
       },
       {
-        "label": "&nbsp;",
-        "h": "&nbsp;",
-        "w": "&nbsp;"
+        "label": "",
+        "h": "",
+        "w": ""
       },
       {
-        "label": "&nbsp;",
-        "h": "&nbsp;",
-        "w": "&nbsp;"
+        "label": "",
+        "h": "",
+        "w": ""
       },
       {
-        "label": "&nbsp;",
-        "h": "&nbsp;",
-        "w": "&nbsp;"
+        "label": "",
+        "h": "",
+        "w": ""
       }
     ],
     "image_url": "https://www.transport.nsw.gov.au/sites/default/files/media/images/rww/business-industry/partners-suppliers/signage/trafficsigns/images/w3-205_thumb.gif",
@@ -20207,7 +20215,7 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/w6-9-bicycle-pedestrian-symbolic",
-    "title": "Bicycle / Pedestrian &nbsp;(symbolic)",
+    "title": "Bicycle / Pedestrian (symbolic)",
     "sign_no": "W6-9",
     "standard_sign": "Yes",
     "use_by_council": "Yes \u2013 available.",
@@ -20693,7 +20701,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/rm4-12a-end-speed-limit-mms-insert-to-be-used-on-multi",
     "title": "End Speed Limit (Mms Insert - To Be used on Multi Message Sign panels Only)",
-    "sign_no": "RM4-12(A)",
+    "sign_no": "RM4-12[A]",
     "standard_sign": "Yes",
     "use_by_council": "No \u2013 restricted. Any use requires written authorisation from Transport for NSW.",
     "legislative_reference": "NA",
@@ -20713,7 +20721,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/rm4-1d-speed-limit-mms-insert-to-be-used-on-multi",
     "title": "Speed Limit (Mms Insert - To Be used on Multi Message Sign panels Only)",
-    "sign_no": "RM4-1(D)",
+    "sign_no": "RM4-1[D]",
     "standard_sign": "No",
     "use_by_council": "No \u2013 restricted. Any use requires written authorisation from Transport for NSW.",
     "legislative_reference": "NA",
@@ -20733,7 +20741,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/rm4-1b-speed-limit-mms-insert-to-be-used-on-multi",
     "title": "Speed Limit (Mms Insert - To Be used on Multi Message Sign panels Only)",
-    "sign_no": "RM4-1(B)",
+    "sign_no": "RM4-1[B]",
     "standard_sign": "No",
     "use_by_council": "No \u2013 restricted. Any use requires written authorisation from Transport for NSW.",
     "legislative_reference": "NA",
@@ -20778,7 +20786,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/g6-364n-speed-limit-symbolic-variable-speed-limit",
     "title": "Speed Limit (symbolic) Variable Speed Limit Ahead",
-    "sign_no": "G6-364N&NBSP;",
+    "sign_no": "G6-364n",
     "standard_sign": "No",
     "use_by_council": "No \u2013 restricted. Any use requires written authorisation from Transport for NSW.",
     "legislative_reference": "NA",
@@ -20798,7 +20806,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/rm4-12b-end-speed-limit-mms-insert-to-be-used-on-multi",
     "title": "End Speed Limit (Mms Insert - To Be used on Multi Message Sign panels Only)",
-    "sign_no": "RM4-12(B)",
+    "sign_no": "RM4-12[B]",
     "standard_sign": "Yes",
     "use_by_council": "No \u2013 restricted. Any use requires written authorisation from Transport for NSW.",
     "legislative_reference": "NA",
@@ -20818,7 +20826,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/rm4-1c-speed-limit-mms-insert-to-be-used-on-multi",
     "title": "Speed Limit (Mms Insert - To Be used on Multi Message Sign panels Only)",
-    "sign_no": "RM4-1(C)",
+    "sign_no": "RM4-1[C]",
     "standard_sign": "No",
     "use_by_council": "No \u2013 restricted. Any use requires written authorisation from Transport for NSW.",
     "legislative_reference": "NA",
@@ -21050,7 +21058,7 @@
     "primary_technical_reference": "Project Specific",
     "sizes": [
       {
-        "label": "&nbsp;",
+        "label": "",
         "h": "2750",
         "w": "2750"
       }
@@ -21182,7 +21190,7 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/g6-200-1n-safe-t-cam-managing-speed-fatigue",
-    "title": "Safe-T-Cam Managing Speed &amp; Fatigue",
+    "title": "Safe-T-Cam Managing Speed & Fatigue",
     "sign_no": "G6-200-1n",
     "standard_sign": "No",
     "use_by_council": "Specific circumstances only. Contact Transport for NSW.",
@@ -21402,7 +21410,7 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/g6-345-1n-truck-noise-camera-compression-brake-noise",
-    "title": "&nbsp;(Truck Noise + Camera) Compression Brake Noise Camera Ahead",
+    "title": "(Truck Noise + Camera) Compression Brake Noise Camera Ahead",
     "sign_no": "G6-345-1n",
     "standard_sign": "No",
     "use_by_council": null,
@@ -21422,7 +21430,7 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/g6-344n-truck-noise-camera-symbolic-noise-limits-are",
-    "title": "&nbsp;(Truck Noise +Camera Symbolic) Noise Limits Are Enforceable",
+    "title": "(Truck Noise +Camera Symbolic) Noise Limits Are Enforceable",
     "sign_no": "G6-344n",
     "standard_sign": "No",
     "use_by_council": null,
@@ -21789,7 +21797,7 @@
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/r2-209n-keep-left-vertical-marker-superseded-use-r2-3",
     "title": "Keep Left (vertical marker) Superseded use R2-3 size AA(L)",
     "sign_no": "R2-209n",
-    "standard_sign": "&nbsp;",
+    "standard_sign": "",
     "use_by_council": "Unavailable",
     "legislative_reference": "NA",
     "primary_technical_reference": "NA",
@@ -21809,7 +21817,7 @@
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/r2-18-no-stopping-on-freeway-superseded-use-g9-70",
     "title": "No Stopping On Freeway (Superseded use G9-70)",
     "sign_no": "R2-18",
-    "standard_sign": "&nbsp;",
+    "standard_sign": "",
     "use_by_council": "Unavailable",
     "legislative_reference": "NA",
     "primary_technical_reference": "Superseded (Use G9-70)",
@@ -21847,7 +21855,7 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/r5-46-clearway-specific-times-not-used-nsw-use-r5-215n",
-    "title": "Clearway with specific times (not used in NSW - use R5-215n or R5-216n or R5-217n)&nbsp;",
+    "title": "Clearway with specific times (not used in NSW - use R5-215n or R5-216n or R5-217n)",
     "sign_no": "R5-46",
     "standard_sign": "Yes",
     "use_by_council": "Unavailable",
@@ -21869,7 +21877,7 @@
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/r5-50-clearway-times-examples-only-not-used-nsw-use-r5",
     "title": "Clearway (with times) (Examples Only) (Not used in NSW - use R5-650n)",
     "sign_no": "R5-50",
-    "standard_sign": "&nbsp;",
+    "standard_sign": "",
     "use_by_council": "Unavailable",
     "legislative_reference": "NA",
     "primary_technical_reference": "Not Used in NSW",
@@ -21889,7 +21897,7 @@
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/r7-1-1-bus-symbol-lane-not-used-nsw-use-r7-1-1-1n-to",
     "title": "Bus (symbol) Lane (Not Used in NSW Use R7-1-1-1n to R7-1-1-7n Series)",
     "sign_no": "R7-1-1",
-    "standard_sign": "&nbsp;",
+    "standard_sign": "",
     "use_by_council": "Unavailable",
     "legislative_reference": "NA",
     "primary_technical_reference": "Not Used in NSW",
@@ -21923,7 +21931,7 @@
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/r5-22-permit-zone-times-not-used-nsw",
     "title": "Permit Zone (with times) (Not used in NSW)",
     "sign_no": "R5-22",
-    "standard_sign": "&nbsp;",
+    "standard_sign": "",
     "use_by_council": "Unavailable",
     "legislative_reference": "NA",
     "primary_technical_reference": "Not Used in NSW",
@@ -21943,7 +21951,7 @@
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/r2-213n-no-left-turn-on-red-no-longer-used",
     "title": "No Left Turn On Red (No longer used)",
     "sign_no": "R2-213",
-    "standard_sign": "&nbsp;",
+    "standard_sign": "",
     "use_by_council": "Unavailable",
     "legislative_reference": "NA",
     "primary_technical_reference": "No longer used",
@@ -22176,7 +22184,7 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/r5-1-13n-parking-1p-10p-times-various-mon-fri-sat-sun",
-    "title": "Parking (1p-10p) Times (Various) Mon-Fri Sat-Sun Electric Vehicles&nbsp;While Charging Only (Left, Right or Repeater) (Example Only)",
+    "title": "Parking (1p-10p) Times (Various) Mon-Fri Sat-Sun Electric Vehicles While Charging Only (Left, Right or Repeater) (Example Only)",
     "sign_no": "R5-1-13n",
     "standard_sign": "No",
     "use_by_council": "Yes \u2013 available.",
@@ -22196,7 +22204,7 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/r5-1-12n-parking-1p-10p-times-various-mon-fri-electric",
-    "title": "Parking (1p-10p) Times (Various) Mon-Fri Electric Vehicles&nbsp;While Charging Only (Left, Right or Repeater) (Example Only)",
+    "title": "Parking (1p-10p) Times (Various) Mon-Fri Electric Vehicles While Charging Only (Left, Right or Repeater) (Example Only)",
     "sign_no": "R5-1-12n",
     "standard_sign": "No",
     "use_by_council": "Yes \u2013 available.",
@@ -22367,7 +22375,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/r4-1nvms-speed-restriction-60-illustrated-vms-panel",
     "title": "Speed Restriction (60 Illustrated) Vms Panel (Temporary Traffic Management Use Only)",
-    "sign_no": "R4-1N_VMS",
+    "sign_no": "R4-1n",
     "standard_sign": "No",
     "use_by_council": "Yes \u2013 available.",
     "legislative_reference": "NA",
@@ -22382,7 +22390,10 @@
     "image_url": "https://www.transport.nsw.gov.au/sites/default/files/media/images/rww/business-industry/partners-suppliers/signage/trafficsigns/images/r4-1n_vms_thumb.gif",
     "pdf_url": "https://www.transport.nsw.gov.au/sites/default/files/media/documents/rww//business-industry/partners-suppliers/signage/trafficsigns/pdf/r4-1n_vms.pdf",
     "height": "900",
-    "width": "1200"
+    "width": "1200",
+    "normalization_metadata": {
+      "notes": "_VMS"
+    }
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/r4-201-2n-complex-intersection-supplementary-plate-to",
@@ -22457,7 +22468,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/r4-212nvms-speed-restriction-60-illustrated-road-work",
     "title": "Speed Restriction (60 Illustrated) Road Work Vms Panel (Temporary Traffic Management Use Only)",
-    "sign_no": "R4-212N_VMS",
+    "sign_no": "R4-212n",
     "standard_sign": "No",
     "use_by_council": "Yes \u2013 available.",
     "legislative_reference": "NA",
@@ -22472,7 +22483,10 @@
     "image_url": "https://www.transport.nsw.gov.au/sites/default/files/media/images/rww/business-industry/partners-suppliers/signage/trafficsigns/images/r4-212n_vms_thumb.gif",
     "pdf_url": "https://www.transport.nsw.gov.au/sites/default/files/media/documents/rww//business-industry/partners-suppliers/signage/trafficsigns/pdf/r4-212n_vms.pdf",
     "height": "900",
-    "width": "1200"
+    "width": "1200",
+    "normalization_metadata": {
+      "notes": "_VMS"
+    }
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/r4-201-3n-winding-road-supplementary-plate-to-be-used",
@@ -22551,7 +22565,7 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/r5-1-14n-parking-1p-10p-meter-times-various-mon-fri",
-    "title": "Parking (1p-10p) (Meter) Times (Various) Mon-Fri Electric Vehicles While Charging Only (Left, Right or Repeater) (Example Only)&nbsp;",
+    "title": "Parking (1p-10p) (Meter) Times (Various) Mon-Fri Electric Vehicles While Charging Only (Left, Right or Repeater) (Example Only)",
     "sign_no": "R5-1-14n",
     "standard_sign": "No",
     "use_by_council": "Yes \u2013 available.",
@@ -22606,7 +22620,7 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/r5-12-parking-2-minute-example-only",
-    "title": "Parking (2 Minute) (Example Only)&nbsp;",
+    "title": "Parking (2 Minute) (Example Only)",
     "sign_no": "R5-12",
     "standard_sign": "Yes",
     "use_by_council": "Yes \u2013 available.",
@@ -22711,7 +22725,7 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/r5-14-parking-10-minute-example-only",
-    "title": "Parking (10 Minute) (Example Only)&nbsp;",
+    "title": "Parking (10 Minute) (Example Only)",
     "sign_no": "R5-14",
     "standard_sign": "Yes",
     "use_by_council": "Yes \u2013 available.",
@@ -22921,7 +22935,7 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/r5-207-1n-unless-other-parking-laws-apply-for-use-r5",
-    "title": "Unless Other Parking Laws Apply (for use with R5-61-4n &amp; R5-62-4n)",
+    "title": "Unless Other Parking Laws Apply (for use with R5-61-4n & R5-62-4n)",
     "sign_no": "R5-207-1n",
     "standard_sign": "Yes",
     "use_by_council": "Yes \u2013 available.",
@@ -22954,7 +22968,7 @@
     "primary_technical_reference": "For use with R5-60-4n",
     "sizes": [
       {
-        "label": "&nbsp;",
+        "label": "",
         "h": "462",
         "w": "2000"
       }
@@ -22991,7 +23005,7 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/r5-201-1n-except-as-signed-for-use-r5-61-r5-81-series",
-    "title": "Except As Signed (For use with R5-61 &amp; R5-81 series)",
+    "title": "Except As Signed (For use with R5-61 & R5-81 series)",
     "sign_no": "R5-201-1n",
     "standard_sign": "Yes",
     "use_by_council": "Yes \u2013 available.",
@@ -23141,7 +23155,7 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/r5-310-3n-bus-lane-am-pm-repeater",
-    "title": "Bus Lane (AM &amp; PM) (Repeater)",
+    "title": "Bus Lane (AM & PM) (Repeater)",
     "sign_no": "R5-310-3n",
     "standard_sign": "No",
     "use_by_council": "Yes \u2013 available.",
@@ -23149,7 +23163,7 @@
     "primary_technical_reference": "NA",
     "sizes": [
       {
-        "label": "&nbsp;",
+        "label": "",
         "h": "225",
         "w": "450"
       }
@@ -23169,7 +23183,7 @@
     "primary_technical_reference": "NA",
     "sizes": [
       {
-        "label": "&nbsp;",
+        "label": "",
         "h": "225",
         "w": "450"
       }
@@ -23189,7 +23203,7 @@
     "primary_technical_reference": "NA",
     "sizes": [
       {
-        "label": "&nbsp;",
+        "label": "",
         "h": "225",
         "w": "450"
       }
@@ -23241,7 +23255,7 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/r5-311-3n-bus-only-lane-am-pm-repeater",
-    "title": "Bus Only Lane (AM &amp; PM) (Repeater)",
+    "title": "Bus Only Lane (AM & PM) (Repeater)",
     "sign_no": "R5-311-3n",
     "standard_sign": "No",
     "use_by_council": "Yes \u2013 available.",
@@ -23281,7 +23295,7 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/r5-403n-no-stopping-830-930am-3-4pm-school-days",
-    "title": "No Stopping 8.30-9.30AM &amp; 3-4PM School Days",
+    "title": "No Stopping 8.30-9.30AM & 3-4PM School Days",
     "sign_no": "R5-403n",
     "standard_sign": "No",
     "use_by_council": "Yes \u2013 available.",
@@ -23301,7 +23315,7 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/r5-40-1n-no-parking-symbolic-electric-vehicles",
-    "title": "No Parking (Symbolic) Electric Vehicles (Symbolic) Excepted While Charging (Left, Right &amp; Repeater)",
+    "title": "No Parking (Symbolic) Electric Vehicles (Symbolic) Excepted While Charging (Left, Right & Repeater)",
     "sign_no": "R5-40-1n",
     "standard_sign": "No",
     "use_by_council": "Yes \u2013 available.",
@@ -23376,7 +23390,7 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/r5-407n-no-stopping-top-plate-example-only",
-    "title": "No Stopping (Top plate)&nbsp;(Example Only)",
+    "title": "No Stopping (Top plate) (Example Only)",
     "sign_no": "R5-407n",
     "standard_sign": "No",
     "use_by_council": "Yes \u2013 available.",
@@ -23431,7 +23445,7 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/r5-40-no-parking-at-any-time-symbolic",
-    "title": "No parking (at any time) (symbolic)&nbsp;",
+    "title": "No parking (at any time) (symbolic)",
     "sign_no": "R5-40",
     "standard_sign": "Yes",
     "use_by_council": "Yes \u2013 available.",
@@ -23501,7 +23515,7 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/r5-40-2n-no-parking-symbolic-electric-vehicles",
-    "title": "No Parking (Symbolic) Electric Vehicles (Symbolic) Excepted (Left, Right &amp; Repeater)",
+    "title": "No Parking (Symbolic) Electric Vehicles (Symbolic) Excepted (Left, Right & Repeater)",
     "sign_no": "R5-40-2n",
     "standard_sign": "No",
     "use_by_council": "Yes \u2013 available.",
@@ -23521,7 +23535,7 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/r5-402n-no-stopping-times-example-only",
-    "title": "No Stopping (with times)&nbsp;(Example Only)",
+    "title": "No Stopping (with times) (Example Only)",
     "sign_no": "R5-402n",
     "standard_sign": "No",
     "use_by_council": "Yes \u2013 available.",
@@ -23576,7 +23590,7 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/r5-446n-no-parking-symbolic-wedding-or-funeral",
-    "title": "No parking (symbolic) Wedding Or Funeral Vehicles Excepted (L, LR &amp; R arrows)",
+    "title": "No parking (symbolic) Wedding Or Funeral Vehicles Excepted (L, LR & R arrows)",
     "sign_no": "R5-446n",
     "standard_sign": "No",
     "use_by_council": "Yes \u2013 available.",
@@ -23611,7 +23625,7 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/r5-501n-angle-parking-front-to-curb-vehicles-under-6m",
-    "title": "Angle Parking (Front to Curb) (Vehicles under 6m Only) (L, LR &amp; R Arrows)",
+    "title": "Angle Parking (Front to Curb) (Vehicles under 6m Only) (L, LR & R Arrows)",
     "sign_no": "R5-501n",
     "standard_sign": "No",
     "use_by_council": "Yes \u2013 available.",
@@ -23636,7 +23650,7 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/r5-500n-angle-parking-rear-to-curb-vehicles-under-6m",
-    "title": "Angle Parking (Rear to Curb) (Vehicles Under 6m Only) (L, LR &amp; R Arrows)",
+    "title": "Angle Parking (Rear to Curb) (Vehicles Under 6m Only) (L, LR & R Arrows)",
     "sign_no": "R5-500n",
     "standard_sign": "No",
     "use_by_council": "Yes \u2013 available.",
@@ -23644,12 +23658,12 @@
     "primary_technical_reference": "AS1742.11 (Parking Controls)",
     "sizes": [
       {
-        "label": "&nbsp;",
+        "label": "",
         "h": "225",
         "w": "450"
       },
       {
-        "label": "&nbsp;",
+        "label": "",
         "h": "300",
         "w": "450"
       }
@@ -23661,7 +23675,7 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/r5-505n-angle-parking-rear-to-curb-l-lr-r-arrows",
-    "title": "Angle Parking (Rear to Curb) (L, LR &amp; R Arrows)",
+    "title": "Angle Parking (Rear to Curb) (L, LR & R Arrows)",
     "sign_no": "R5-505n",
     "standard_sign": "No",
     "use_by_council": "Yes \u2013 available.",
@@ -23826,7 +23840,7 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/r5-553n-truck-parking-area-p-truck-symbolic-only",
-    "title": "Truck Parking Area P (Truck&nbsp;Symbolic) Only",
+    "title": "Truck Parking Area P (Truck Symbolic) Only",
     "sign_no": "R5-553n",
     "standard_sign": "No",
     "use_by_council": "Yes \u2013 available.",
@@ -23887,7 +23901,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/r5-58-emergency-stopping-lane-only-l-or-r",
     "title": "Emergency Stopping Lane Only",
-    "sign_no": "R5-58(L",
+    "sign_no": "R5-58",
     "standard_sign": "No",
     "use_by_council": "Yes \u2013 available.",
     "legislative_reference": "NSW Road Rule 95",
@@ -23902,7 +23916,10 @@
     "image_url": "https://www.transport.nsw.gov.au/sites/default/files/media/images/rww/business-industry/partners-suppliers/signage/trafficsigns/images/r5-58_thumb.gif",
     "pdf_url": null,
     "height": "1100",
-    "width": "1500"
+    "width": "1500",
+    "normalization_metadata": {
+      "notes": "L or R"
+    }
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/r5-6-parking-6-hours-examples-only",
@@ -24121,7 +24138,7 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/r5-41-3n-no-parking-symbolic-times-motor-vehicles",
-    "title": "No Parking (symbolic) (with Times) Motor Vehicles Under 4.5t Excepted (Left,Right &amp; Both arrows)",
+    "title": "No Parking (symbolic) (with Times) Motor Vehicles Under 4.5t Excepted (Left,Right & Both arrows)",
     "sign_no": "R5-41-3n",
     "standard_sign": "No",
     "use_by_council": "Yes \u2013 available.",
@@ -24516,7 +24533,7 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/r5-61-4n-special-event-parking-area-2p-minor-entry",
-    "title": "Special Event Parking Area 2P&nbsp;- Minor entry (Example Only)",
+    "title": "Special Event Parking Area 2P - Minor entry (Example Only)",
     "sign_no": "R5-61-4n",
     "standard_sign": "No",
     "use_by_council": "Yes \u2013 available.",
@@ -24569,7 +24586,7 @@
     "primary_technical_reference": "Contact Traffic Management Centre",
     "sizes": [
       {
-        "label": "&nbsp;",
+        "label": "",
         "h": "300",
         "w": "750"
       }
@@ -24815,13 +24832,13 @@
       },
       {
         "label": "-",
-        "h": "&nbsp;",
-        "w": "&nbsp;"
+        "h": "",
+        "w": ""
       },
       {
         "label": "-",
-        "h": "&nbsp;",
-        "w": "&nbsp;"
+        "h": "",
+        "w": ""
       }
     ],
     "image_url": "https://www.transport.nsw.gov.au/sites/default/files/media/images/2024/r5-80.png",
@@ -24916,7 +24933,7 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/r5-64-area-parking-control-ahead",
-    "title": "Area Parking Control Ahead&nbsp;",
+    "title": "Area Parking Control Ahead",
     "sign_no": "R5-64",
     "standard_sign": "Yes",
     "use_by_council": "Yes \u2013 available.",
@@ -25661,7 +25678,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tram-only-stop-line",
     "title": "-",
-    "sign_no": "TRAM",
+    "sign_no": "Tram Only Stop Line",
     "standard_sign": "No",
     "use_by_council": "No \u2013 restricted. Any use requires written authorisation from Transport for NSW.",
     "legislative_reference": "NA",
@@ -25970,7 +25987,7 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/g6-357n-red-light-speed-camera-ahead-school-zone",
-    "title": "Red Light Speed Camera Ahead / School Zone/&nbsp; Variable Speed Limit Enforced",
+    "title": "Red Light Speed Camera Ahead / School Zone/ Variable Speed Limit Enforced",
     "sign_no": "G6-357n",
     "standard_sign": "No",
     "use_by_council": null,
@@ -26316,7 +26333,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/electric-vehicle-pavement-marking-without-charging",
     "title": "Electric Vehicle Pavement Marking without Charging Restrictions",
-    "sign_no": "ELECTRIC",
+    "sign_no": "Electric Vehicle Pavement Marking without Charging Restrictions",
     "standard_sign": "No",
     "use_by_council": "Yes \u2013 available.",
     "legislative_reference": "NA",
@@ -26336,7 +26353,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/electric-vehicle-pavement-marking-charging",
     "title": "Electric Vehicle Pavement Marking with Charging Restrictions",
-    "sign_no": "ELECTRIC",
+    "sign_no": "Electric Vehicle Pavement Marking with Charging Restrictions",
     "standard_sign": "No",
     "use_by_council": "Yes \u2013 available.",
     "legislative_reference": "NA",
@@ -26356,7 +26373,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tram-only-pavement-marking-signalised-leg",
     "title": "Tram Only Pavement Marking Signalised Leg",
-    "sign_no": "TRAM_ONLY_SIGNALISED_LEG",
+    "sign_no": "tram_only_signalised_leg",
     "standard_sign": "Yes",
     "use_by_council": "No \u2013 restricted. Any use requires written authorisation from Transport for NSW.",
     "legislative_reference": "NA",
@@ -26376,7 +26393,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/bus-stop-b-pole-example-only",
     "title": "Bus Stop B Pole (Example Only)",
-    "sign_no": "BUS_STOP_B_POLE_EXAMPLE_ONLY",
+    "sign_no": "bus_stop_b_pole_example_only",
     "standard_sign": "No",
     "use_by_council": "Specific circumstances only. Contact Transport for NSW.",
     "legislative_reference": "Passenger Transport (General) Regulation 2017, Part7, Division 5, Section 104",
@@ -26396,8 +26413,8 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/tram-only-pavement-marking",
     "title": "Tram Only Pavement Marking",
-    "sign_no": "TRAM",
-    "standard_sign": "&nbsp;",
+    "sign_no": "Tram Only",
+    "standard_sign": "",
     "use_by_council": "No \u2013 restricted. Any use requires written authorisation from Transport for NSW.",
     "legislative_reference": "NA",
     "primary_technical_reference": "NA",
@@ -26416,7 +26433,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/bus-stop-b-pole",
     "title": "Bus Stop B Pole",
-    "sign_no": "BUS_STOP_B_POLE",
+    "sign_no": "bus_stop_b_pole",
     "standard_sign": "Yes",
     "use_by_council": "Specific circumstances only. Contact Transport for NSW.",
     "legislative_reference": "Passenger Transport (General) Regulation 2017, Part7, Division 5, Section 104",
@@ -26436,7 +26453,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/t-way-pavement-marking",
     "title": "T-Way Pavement Marking",
-    "sign_no": "T-WAY",
+    "sign_no": "T-Way Pavement Marking",
     "standard_sign": "No",
     "use_by_council": "No \u2013 restricted. Any use requires written authorisation from Transport for NSW.",
     "legislative_reference": "NA",
@@ -26500,7 +26517,7 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/ge9-23-1-emergency-median-crossing-symbol",
-    "title": "Emergency Median Crossing (symbol)&nbsp;",
+    "title": "Emergency Median Crossing (symbol)",
     "sign_no": "GE9-23-1",
     "standard_sign": "Yes",
     "use_by_council": "Yes \u2013 available.",
@@ -26755,7 +26772,7 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/ge7-8l-pedestrian-indicator-help-phone-symbol-left",
-    "title": "Pedestrian Indicator Help Phone (symbol) (Left&nbsp;&nbsp;Arrow)",
+    "title": "Pedestrian Indicator Help Phone (symbol) (Left Arrow)",
     "sign_no": "GE7-8(L)",
     "standard_sign": "Yes",
     "use_by_council": "Yes \u2013 available.",
@@ -26856,7 +26873,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/rm4-1a-speed-limit-mms-insert-to-be-used-on-multi",
     "title": "Speed Limit (Mms Insert - To Be used on Multi Message Sign panels Only)",
-    "sign_no": "RM4-1(A)",
+    "sign_no": "RM4-1[A]",
     "standard_sign": "Yes",
     "use_by_council": "No \u2013 restricted. Any use requires written authorisation from Transport for NSW.",
     "legislative_reference": "NA",
@@ -27035,7 +27052,7 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/r5-217n-clearway-am-pm-repeater",
-    "title": "Clearway (AM&nbsp;&amp; PM) repeater",
+    "title": "Clearway (AM & PM) repeater",
     "sign_no": "R5-217n",
     "standard_sign": "No",
     "use_by_council": "No \u2013 restricted. Any use requires written authorisation from Transport for NSW.",
@@ -27634,7 +27651,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/rm6-6nd-stop-here-on-red-signal-mms-insert-to-be-used",
     "title": "Stop Here On Red Signal (Mms Insert - To Be used on Multi Message Sign panels Only)",
-    "sign_no": "RM6-6n(D)&NBSP;",
+    "sign_no": "RM6-6n[D]",
     "standard_sign": "No",
     "use_by_council": "No \u2013 restricted. Any use requires written authorisation from Transport for NSW.",
     "legislative_reference": "NA",
@@ -27654,7 +27671,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/rm6-6c-stop-here-on-red-signal-mms-insert-to-be-used",
     "title": "Stop Here On Red Signal (Mms Insert - To Be used on Multi Message Sign panels Only)",
-    "sign_no": "RM6-6(C)",
+    "sign_no": "RM6-6[C]",
     "standard_sign": "Yes",
     "use_by_council": "No \u2013 restricted. Any use requires written authorisation from Transport for NSW.",
     "legislative_reference": "NA",
@@ -27674,7 +27691,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/rm4-12c-end-speed-limit-mms-insert-to-be-used-on-multi",
     "title": "End Speed Limit (Mms Insert - To Be used on Multi Message Sign panels Only)",
-    "sign_no": "RM4-12(C)",
+    "sign_no": "RM4-12[C]",
     "standard_sign": "Yes",
     "use_by_council": "No \u2013 restricted. Any use requires written authorisation from Transport for NSW.",
     "legislative_reference": "NA",
@@ -27694,7 +27711,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/rm4-12d-end-speed-limit-mms-insert-to-be-used-on-multi",
     "title": "End Speed Limit (Mms Insert - To Be used on Multi Message Sign panels Only)",
-    "sign_no": "RM4-12(D)",
+    "sign_no": "RM4-12[D]",
     "standard_sign": "Yes",
     "use_by_council": "No \u2013 restricted. Any use requires written authorisation from Transport for NSW.",
     "legislative_reference": "NA",
@@ -27838,8 +27855,8 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/t2-17nvms-end-road-work-vms-panel-temporary-traffic",
-    "title": "End Road Work VMS&nbsp;Panel (Temporary Traffic Management Use Only)",
-    "sign_no": "T2-17N_VMS",
+    "title": "End Road Work VMS Panel (Temporary Traffic Management Use Only)",
+    "sign_no": "T2-17n",
     "standard_sign": "No",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -27854,7 +27871,10 @@
     "image_url": "https://www.transport.nsw.gov.au/sites/default/files/media/images/rww/business-industry/partners-suppliers/signage/trafficsigns/images/t2-17n_vms_thumb.gif",
     "pdf_url": "https://www.transport.nsw.gov.au/sites/default/files/media/documents/rww//business-industry/partners-suppliers/signage/trafficsigns/pdf/t2-17n_vms.pdf",
     "height": "900",
-    "width": "1200"
+    "width": "1200",
+    "normalization_metadata": {
+      "notes": "_VMS"
+    }
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/t2-207n-cycle-hazard-grooved-road",
@@ -28041,14 +28061,14 @@
         "w": "1500"
       },
       {
-        "label": "&nbsp;",
-        "h": "&nbsp;",
-        "w": "&nbsp;"
+        "label": "",
+        "h": "",
+        "w": ""
       },
       {
-        "label": "&nbsp;",
-        "h": "&nbsp;",
-        "w": "&nbsp;"
+        "label": "",
+        "h": "",
+        "w": ""
       }
     ],
     "image_url": "https://www.transport.nsw.gov.au/sites/default/files/media/images/2023/t2-244n.gif",
@@ -28174,7 +28194,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/t2-25nvms-trucks-crossing-or-entering-symbolic-vms",
     "title": "Trucks (Crossing Or Entering) (Symbolic) Vms Panel (Temporary Traffic Management Use Only",
-    "sign_no": "T2-25N_VMS",
+    "sign_no": "T2-25n",
     "standard_sign": "No",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -28189,7 +28209,10 @@
     "image_url": "https://www.transport.nsw.gov.au/sites/default/files/media/images/rww/business-industry/partners-suppliers/signage/trafficsigns/images/t2-25n_vms_thumb.gif",
     "pdf_url": "https://www.transport.nsw.gov.au/sites/default/files/media/documents/rww//business-industry/partners-suppliers/signage/trafficsigns/pdf/t2-25n_vms.pdf",
     "height": "900",
-    "width": "1200"
+    "width": "1200",
+    "normalization_metadata": {
+      "notes": "_VMS"
+    }
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/t2-6-1-left-lane-closed-symbolic-1-lane-direction-of",
@@ -28324,7 +28347,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/t2-6-2nvms-left-lane-closed-symbolic-2-lanes-direction",
     "title": "Left Lane Closed (Symbolic - 2 lanes in direction of travel) Vms Panel (Temporary Traffic Management Use Only)",
-    "sign_no": "T2-6-2N_VMS",
+    "sign_no": "T2-6-2n",
     "standard_sign": "No",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -28339,12 +28362,15 @@
     "image_url": "https://www.transport.nsw.gov.au/sites/default/files/media/images/rww/business-industry/partners-suppliers/signage/trafficsigns/images/t2-6-2n_vms_thumb.gif",
     "pdf_url": "https://www.transport.nsw.gov.au/sites/default/files/media/documents/rww//business-industry/partners-suppliers/signage/trafficsigns/pdf/t2-6-2n_vms.pdf",
     "height": "900",
-    "width": "1200"
+    "width": "1200",
+    "normalization_metadata": {
+      "notes": "_VMS"
+    }
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/t2-6-1nvms-left-lane-closed-symbolic-1-lane-direction",
-    "title": "Left Lane Closed (Symbolic - 1 Lane in direction of travel) VMS&nbsp;Panel (Temporary Traffic Management Use Only)",
-    "sign_no": "T2-6-1N_VMS",
+    "title": "Left Lane Closed (Symbolic - 1 Lane in direction of travel) VMS Panel (Temporary Traffic Management Use Only)",
+    "sign_no": "T2-6-1n",
     "standard_sign": "No",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -28359,7 +28385,10 @@
     "image_url": "https://www.transport.nsw.gov.au/sites/default/files/media/images/rww/business-industry/partners-suppliers/signage/trafficsigns/images/t2-6-1n_vms_thumb.gif",
     "pdf_url": "https://www.transport.nsw.gov.au/sites/default/files/media/documents/rww//business-industry/partners-suppliers/signage/trafficsigns/pdf/t2-6-1n_vms.pdf",
     "height": "900",
-    "width": "1200"
+    "width": "1200",
+    "normalization_metadata": {
+      "notes": "_VMS"
+    }
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/t2-6-2-left-lane-closed-symbolic-2-lanes-direction-of",
@@ -28390,7 +28419,7 @@
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/t1-13-2-flagman-symbol-for-daylight-use-superseded-use",
     "title": "Flagman Symbol For Daylight Use (Superseded Use T1-34)",
     "sign_no": "T1-13-2",
-    "standard_sign": "&nbsp;",
+    "standard_sign": "",
     "use_by_council": "Unavailable.",
     "legislative_reference": "NA",
     "primary_technical_reference": "NA",
@@ -28410,7 +28439,7 @@
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/t1-13-1-flagman-symbol-for-night-use-superseded-use-t1",
     "title": "Flagman Symbol For Night Use (Superseded Use T1-34)",
     "sign_no": "T1-13-1",
-    "standard_sign": "&nbsp;",
+    "standard_sign": "",
     "use_by_council": "Unavailable.",
     "legislative_reference": "NA",
     "primary_technical_reference": "Superseded (Use T1-34)",
@@ -28448,7 +28477,7 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/t1-5-2-workers-symbolic-day-use-superseded-use-t1-5",
-    "title": "Workers Symbolic Day&nbsp;Use (Superseded Use T1-5)",
+    "title": "Workers Symbolic Day Use (Superseded Use T1-5)",
     "sign_no": "T1-5-2",
     "standard_sign": "No",
     "use_by_council": "Unavailable.",
@@ -28654,7 +28683,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/t1-16nvms-roadwork-xkm-ahead-vms-panel-temporary",
     "title": "Roadwork (X)km Ahead Vms Panel (Temporary Traffic Management Use Only)",
-    "sign_no": "T1-16N_VMS",
+    "sign_no": "T1-16n",
     "standard_sign": "No",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -28669,12 +28698,15 @@
     "image_url": "https://www.transport.nsw.gov.au/sites/default/files/media/images/rww/business-industry/partners-suppliers/signage/trafficsigns/images/t1-16n_vms_thumb.gif",
     "pdf_url": "https://www.transport.nsw.gov.au/sites/default/files/media/documents/rww//business-industry/partners-suppliers/signage/trafficsigns/pdf/t1-16n_vms.pdf",
     "height": "900",
-    "width": "1200"
+    "width": "1200",
+    "normalization_metadata": {
+      "notes": "_VMS"
+    }
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/t1-5nvms-workers-symbolic-vms-panel-temporary-traffic",
     "title": "Workers Symbolic Vms Panel (Temporary Traffic Management Use Only)",
-    "sign_no": "T1-5N_VMS",
+    "sign_no": "T1-5n",
     "standard_sign": "No",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -28689,12 +28721,15 @@
     "image_url": "https://www.transport.nsw.gov.au/sites/default/files/media/images/rww/business-industry/partners-suppliers/signage/trafficsigns/images/t1-5n_vms_thumb.gif",
     "pdf_url": "https://www.transport.nsw.gov.au/sites/default/files/media/documents/rww//business-industry/partners-suppliers/signage/trafficsigns/pdf/t1-5n_vms.pdf",
     "height": "900",
-    "width": "1200"
+    "width": "1200",
+    "normalization_metadata": {
+      "notes": "_VMS"
+    }
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/t1-18nvms-prepare-to-stop-vms-panel-temporary-traffic",
-    "title": "Prepare To Stop VMS&nbsp;Panel (Temporary Traffic Management Use Only)",
-    "sign_no": "T1-18N_VMS",
+    "title": "Prepare To Stop VMS Panel (Temporary Traffic Management Use Only)",
+    "sign_no": "T1-18n",
     "standard_sign": "No",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -28709,7 +28744,10 @@
     "image_url": "https://www.transport.nsw.gov.au/sites/default/files/media/images/2025/t1-18n_vms.png",
     "pdf_url": null,
     "height": "900",
-    "width": "1200"
+    "width": "1200",
+    "normalization_metadata": {
+      "notes": "_VMS"
+    }
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/t1-19-stock-ahead-symbolic-sheepcattle",
@@ -28851,19 +28889,19 @@
         "w": "1200"
       },
       {
-        "label": "&nbsp;",
-        "h": "&nbsp;",
-        "w": "&nbsp;"
+        "label": "",
+        "h": "",
+        "w": ""
       },
       {
-        "label": "&nbsp;",
-        "h": "&nbsp;",
-        "w": "&nbsp;"
+        "label": "",
+        "h": "",
+        "w": ""
       },
       {
-        "label": "&nbsp;",
-        "h": "&nbsp;",
-        "w": "&nbsp;"
+        "label": "",
+        "h": "",
+        "w": ""
       }
     ],
     "image_url": "https://www.transport.nsw.gov.au/sites/default/files/media/images/2025/t1-47-3n.png",
@@ -29078,8 +29116,8 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/t1-23nvms-changed-traffic-conditions-vms-panel",
-    "title": "Changed Traffic Conditions VMS&nbsp;Panel (Temporary Traffic Management Use Only)",
-    "sign_no": "T1-23N_VMS",
+    "title": "Changed Traffic Conditions VMS Panel (Temporary Traffic Management Use Only)",
+    "sign_no": "T1-23n",
     "standard_sign": "No",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -29094,7 +29132,10 @@
     "image_url": "https://www.transport.nsw.gov.au/sites/default/files/media/images/rww/business-industry/partners-suppliers/signage/trafficsigns/images/t1-23n_vms_thumb.gif",
     "pdf_url": "https://www.transport.nsw.gov.au/sites/default/files/media/documents/rww//business-industry/partners-suppliers/signage/trafficsigns/pdf/t1-23n_vms.pdf",
     "height": "900",
-    "width": "1200"
+    "width": "1200",
+    "normalization_metadata": {
+      "notes": "_VMS"
+    }
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/t1-23-1n-wide-centre-line-treatment-overtaking-not",
@@ -29478,8 +29519,8 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/t1-31nvms-road-work-ahead-vms-panel-temporary-traffic",
-    "title": "Road Work Ahead VMS&nbsp;Panel (Temporary Traffic Management Use Only)",
-    "sign_no": "T1-31N_VMS",
+    "title": "Road Work Ahead VMS Panel (Temporary Traffic Management Use Only)",
+    "sign_no": "T1-31n",
     "standard_sign": "No",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -29494,7 +29535,10 @@
     "image_url": "https://www.transport.nsw.gov.au/sites/default/files/media/images/rww/business-industry/partners-suppliers/signage/trafficsigns/images/t1-31n_vms_thumb.gif",
     "pdf_url": "https://www.transport.nsw.gov.au/sites/default/files/media/documents/rww//business-industry/partners-suppliers/signage/trafficsigns/pdf/t1-31n_vms.pdf",
     "height": "900",
-    "width": "1200"
+    "width": "1200",
+    "normalization_metadata": {
+      "notes": "_VMS"
+    }
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/t1-34-traffic-controller-symbolic",
@@ -29628,8 +29672,8 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/t1-34nvms-traffic-controller-symbolic-vms-panel",
-    "title": "Traffic Controller (Symbolic) VMS&nbsp;Panel (Temporary Traffic Management Use Only)",
-    "sign_no": "T1-34N_VMS",
+    "title": "Traffic Controller (Symbolic) VMS Panel (Temporary Traffic Management Use Only)",
+    "sign_no": "T1-34n",
     "standard_sign": "No",
     "use_by_council": "Yes - available.",
     "legislative_reference": "NA",
@@ -29644,7 +29688,10 @@
     "image_url": "https://www.transport.nsw.gov.au/sites/default/files/media/images/rww/business-industry/partners-suppliers/signage/trafficsigns/images/t1-34n_vms_thumb.gif",
     "pdf_url": "https://www.transport.nsw.gov.au/sites/default/files/media/documents/rww//business-industry/partners-suppliers/signage/trafficsigns/pdf/t1-34n_vms.pdf",
     "height": "900",
-    "width": "1200"
+    "width": "1200",
+    "normalization_metadata": {
+      "notes": "_VMS"
+    }
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/t1-48n-queued-traffic-prepare-to-stop",
@@ -29656,24 +29703,24 @@
     "primary_technical_reference": "TS 05492 - Traffic Control at Worksites",
     "sizes": [
       {
-        "label": "&nbsp; A",
+        "label": "A",
         "h": "900",
         "w": "1200"
       },
       {
-        "label": "&nbsp; B",
+        "label": "B",
         "h": "1260",
         "w": "1680"
       },
       {
-        "label": "&nbsp;",
-        "h": "&nbsp;",
-        "w": "&nbsp;"
+        "label": "",
+        "h": "",
+        "w": ""
       },
       {
-        "label": "&nbsp;",
-        "h": "&nbsp;",
-        "w": "&nbsp;"
+        "label": "",
+        "h": "",
+        "w": ""
       }
     ],
     "image_url": "https://www.transport.nsw.gov.au/sites/default/files/media/images/2025/T1-48n.png",
@@ -29773,7 +29820,7 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/r6-22-trucks-buses-must-use-low-gear",
-    "title": "Trucks &amp; Buses Must Use Low Gear",
+    "title": "Trucks & Buses Must Use Low Gear",
     "sign_no": "R6-22",
     "standard_sign": "Yes",
     "use_by_council": "Yes \u2013 available.",
@@ -29803,7 +29850,7 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/r6-23-end-truck-bus-low-gear-area",
-    "title": "End Truck &amp; Bus Low Gear Area",
+    "title": "End Truck & Bus Low Gear Area",
     "sign_no": "R6-23",
     "standard_sign": "Yes",
     "use_by_council": "Yes \u2013 available.",
@@ -29858,7 +29905,7 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/r6-240-2n-trucks-buses-must-use-left-lane-hinged-sign",
-    "title": "Trucks &amp; Buses Must Use Left Lane (Hinged Sign)",
+    "title": "Trucks & Buses Must Use Left Lane (Hinged Sign)",
     "sign_no": "R6-240-2n",
     "standard_sign": "No",
     "use_by_council": "Yes \u2013 available.",
@@ -30543,7 +30590,7 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/r6-240n-trucks-buses-must-use-left-lane",
-    "title": "Trucks &amp; Buses Must Use Left Lane",
+    "title": "Trucks & Buses Must Use Left Lane",
     "sign_no": "R6-240n",
     "standard_sign": "No",
     "use_by_council": "Yes \u2013 available.",
@@ -30841,14 +30888,14 @@
         "w": "1500"
       },
       {
-        "label": "&nbsp;",
-        "h": "&nbsp;",
-        "w": "&nbsp;"
+        "label": "",
+        "h": "",
+        "w": ""
       },
       {
-        "label": "&nbsp;",
-        "h": "&nbsp;",
-        "w": "&nbsp;"
+        "label": "",
+        "h": "",
+        "w": ""
       }
     ],
     "image_url": "https://www.transport.nsw.gov.au/sites/default/files/media/images/2025/T1-282n.png",
@@ -30871,14 +30918,14 @@
         "w": "1500"
       },
       {
-        "label": "&nbsp;",
-        "h": "&nbsp;",
-        "w": "&nbsp;"
+        "label": "",
+        "h": "",
+        "w": ""
       },
       {
-        "label": "&nbsp;",
-        "h": "&nbsp;",
-        "w": "&nbsp;"
+        "label": "",
+        "h": "",
+        "w": ""
       }
     ],
     "image_url": "https://www.transport.nsw.gov.au/sites/default/files/media/images/2025/T1-281n.png",
@@ -30901,14 +30948,14 @@
         "w": "1500"
       },
       {
-        "label": "&nbsp;",
-        "h": "&nbsp;",
-        "w": "&nbsp;"
+        "label": "",
+        "h": "",
+        "w": ""
       },
       {
-        "label": "&nbsp;",
-        "h": "&nbsp;",
-        "w": "&nbsp;"
+        "label": "",
+        "h": "",
+        "w": ""
       }
     ],
     "image_url": "https://www.transport.nsw.gov.au/sites/default/files/media/images/2025/T1-283n_PNG.png",
@@ -30931,14 +30978,14 @@
         "w": "1500"
       },
       {
-        "label": "&nbsp;",
-        "h": "&nbsp;",
-        "w": "&nbsp;"
+        "label": "",
+        "h": "",
+        "w": ""
       },
       {
-        "label": "&nbsp;",
-        "h": "&nbsp;",
-        "w": "&nbsp;"
+        "label": "",
+        "h": "",
+        "w": ""
       }
     ],
     "image_url": "https://www.transport.nsw.gov.au/sites/default/files/media/images/2025/T1-284n%20-%20PNG_0.png",
@@ -30961,19 +31008,19 @@
         "w": "1800"
       },
       {
-        "label": "&nbsp;",
-        "h": "&nbsp;",
-        "w": "&nbsp;"
+        "label": "",
+        "h": "",
+        "w": ""
       },
       {
-        "label": "&nbsp;",
-        "h": "&nbsp;",
-        "w": "&nbsp;"
+        "label": "",
+        "h": "",
+        "w": ""
       },
       {
-        "label": "&nbsp;",
-        "h": "&nbsp;",
-        "w": "&nbsp;"
+        "label": "",
+        "h": "",
+        "w": ""
       }
     ],
     "image_url": "https://www.transport.nsw.gov.au/sites/default/files/media/images/2025/T1-285n%20-%20PNG.png",
@@ -30996,19 +31043,19 @@
         "w": "1800"
       },
       {
-        "label": "&nbsp;",
-        "h": "&nbsp;",
-        "w": "&nbsp;"
+        "label": "",
+        "h": "",
+        "w": ""
       },
       {
-        "label": "&nbsp;",
-        "h": "&nbsp;",
-        "w": "&nbsp;"
+        "label": "",
+        "h": "",
+        "w": ""
       },
       {
-        "label": "&nbsp;",
-        "h": "&nbsp;",
-        "w": "&nbsp;"
+        "label": "",
+        "h": "",
+        "w": ""
       }
     ],
     "image_url": "https://www.transport.nsw.gov.au/sites/default/files/media/images/2025/T1-286n.png",
@@ -31020,7 +31067,7 @@
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/r2-215n-police-nrma-roads-and-maritime-services-and",
     "title": "Police Nrma Roads and Maritime Services And Emergency Vehicles Excepted (Superseded Use R9-200n)",
     "sign_no": "R2-215n",
-    "standard_sign": "&nbsp;",
+    "standard_sign": "",
     "use_by_council": "Unavailable.",
     "legislative_reference": "NA",
     "primary_technical_reference": "NA",
@@ -31045,7 +31092,7 @@
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/r2-212n-taxis-excepted-superseded-use-r9-228n",
     "title": "Taxis Excepted (Superseded Use R9-228n)",
     "sign_no": "R2-212n",
-    "standard_sign": "&nbsp;",
+    "standard_sign": "",
     "use_by_council": "Unavailable.",
     "legislative_reference": "NA",
     "primary_technical_reference": "Superseded (Use R9-228n)",
@@ -31065,7 +31112,7 @@
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/r2-219n-no-overtaking-on-left-no-longer-used",
     "title": "No Overtaking On Left (No longer used)",
     "sign_no": "R2-219n",
-    "standard_sign": "&nbsp;",
+    "standard_sign": "",
     "use_by_council": "Unavailable.",
     "legislative_reference": "NA",
     "primary_technical_reference": "No longer used",
@@ -31085,7 +31132,7 @@
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/r2-220n-at-next-streets-no-longer-used",
     "title": "At Next __ Streets (No longer used)",
     "sign_no": "R2-220n",
-    "standard_sign": "&nbsp;",
+    "standard_sign": "",
     "use_by_council": "Unavailable.",
     "legislative_reference": "NA",
     "primary_technical_reference": "No longer used",
@@ -31105,7 +31152,7 @@
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/r2-222n-motor-lorry-deliveries-permitted-times-mon-fri",
     "title": "Motor Lorry Deliveries Permitted (times) Mon - Fri (No longer used)",
     "sign_no": "R2-222n",
-    "standard_sign": "&nbsp;",
+    "standard_sign": "",
     "use_by_council": "Unavailable.",
     "legislative_reference": "NA",
     "primary_technical_reference": "No longer used",
@@ -31125,7 +31172,7 @@
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/r2-221n-buses-and-authorised-vehicles-excepted-no",
     "title": "Buses And Authorised Vehicles Excepted (No longer used)",
     "sign_no": "R2-221n",
-    "standard_sign": "&nbsp;",
+    "standard_sign": "",
     "use_by_council": "Unavailable.",
     "legislative_reference": "NA",
     "primary_technical_reference": "No longer used",
@@ -31145,7 +31192,7 @@
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/r3-2-safety-zone-not-used-nsw",
     "title": "Safety Zone (Not Used in NSW)",
     "sign_no": "R3-2",
-    "standard_sign": "&nbsp;",
+    "standard_sign": "",
     "use_by_council": "Unavailable.",
     "legislative_reference": "NA",
     "primary_technical_reference": "Not Used in NSW",
@@ -31165,7 +31212,7 @@
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/r3-207n-keep-left-left-pointing-downward-angled-arrow",
     "title": "Keep Left (left pointing downward angled arrow) (Not Used in NSW)",
     "sign_no": "R3-207n",
-    "standard_sign": "&nbsp;",
+    "standard_sign": "",
     "use_by_council": "Unavailable.",
     "legislative_reference": "NA",
     "primary_technical_reference": "Not Used in NSW",
@@ -31185,7 +31232,7 @@
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/r3-206n-pelican-crossing-pedestrian-advisory-sign-not",
     "title": "Pelican Crossing (Pedestrian Advisory Sign) (Not Used in NSW)",
     "sign_no": "R3-206n",
-    "standard_sign": "&nbsp;",
+    "standard_sign": "",
     "use_by_council": "Unavailable.",
     "legislative_reference": "NA",
     "primary_technical_reference": "Not Used in NSW",
@@ -31205,7 +31252,7 @@
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/r3-208-1n-pedestrian-crossing-background-plate-not",
     "title": "Pedestrian Crossing With Background Plate (Not Used in NSW)",
     "sign_no": "R3-208-1n",
-    "standard_sign": "&nbsp;",
+    "standard_sign": "",
     "use_by_council": "Unavailable.",
     "legislative_reference": "NA",
     "primary_technical_reference": "Not Used in NSW",
@@ -31225,7 +31272,7 @@
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/r3-209n-school-zone-superseded-use-r4-230n",
     "title": "School Zone (Superseded Use R4-230n)",
     "sign_no": "R3-209n",
-    "standard_sign": "&nbsp;",
+    "standard_sign": "",
     "use_by_council": "Unavailable.",
     "legislative_reference": "NA",
     "primary_technical_reference": "Superseded (Use R4-230n)",
@@ -31245,7 +31292,7 @@
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/r3-208-2n-pedestrian-crossing-fluoro-background-plate",
     "title": "Pedestrian Crossing With Fluoro Background Plate (Not Used in NSW)",
     "sign_no": "R3-208-2n",
-    "standard_sign": "&nbsp;",
+    "standard_sign": "",
     "use_by_council": "Unavailable.",
     "legislative_reference": "NA",
     "primary_technical_reference": "Not Used in NSW",
@@ -31265,7 +31312,7 @@
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/r3-4-children-crossing-25-kmh-when-lights-flashing-not",
     "title": "Children Crossing (25 km/h) When Lights Flashing (Not Used in NSW)",
     "sign_no": "R3-4",
-    "standard_sign": "&nbsp;",
+    "standard_sign": "",
     "use_by_council": "Unavailable.",
     "legislative_reference": "NA",
     "primary_technical_reference": "Not Used in NSW",
@@ -31305,7 +31352,7 @@
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/r3-211n-school-zone-times-mon-fri-superseded-use-r4",
     "title": "School Zone (times) Mon - Fri (Superseded Use R4-230n)",
     "sign_no": "R3-211n",
-    "standard_sign": "&nbsp;",
+    "standard_sign": "",
     "use_by_council": "Unavailable.",
     "legislative_reference": "NA",
     "primary_technical_reference": "Superseded (Use R4-230n)",
@@ -31325,7 +31372,7 @@
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/r4-10-speed-limit-symbolic-40-area-no-longer-used",
     "title": "Speed Limit (symbolic) 40 Area (No longer used)",
     "sign_no": "R4-10",
-    "standard_sign": "&nbsp;",
+    "standard_sign": "",
     "use_by_council": "Unavailable.",
     "legislative_reference": "NA",
     "primary_technical_reference": "No longer used",
@@ -31350,7 +31397,7 @@
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/r5-35-no-stopping-symbolic-not-used-nsw-use-r5-400n",
     "title": "No Stopping (symbolic) (Not used in NSW - use R5-400n series)",
     "sign_no": "R5-35",
-    "standard_sign": "&nbsp;",
+    "standard_sign": "",
     "use_by_council": "Unavailable.",
     "legislative_reference": "NA",
     "primary_technical_reference": "Not Used in NSW",
@@ -31364,7 +31411,7 @@
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/r4-6-local-traffic-area-40-superseded-use-r4-240n",
     "title": "Local Traffic Area (40) (Superseded Use R4-240n)",
     "sign_no": "R4-6",
-    "standard_sign": "&nbsp;",
+    "standard_sign": "",
     "use_by_council": "Unavailable.",
     "legislative_reference": "NA",
     "primary_technical_reference": "Superseded (Use R4-240n)",
@@ -31384,7 +31431,7 @@
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/r5-200n-no-stopping-safety-ramp-no-longer-used",
     "title": "No Stopping In Safety Ramp (No longer used)",
     "sign_no": "R5-200n",
-    "standard_sign": "&nbsp;",
+    "standard_sign": "",
     "use_by_council": "Unavailable.",
     "legislative_reference": "NA",
     "primary_technical_reference": "No longer used",
@@ -31409,7 +31456,7 @@
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/r4-7-end-local-traffic-area-superseded-use-r4-241n",
     "title": "End Local Traffic Area (Superseded Use R4-241n)",
     "sign_no": "R4-7",
-    "standard_sign": "&nbsp;",
+    "standard_sign": "",
     "use_by_council": "Unavailable.",
     "legislative_reference": "NA",
     "primary_technical_reference": "Superseded (Use R4-241n)",
@@ -31429,7 +31476,7 @@
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/r3-215n-end-school-bus-stop-zone-no-longer-used",
     "title": "End School Bus Stop Zone (No Longer Used)",
     "sign_no": "R3-215n",
-    "standard_sign": "&nbsp;",
+    "standard_sign": "",
     "use_by_council": "Unavailable.",
     "legislative_reference": "NA",
     "primary_technical_reference": "NA",
@@ -31469,7 +31516,7 @@
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/r4-2-derestricted-speed-limit-not-used-nsw",
     "title": "Derestricted Speed Limit (Not Used in NSW)",
     "sign_no": "R4-2",
-    "standard_sign": "&nbsp;",
+    "standard_sign": "",
     "use_by_council": "Unavailable.",
     "legislative_reference": "NA",
     "primary_technical_reference": "Not Used in NSW",
@@ -31489,7 +31536,7 @@
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/r4-8-school-zone-not-used-nsw-use-r4-230n",
     "title": "School Zone (Not Used in NSW Use R4-230n)",
     "sign_no": "R4-8",
-    "standard_sign": "&nbsp;",
+    "standard_sign": "",
     "use_by_council": "Unavailable.",
     "legislative_reference": "NA",
     "primary_technical_reference": "Not Used in NSW",
@@ -31554,7 +31601,7 @@
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/r5-302n-bus-lane-transit-lane-combined-repeater-times",
     "title": "Bus Lane / Transit Lane combined repeater (times as required) (Superseded - use individual signs)",
     "sign_no": "R5-302n",
-    "standard_sign": "&nbsp;",
+    "standard_sign": "",
     "use_by_council": "Unavailable.",
     "legislative_reference": "NA",
     "primary_technical_reference": "Superseded (Use INDIVIDUAL)",
@@ -31599,7 +31646,7 @@
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/r5-303n-transit-lane-bus-lane-repeater-times-as",
     "title": "Transit Lane / Bus Lane repeater (times as required) (Superseded - use individual signs)",
     "sign_no": "R5-303n",
-    "standard_sign": "&nbsp;",
+    "standard_sign": "",
     "use_by_council": "Unavailable.",
     "legislative_reference": "NA",
     "primary_technical_reference": "Superseded (Use INDIVIDUAL)",
@@ -31619,7 +31666,7 @@
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/r5-36-no-stopping-specific-times-symbolic-not-used-nsw",
     "title": "No Stopping with specific times (symbolic) (Not used in NSW - use R5-400n series)",
     "sign_no": "R5-36",
-    "standard_sign": "&nbsp;",
+    "standard_sign": "",
     "use_by_council": "Unavailable.",
     "legislative_reference": "NA",
     "primary_technical_reference": "Not Used in NSW",
@@ -31633,7 +31680,7 @@
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/r6-222-trucks-prohibited-symbol-t-and-over-superseded",
     "title": "Trucks Prohibited (symbol) __t And Over",
     "sign_no": "R6-222",
-    "standard_sign": "&nbsp;",
+    "standard_sign": "",
     "use_by_council": "Unavailable.",
     "legislative_reference": "NA",
     "primary_technical_reference": "NA",
@@ -31649,15 +31696,14 @@
     "height": "-",
     "width": "-",
     "normalization_metadata": {
-      "note": "Superseded Use R6-10-2 with R9-10-1",
-      "replacement_ref": "R6-10-2"
+      "notes": "Superseded Use R6-10-2 with R9-10-1"
     }
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/r5-70-no-stopping-area-major-entry-not-used-nsw-use-r5",
     "title": "No Stopping Area / Major Entry (Not used in NSW - use R5-410n)",
     "sign_no": "R5-70",
-    "standard_sign": "&nbsp;",
+    "standard_sign": "",
     "use_by_council": "Unavailable.",
     "legislative_reference": "NA",
     "primary_technical_reference": "Not Used in NSW",
@@ -31677,7 +31723,7 @@
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/r5-71-no-stopping-area-minor-entry-not-used-nsw-use-r5",
     "title": "No Stopping Area - Minor Entry (Not used in NSW - use R5-410n)",
     "sign_no": "R5-71",
-    "standard_sign": "&nbsp;",
+    "standard_sign": "",
     "use_by_council": "Unavailable.",
     "legislative_reference": "NA",
     "primary_technical_reference": "Not Used in NSW",
@@ -31810,7 +31856,7 @@
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/ferry-no-longer-used",
     "title": "Ferry (No longer used)",
     "sign_no": "R6-226",
-    "standard_sign": "&nbsp;",
+    "standard_sign": "",
     "use_by_council": "Unavailable.",
     "legislative_reference": "NA",
     "primary_technical_reference": "No longer used",
@@ -31828,7 +31874,7 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/g9-350n-trucks-buses-must-enter-heavy-vehicle-checking",
-    "title": "Trucks &amp; Buses Must Enter Heavy Vehicle Checking Station",
+    "title": "Trucks & Buses Must Enter Heavy Vehicle Checking Station",
     "sign_no": "G9-350n",
     "standard_sign": "No",
     "use_by_council": null,
@@ -31850,7 +31896,7 @@
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/r5-57n-no-standing-safety-ramp-superseded-use-r5-200n",
     "title": "No Standing In Safety Ramp (Superseded - use R5-200n)",
     "sign_no": "R5-57n",
-    "standard_sign": "&nbsp;",
+    "standard_sign": "",
     "use_by_council": "Unavailable.",
     "legislative_reference": "NA",
     "primary_technical_reference": "Superseded (Use R5-200n)",
@@ -31891,8 +31937,7 @@
     "height": "-",
     "width": "-",
     "normalization_metadata": {
-      "note": "superseded Use R9-10-1",
-      "replacement_ref": "R9-10-1"
+      "notes": "superseded Use R9-10-1"
     }
   },
   {
@@ -31912,7 +31957,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/gm9-79c-speed-limit-ahead-mms-insert-to-be-used-on",
     "title": "Speed Limit Ahead (Mms Insert - To Be used on Multi Message Sign panels Only)",
-    "sign_no": "GM9-79(C)",
+    "sign_no": "GM9-79[C]",
     "standard_sign": "No",
     "use_by_council": "Yes \u2013 available.",
     "legislative_reference": "NA",
@@ -31932,7 +31977,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/gm9-79d-speed-limit-ahead-mms-insert-to-be-used-on",
     "title": "Speed Limit Ahead (Mms Insert - To be used on Multi Message Sign panels Only)",
-    "sign_no": "GM9-79(D)",
+    "sign_no": "GM9-79[D]",
     "standard_sign": "Yes",
     "use_by_council": "Yes \u2013 available.",
     "legislative_reference": "NA",
@@ -31952,7 +31997,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/gm9-79a-speed-limit-ahead-mms-insert-to-be-used-on",
     "title": "Speed Limit Ahead (Mms Insert - To Be used on Multi Message Sign panels Only)",
-    "sign_no": "GM9-79(A)",
+    "sign_no": "GM9-79[A]",
     "standard_sign": "No",
     "use_by_council": "Yes \u2013 available.",
     "legislative_reference": "NA",
@@ -31972,7 +32017,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/gm9-79b-speed-limit-ahead-mms-insert-to-be-used-on",
     "title": "Speed Limit Ahead (Mms Insert - To Be used on Multi Message Sign panels Only)",
-    "sign_no": "GM9-79(B)",
+    "sign_no": "GM9-79[B]",
     "standard_sign": "No",
     "use_by_council": "Yes \u2013 available.",
     "legislative_reference": "NA",
@@ -31992,7 +32037,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/gm9-89b-no-lines-do-not-overtake-mms-insert-to-be-used",
     "title": "No Lines Do Not Overtake (Mms Insert - To Be used on Multi Message Sign panels Only)",
-    "sign_no": "GM9-89(B)",
+    "sign_no": "GM9-89[B]",
     "standard_sign": "No",
     "use_by_council": "Yes \u2013 available.",
     "legislative_reference": "NA",
@@ -32012,7 +32057,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/gm9-40-2d-local-traffic-only-mms-insert-to-be-used-on",
     "title": "Local Traffic Only (Mms Insert - To Be used on Multi Message Sign panels Only)",
-    "sign_no": "GM9-40-2(D)",
+    "sign_no": "GM9-40-2[D]",
     "standard_sign": "No",
     "use_by_council": "Yes \u2013 available.",
     "legislative_reference": "NA",
@@ -32032,7 +32077,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/gm9-40-2b-local-traffic-only-mms-insert-to-be-used-on",
     "title": "Local Traffic Only (Mms Insert - To Be used on Multi Message Sign panels Only)",
-    "sign_no": "GM9-40-2(B)",
+    "sign_no": "GM9-40-2[B]",
     "standard_sign": "No",
     "use_by_council": "Yes \u2013 available.",
     "legislative_reference": "NA",
@@ -32052,7 +32097,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/gm9-40-2a-local-traffic-only-mms-insert-to-be-used-on",
     "title": "Local Traffic Only (Mms Insert - To be used on Multi Message Sign panels Only)",
-    "sign_no": "GM9-40-2(A)",
+    "sign_no": "GM9-40-2[A]",
     "standard_sign": "Yes",
     "use_by_council": "Yes \u2013 available.",
     "legislative_reference": "NA",
@@ -32091,8 +32136,8 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/g9-9vms-reduce-speed-vms-panel-temporary-traffic",
-    "title": "Reduce Speed VMS&nbsp;Panel (Temporary Traffic Management Use Only)",
-    "sign_no": "G9-9N_VMS",
+    "title": "Reduce Speed VMS Panel (Temporary Traffic Management Use Only)",
+    "sign_no": "G9-9n",
     "standard_sign": "No",
     "use_by_council": "Yes \u2013 available.",
     "legislative_reference": "NA",
@@ -32107,7 +32152,10 @@
     "image_url": "https://www.transport.nsw.gov.au/sites/default/files/media/images/rww/business-industry/partners-suppliers/signage/trafficsigns/images/g9-9n_vms_thumb.gif",
     "pdf_url": "https://www.transport.nsw.gov.au/sites/default/files/media/documents/rww//business-industry/partners-suppliers/signage/trafficsigns/pdf/g9-9n_vms.pdf",
     "height": "900",
-    "width": "1200"
+    "width": "1200",
+    "normalization_metadata": {
+      "notes": "_VMS"
+    }
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/g9-83-1n-long-steep-descent-next-xkm-flashing-lights",
@@ -32131,7 +32179,7 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/g9-87-2-advance-vehicle-prohibition-trucks-symbolic",
-    "title": "Advance&nbsp;Vehicle Prohibition (Trucks) (Symbolic)",
+    "title": "Advance Vehicle Prohibition (Trucks) (Symbolic)",
     "sign_no": "G9-87-2",
     "standard_sign": "Yes",
     "use_by_council": "Yes \u2013 available.",
@@ -32572,12 +32620,15 @@
     "image_url": "https://www.transport.nsw.gov.au/sites/default/files/media/images/rww/business-industry/partners-suppliers/signage/trafficsigns/images/gm9-40-2_c_thumb.gif",
     "pdf_url": "https://www.transport.nsw.gov.au/sites/default/files/media/documents/rww//business-industry/partners-suppliers/signage/trafficsigns/pdf/gm9-40-2_c.pdf",
     "height": "600",
-    "width": "1200"
+    "width": "1200",
+    "normalization_metadata": {
+      "notes": "C Size"
+    }
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/gm9-89c-no-lines-do-not-overtake-mms-insert-to-be-used",
     "title": "No Lines Do Not Overtake (Mms Insert - To Be used on Multi Message Sign panels Only)",
-    "sign_no": "GM9-89(C)",
+    "sign_no": "GM9-89[C]",
     "standard_sign": "Yes",
     "use_by_council": "Yes \u2013 available.",
     "legislative_reference": "NA",
@@ -32597,7 +32648,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/gm9-89d-no-lines-do-not-overtake-mms-insert-to-be-used",
     "title": "No Lines Do Not Overtake (Mms Insert - To Be used on Multi Message Sign panels Only)",
-    "sign_no": "GM9-89(D)",
+    "sign_no": "GM9-89[D]",
     "standard_sign": "No",
     "use_by_council": "Yes \u2013 available.",
     "legislative_reference": "NA",
@@ -32617,7 +32668,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/gm9-89a-no-lines-do-not-overtake-mms-insert-to-be-used",
     "title": "No Lines Do Not Overtake (Mms Insert - To Be used on Multi Message Sign panels Only)",
-    "sign_no": "GM9-89(A)",
+    "sign_no": "GM9-89[A]",
     "standard_sign": "No",
     "use_by_council": "Yes \u2013 available.",
     "legislative_reference": "NA",
@@ -32644,24 +32695,24 @@
     "primary_technical_reference": "TS 05492 - Traffic Control at Worksites",
     "sizes": [
       {
-        "label": "&nbsp; A",
+        "label": "A",
         "h": "600",
         "w": "900"
       },
       {
-        "label": "&nbsp; B",
+        "label": "B",
         "h": "900",
         "w": "1500"
       },
       {
-        "label": "&nbsp;",
-        "h": "&nbsp;",
-        "w": "&nbsp;"
+        "label": "",
+        "h": "",
+        "w": ""
       },
       {
-        "label": "&nbsp;",
-        "h": "&nbsp;",
-        "w": "&nbsp;"
+        "label": "",
+        "h": "",
+        "w": ""
       }
     ],
     "image_url": "https://www.transport.nsw.gov.au/sites/default/files/media/images/2025/T4-219n.png",
@@ -32679,24 +32730,24 @@
     "primary_technical_reference": "TS 05492 - Traffic Control at Worksites",
     "sizes": [
       {
-        "label": "&nbsp; A",
+        "label": "A",
         "h": "900",
         "w": "1200"
       },
       {
-        "label": "&nbsp; B",
+        "label": "B",
         "h": "1350",
         "w": "1800"
       },
       {
-        "label": "&nbsp;",
-        "h": "&nbsp;",
-        "w": "&nbsp;"
+        "label": "",
+        "h": "",
+        "w": ""
       },
       {
-        "label": "&nbsp;",
-        "h": "&nbsp;",
-        "w": "&nbsp;"
+        "label": "",
+        "h": "",
+        "w": ""
       }
     ],
     "image_url": "https://www.transport.nsw.gov.au/sites/default/files/media/images/2025/T4-222n.png",
@@ -32714,24 +32765,24 @@
     "primary_technical_reference": "TS 05492 - Traffic Control at Worksites",
     "sizes": [
       {
-        "label": "&nbsp; A",
+        "label": "A",
         "h": "600",
         "w": "1000"
       },
       {
-        "label": "&nbsp; B",
+        "label": "B",
         "h": "900",
         "w": "1600"
       },
       {
-        "label": "&nbsp;",
-        "h": "&nbsp;",
-        "w": "&nbsp;"
+        "label": "",
+        "h": "",
+        "w": ""
       },
       {
-        "label": "&nbsp;",
-        "h": "&nbsp;",
-        "w": "&nbsp;"
+        "label": "",
+        "h": "",
+        "w": ""
       }
     ],
     "image_url": "https://www.transport.nsw.gov.au/sites/default/files/media/images/2025/T4-220n.png",
@@ -33858,7 +33909,7 @@
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/g7-307n-hospital-plus-symbol-advance-direction-left-or",
     "title": "Hospital plus Symbol (Advance Direction Left or Right) (Example Only)",
     "sign_no": "G7-307n",
-    "standard_sign": "&nbsp;",
+    "standard_sign": "",
     "use_by_council": "Yes \u2013 available.",
     "legislative_reference": "NA",
     "primary_technical_reference": "AS1742.6 (Tourist and Service Signs)",
@@ -33906,7 +33957,7 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/g7-308n-cemetery-or-crematorium-advance-direction-sign",
-    "title": "Cemetery &amp;/Or Crematorium (Advance Direction Sign Left or Right) (Example Only)",
+    "title": "Cemetery &/Or Crematorium (Advance Direction Sign Left or Right) (Example Only)",
     "sign_no": "G7-308n",
     "standard_sign": "No",
     "use_by_council": "Yes \u2013 available.",
@@ -33926,7 +33977,7 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/g7-309n-cemetery-or-crematorium-intersection-direction",
-    "title": "Cemetery &amp;/Or Crematorium (Intersection Direction Sign Left or Right) (Example Only)",
+    "title": "Cemetery &/Or Crematorium (Intersection Direction Sign Left or Right) (Example Only)",
     "sign_no": "G7-309n",
     "standard_sign": "No",
     "use_by_council": "Yes \u2013 available.",
@@ -34036,7 +34087,7 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/g7-4-1-services-sign-position-point-chevron-ended-sign",
-    "title": "Services Sign, Position - point &amp; chevron ended sign (1 Service - Left or Right) Example Only",
+    "title": "Services Sign, Position - point & chevron ended sign (1 Service - Left or Right) Example Only",
     "sign_no": "G7-4-1",
     "standard_sign": "Yes",
     "use_by_council": "Yes \u2013 available.",
@@ -34236,7 +34287,7 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/g7-4-3-services-sign-position-point-chevron-ended-sign",
-    "title": "Services sign, Position - point &amp; chevron ended sign (3 services-left or right) Example Only",
+    "title": "Services sign, Position - point & chevron ended sign (3 services-left or right) Example Only",
     "sign_no": "G7-4-3",
     "standard_sign": "Yes",
     "use_by_council": "Yes \u2013 available.",
@@ -34736,7 +34787,7 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/g9-250-4n-vehicles-over-8t-gvm-must-use-left-lane",
-    "title": "Vehicles Over 8t GVM&nbsp;- Must Use Left Lane",
+    "title": "Vehicles Over 8t GVM - Must Use Left Lane",
     "sign_no": "G9-250-4n",
     "standard_sign": "No",
     "use_by_council": "Yes \u2013 available.",
@@ -35951,7 +36002,7 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/g9-351n-trucks-buses-stop-if-directed",
-    "title": "Trucks &amp; Buses Stop If Directed",
+    "title": "Trucks & Buses Stop If Directed",
     "sign_no": "G9-351n",
     "standard_sign": "No",
     "use_by_council": "Yes \u2013 available.",
@@ -37516,7 +37567,7 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/g6-202n-car-caravan-symbolic-high-wind-area-proceed",
-    "title": "(Car &amp; Caravan Symbolic) High Wind Area - Proceed With Caution",
+    "title": "(Car & Caravan Symbolic) High Wind Area - Proceed With Caution",
     "sign_no": "G6-202n",
     "standard_sign": "No",
     "use_by_council": "Yes \u2013 available.",
@@ -37701,7 +37752,7 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/g6-1-1n-acknowledgement-of-country-saltwater",
-    "title": "Acknowledgement of Country (Saltwater &amp; Freshwater) Welcome To Country (Aboriginal/Indigenous) (Examples Only)",
+    "title": "Acknowledgement of Country (Saltwater & Freshwater) Welcome To Country (Aboriginal/Indigenous) (Examples Only)",
     "sign_no": "G6-1-1n",
     "standard_sign": "No",
     "use_by_council": "Yes \u2013 available.",
@@ -37731,7 +37782,7 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/g6-1-2n-locality-name-sign-aboriginal-language-local",
-    "title": "Locality Name Sign (Aboriginal Language &amp; Local Country name examples) (Indigenous) (Examples Only)",
+    "title": "Locality Name Sign (Aboriginal Language & Local Country name examples) (Indigenous) (Examples Only)",
     "sign_no": "G6-1-2n",
     "standard_sign": "No",
     "use_by_council": "Yes \u2013 available.",
@@ -38425,7 +38476,7 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/g7-237-1n-emergency-information-tune-to-abc-logo-xxxx",
-    "title": "Emergency Information Tune to ABC (logo) (xxxx) &nbsp;AM",
+    "title": "Emergency Information Tune to ABC (logo) (xxxx) AM",
     "sign_no": "G7-237-1n",
     "standard_sign": "No",
     "use_by_council": "Yes \u2013 available.",
@@ -38595,7 +38646,7 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/g7-12-services-sign-park-ride-arrow-example-only",
-    "title": "Services Sign (-------- Park &amp; Ride, with arrow) Example Only",
+    "title": "Services Sign (-------- Park & Ride, with arrow) Example Only",
     "sign_no": "G7-12",
     "standard_sign": "Yes",
     "use_by_council": "Yes \u2013 available.",
@@ -39001,7 +39052,7 @@
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/g7-255nl-driver-reviver-left-chevron-use-g7-242nl",
     "title": "Driver Reviver (Left Chevron) - (Use with G7-242n(L))",
-    "sign_no": "G7-255NL)",
+    "sign_no": "G7-255n",
     "standard_sign": "No",
     "use_by_council": null,
     "legislative_reference": "NA",
@@ -39021,7 +39072,10 @@
     "image_url": "https://www.transport.nsw.gov.au/sites/default/files/media/images/rww/business-industry/partners-suppliers/signage/trafficsigns/images/g7-255n_l_thumb.gif",
     "pdf_url": "https://www.transport.nsw.gov.au/sites/default/files/media/documents/rww//business-industry/partners-suppliers/signage/trafficsigns/pdf/g7-255n_l.pdf",
     "height": "416",
-    "width": "2078"
+    "width": "2078",
+    "normalization_metadata": {
+      "notes": "L)"
+    }
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/g7-254n-driver-reviver-open-use-g7-213-2-1n2n3n4n",
@@ -39470,9 +39524,9 @@
   },
   {
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/g7-286n-hospital-named-symbol-advance-direction-left",
-    "title": "Hospital (named) +&nbsp;symbol (Advance Direction Left or Right) (Example Only)",
+    "title": "Hospital (named) + symbol (Advance Direction Left or Right) (Example Only)",
     "sign_no": "G7-286n",
-    "standard_sign": "&nbsp;",
+    "standard_sign": "",
     "use_by_council": "Yes \u2013 available.",
     "legislative_reference": "NA",
     "primary_technical_reference": "AS1742.6 (Tourist and Service Signs)",
@@ -39532,7 +39586,7 @@
     "url": "https://www.transport.nsw.gov.au/operations/roads-and-waterways/traffic-signs/g7-287n-hospital-symbol-intersection-direction-left-or",
     "title": "Hospital + Symbol (Intersection Direction Left or Right) (Example Only)",
     "sign_no": "G7-287n",
-    "standard_sign": "&nbsp;",
+    "standard_sign": "",
     "use_by_council": "Yes \u2013 available.",
     "legislative_reference": "NA",
     "primary_technical_reference": "AS1742.6 (Tourist and Service Signs)",
@@ -39558,24 +39612,24 @@
     "primary_technical_reference": "TS 05492 - Traffic Control at Worksites",
     "sizes": [
       {
-        "label": "&nbsp; A",
+        "label": "A",
         "h": "900",
         "w": "1200"
       },
       {
-        "label": "&nbsp; B",
+        "label": "B",
         "h": "1350",
         "w": "1800"
       },
       {
-        "label": "&nbsp;",
-        "h": "&nbsp;",
-        "w": "&nbsp;"
+        "label": "",
+        "h": "",
+        "w": ""
       },
       {
-        "label": "&nbsp;",
-        "h": "&nbsp;",
-        "w": "&nbsp;"
+        "label": "",
+        "h": "",
+        "w": ""
       }
     ],
     "image_url": "https://www.transport.nsw.gov.au/sites/default/files/media/images/2025/T4-221n.png",
@@ -39593,24 +39647,24 @@
     "primary_technical_reference": "TS 05492 - Traffic Control at Worksites",
     "sizes": [
       {
-        "label": "&nbsp; A",
+        "label": "A",
         "h": "900",
         "w": "1200"
       },
       {
-        "label": "&nbsp; B",
+        "label": "B",
         "h": "1350",
         "w": "1800"
       },
       {
-        "label": "&nbsp;",
-        "h": "&nbsp;",
-        "w": "&nbsp;"
+        "label": "",
+        "h": "",
+        "w": ""
       },
       {
-        "label": "&nbsp;",
-        "h": "&nbsp;",
-        "w": "&nbsp;"
+        "label": "",
+        "h": "",
+        "w": ""
       }
     ],
     "image_url": "https://www.transport.nsw.gov.au/sites/default/files/media/images/2025/T4-227n.png",
@@ -39628,24 +39682,24 @@
     "primary_technical_reference": "TS 05492 - Traffic Control at Worksites",
     "sizes": [
       {
-        "label": "&nbsp; A",
+        "label": "A",
         "h": "900",
         "w": "1200"
       },
       {
-        "label": "&nbsp; B",
+        "label": "B",
         "h": "1350",
         "w": "1800"
       },
       {
-        "label": "&nbsp;",
-        "h": "&nbsp;",
-        "w": "&nbsp;"
+        "label": "",
+        "h": "",
+        "w": ""
       },
       {
-        "label": "&nbsp;",
-        "h": "&nbsp;",
-        "w": "&nbsp;"
+        "label": "",
+        "h": "",
+        "w": ""
       }
     ],
     "image_url": "https://www.transport.nsw.gov.au/sites/default/files/media/images/2025/T4-225n.png",
@@ -39663,24 +39717,24 @@
     "primary_technical_reference": "TS 05492 - Traffic Control at Worksites",
     "sizes": [
       {
-        "label": "&nbsp; A",
+        "label": "A",
         "h": "900",
         "w": "1200"
       },
       {
-        "label": "&nbsp; B",
+        "label": "B",
         "h": "1350",
         "w": "1800"
       },
       {
-        "label": "&nbsp;",
-        "h": "&nbsp;",
-        "w": "&nbsp;"
+        "label": "",
+        "h": "",
+        "w": ""
       },
       {
-        "label": "&nbsp;",
-        "h": "&nbsp;",
-        "w": "&nbsp;"
+        "label": "",
+        "h": "",
+        "w": ""
       }
     ],
     "image_url": "https://www.transport.nsw.gov.au/sites/default/files/media/images/2025/T4-224n_1.png",
@@ -39698,24 +39752,24 @@
     "primary_technical_reference": "TS 05492 - Traffic Control at Worksites",
     "sizes": [
       {
-        "label": "&nbsp; A",
+        "label": "A",
         "h": "900",
         "w": "1200"
       },
       {
-        "label": "&nbsp; B",
+        "label": "B",
         "h": "1350",
         "w": "1800"
       },
       {
-        "label": "&nbsp;",
-        "h": "&nbsp;",
-        "w": "&nbsp;"
+        "label": "",
+        "h": "",
+        "w": ""
       },
       {
-        "label": "&nbsp;",
-        "h": "&nbsp;",
-        "w": "&nbsp;"
+        "label": "",
+        "h": "",
+        "w": ""
       }
     ],
     "image_url": "https://www.transport.nsw.gov.au/sites/default/files/media/images/2025/T4-226n.png",
@@ -39733,24 +39787,24 @@
     "primary_technical_reference": "TS 05492 - Traffic Control at Worksites",
     "sizes": [
       {
-        "label": "&nbsp; A",
+        "label": "A",
         "h": "500",
         "w": "1200"
       },
       {
-        "label": "&nbsp; B",
+        "label": "B",
         "h": "850",
         "w": "1800"
       },
       {
-        "label": "&nbsp;",
-        "h": "&nbsp;",
-        "w": "&nbsp;"
+        "label": "",
+        "h": "",
+        "w": ""
       },
       {
-        "label": "&nbsp;",
-        "h": "&nbsp;",
-        "w": "&nbsp;"
+        "label": "",
+        "h": "",
+        "w": ""
       }
     ],
     "image_url": "https://www.transport.nsw.gov.au/sites/default/files/media/images/2025/T4-223n.png",
