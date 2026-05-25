@@ -1,0 +1,13 @@
+.venv/
+__pycache__/
+*.py[cod]
+
+# Runtime logs and local debug outputs
+*.log
+
+# Local scratch artifacts
+first_page.html
+detail_page.html
+
+# Project-specific generated/runtime folders
+traffic_signs/__pycache__/
