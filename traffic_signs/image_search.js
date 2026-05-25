@@ -184,51 +184,49 @@
       return;
     }
 
-    const cards = container.querySelectorAll(CONFIG.cardSelector);
-    const scoreMap = new Map(scores.map(({ id, score }) => [String(id), score]));
-    const topIds = new Set(
-      scores
-        .filter((r) => r.score >= CONFIG.threshold)
-        .slice(0, CONFIG.topK)
-        .map((r) => String(r.id))
-    );
+    const topResults = scores
+      .filter((r) => r.score >= CONFIG.threshold)
+      .slice(0, CONFIG.topK);
+    const topIds = new Set(topResults.map((r) => String(r.id)));
 
-    cards.forEach((card) => {
+    // Build id → card map and hide non-matches
+    const cardMap = new Map();
+    container.querySelectorAll(CONFIG.cardSelector).forEach((card) => {
       const id = card.getAttribute(CONFIG.cardIdAttr);
-      const score = scoreMap.get(id);
-      const isTop = topIds.has(id);
-
-      if (isTop) {
-        card.style.display = "";
-        card.classList.add("img-search-match");
-        // Inject similarity badge
-        let badge = card.querySelector(".img-search-badge");
-        if (!badge) {
-          badge = document.createElement("div");
-          badge.className = "img-search-badge";
-          card.appendChild(badge);
-        }
-        const pct = Math.round((score ?? 0) * 100);
-        badge.textContent = `${pct}% match`;
-        badge.style.cssText = `
-          position:absolute; top:6px; right:6px;
-          background:rgba(30,120,255,0.88); color:#fff;
-          font:bold 11px/1 system-ui,sans-serif;
-          padding:3px 7px; border-radius:99px;
-          pointer-events:none; z-index:10;
-        `;
-        // Ensure parent is positioned
-        if (getComputedStyle(card).position === "static") {
-          card.style.position = "relative";
-        }
-        // Sort by inserting at front — attempt to reorder within grid
-        container.prepend(card);
-      } else {
+      cardMap.set(id, card);
+      if (!topIds.has(id)) {
         card.style.display = "none";
         card.classList.remove("img-search-match");
         const badge = card.querySelector(".img-search-badge");
         if (badge) badge.remove();
       }
+    });
+
+    // Append top results in descending score order
+    topResults.forEach(({ id, score }) => {
+      const card = cardMap.get(String(id));
+      if (!card) return;
+      card.style.display = "";
+      card.classList.add("img-search-match");
+      if (getComputedStyle(card).position === "static") {
+        card.style.position = "relative";
+      }
+      let badge = card.querySelector(".img-search-badge");
+      if (!badge) {
+        badge = document.createElement("div");
+        badge.className = "img-search-badge";
+        card.appendChild(badge);
+      }
+      const pct = Math.round(score * 100);
+      badge.textContent = `${pct}% match`;
+      badge.style.cssText = `
+        position:absolute; top:6px; left:6px;
+        background:rgba(30,120,255,0.88); color:#fff;
+        font:bold 11px/1 system-ui,sans-serif;
+        padding:3px 7px; border-radius:99px;
+        pointer-events:none; z-index:10;
+      `;
+      container.appendChild(card);
     });
   }
 
@@ -314,9 +312,11 @@
         }
         #img-search-panel {
           position:fixed; top:50%; left:50%; transform:translate(-50%,-50%);
-          z-index:9999; background:var(--bg,#fff); color:var(--fg,#111);
+          z-index:9999; background:var(--surface,#fff); color:var(--text,#111);
           border-radius:14px; padding:28px 28px 24px;
-          width:min(460px, 94vw); box-shadow:0 8px 40px rgba(0,0,0,.25);
+          width:min(460px, 94vw);
+          box-shadow:0 8px 40px rgba(0,0,0,.25);
+          border:1px solid var(--border,#e5e7eb);
           display:flex; flex-direction:column; gap:14px;
         }
         #img-search-panel h2 { margin:0; font-size:1.15rem; }
@@ -483,9 +483,15 @@
       }
     });
 
-    // Insert after the search input (or its parent wrapper)
-    const target = searchEl.tagName === "INPUT" ? (searchEl.parentElement ?? searchEl) : searchEl;
-    target.insertAdjacentElement("afterend", btn);
+    // Wrap the input and button together in a flex row, leaving the
+    // parent section's column layout (label above, row below) intact
+    const wrapper = document.createElement("div");
+    wrapper.style.cssText = "display:flex; align-items:center; gap:4px;";
+    searchEl.parentElement.insertBefore(wrapper, searchEl);
+    wrapper.appendChild(searchEl);
+    wrapper.appendChild(btn);
+    searchEl.style.flex = "1";
+    searchEl.style.minWidth = "0";
   }
 
   // ---------------------------------------------------------------------------

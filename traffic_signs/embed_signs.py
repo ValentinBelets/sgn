@@ -165,6 +165,14 @@ def compute_embeddings(signs: list[dict]) -> dict[str, list[float]]:
         inputs = processor(images=batch_imgs, return_tensors="pt", padding=True).to(device)
         with torch.no_grad():
             feats = model.get_image_features(**inputs)
+            # transformers 5.x may return a model output object instead of a tensor
+            if not isinstance(feats, torch.Tensor):
+                if hasattr(feats, 'image_embeds'):
+                    feats = feats.image_embeds
+                elif hasattr(feats, 'pooler_output'):
+                    feats = feats.pooler_output
+                else:
+                    feats = feats[0]
             feats = feats / feats.norm(dim=-1, keepdim=True)  # L2 normalise
         for i, sid in enumerate(batch_ids):
             embeddings[sid] = feats[i].cpu().tolist()

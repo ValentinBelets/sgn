@@ -512,8 +512,6 @@
             #main { padding: 12px; }
         }
     </style>
-    <script data-goatcounter="https://valblts.goatcounter.com/count"
-            async src="//gc.zgo.at/count.js"></script>
 </head>
 <body>
 <aside id="sidebar">
@@ -702,6 +700,7 @@
             const card = document.createElement('div');
             card.className = 'sign-card';
             card.id = 'card-' + (sign.sign_no || '').replace(/[^a-zA-Z0-9]/g, '_');
+            card.setAttribute('data-sign-id', sign.sign_no || '');
             card.style.setProperty('--series-color', seriesColor);
 
             let sizesHtml = '';
@@ -889,5 +888,7 @@
         } catch(e) { openDisclaimer(); }
     })();
 </script>
+<script src="sign_embeddings.js"></script>
+<script src="image_search.js"></script>
 </body>
 </html>
