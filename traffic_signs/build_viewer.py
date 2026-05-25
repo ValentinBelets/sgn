@@ -781,6 +781,7 @@ def build_viewer(json_path: str = 'nsw_traffic_signs_unified.json', output_path:
             const card = document.createElement('div');
             card.className = 'sign-card';
             card.id = 'card-' + (sign.sign_no || '').replace(/[^a-zA-Z0-9]/g, '_');
+            card.setAttribute('data-sign-id', sign.sign_no || '');
             card.style.setProperty('--series-color', seriesColor);
 
             let sizesHtml = '';
@@ -968,6 +969,8 @@ def build_viewer(json_path: str = 'nsw_traffic_signs_unified.json', output_path:
         } catch(e) { openDisclaimer(); }
     })();
 </script>
+<script src="sign_embeddings.js"></script>
+<script src="image_search.js"></script>
 </body>
 </html>"""
 
