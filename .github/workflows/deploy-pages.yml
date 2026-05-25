@@ -28,6 +28,23 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v4
 
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Cache HuggingFace models
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/huggingface
+          key: hf-clip-vit-base-patch32
+
+      - name: Install Python deps
+        run: pip install transformers torch pillow requests tqdm
+
+      - name: Pre-compute CLIP embeddings
+        run: python traffic_signs/embed_signs.py
+
       - name: Configure Pages
         uses: actions/configure-pages@v5
 
