@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NSW Traffic Signs - Data Normalization Review</title>
+    <style>
+        :root {
+            --primary: #002664;
+            --secondary: #d7153a;
+            --bg: #f0f2f5;
+            --card-bg: #ffffff;
+            --text: #1a1a1b;
+            --border: #e5e7eb;
+            --surface: #ffffff;
+            --surface-soft: #f9fafb;
+            --surface-hover: #f3f4f6;
+            --muted: #9ca3af;
+            --muted-strong: #374151;
+            --sidebar-w: 280px;
+            
+            --sev-critical: #fee2e2;
+            --sev-critical-text: #991b1b;
+            --sev-major: #fef3c7;
+            --sev-major-text: #92400e;
+            --sev-minor: #f3f4f6;
+            --sev-minor-text: #374151;
+            --sev-gap: #e0f2fe;
+            --sev-gap-text: #075985;
+            --sev-ambiguous: #f3e8ff;
+            --sev-ambiguous-text: #6b21a8;
+        }
+        html[data-theme='dark'] {
+            --primary: #93c5fd;
+            --secondary: #fb7185;
+            --bg: #0f172a;
+            --card-bg: #111827;
+            --text: #e5e7eb;
+            --border: #334155;
+            --surface: #0b1220;
+            --surface-soft: #111827;
+            --surface-hover: #1f2937;
+            --muted: #9ca3af;
+            --muted-strong: #cbd5e1;
+            
+            --sev-critical: #7f1d1d;
+            --sev-critical-text: #fecaca;
+            --sev-major: #78350f;
+            --sev-major-text: #fde68a;
+            --sev-minor: #374151;
+            --sev-minor-text: #e5e7eb;
+            --sev-gap: #0c4a6e;
+            --sev-gap-text: #bae6fd;
+            --sev-ambiguous: #581c87;
+            --sev-ambiguous-text: #e9d5ff;
+        }
+        * { box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            margin: 0;
+            line-height: 1.5;
+            display: flex;
+            min-height: 100vh;
+        }
+        /* ── SIDEBAR ── */
+        #sidebar {
+            width: var(--sidebar-w);
+            min-width: var(--sidebar-w);
+            background: var(--surface);
+            border-right: 1px solid var(--border);
+            padding: 18px 14px;
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+        .sidebar-logo {
+            padding-bottom: 14px;
+            border-bottom: 2px solid var(--primary);
+        }
+        .sidebar-logo h1 {
+            color: var(--primary);
+            font-size: 1.05em;
+            font-weight: 800;
+            letter-spacing: -0.4px;
+            margin: 0 0 2px;
+        }
+        .sidebar-logo span { font-size: 0.72em; color: var(--muted); }
+        .filter-section { display: flex; flex-direction: column; gap: 6px; }
+        .section-label {
+            font-size: 10px;
+            font-weight: 800;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 7px 10px;
+            border: 1.5px solid var(--border);
+            border-radius: 6px;
+            font-size: 13px;
+            background: var(--surface-soft);
+            color: var(--text);
+        }
+        .checkbox-group { display: flex; flex-direction: column; gap: 2px; }
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            font-size: 12px;
+            color: var(--muted-strong);
+            cursor: pointer;
+            padding: 4px 6px;
+            border-radius: 5px;
+        }
+        .checkbox-item:hover { background: var(--surface-hover); }
+        .checkbox-item input { margin-right: 7px; accent-color: var(--primary); }
+        .cb-count { margin-left: auto; font-size: 10px; color: var(--muted); font-weight: 600; }
+        
+        .btn-reset {
+            width: 100%;
+            background: var(--surface);
+            border: 1.5px solid var(--border);
+            color: var(--muted-strong);
+            font-weight: 700;
+            padding: 8px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 12px;
+            transition: all 0.15s;
+        }
+        .btn-reset:hover { background: var(--surface-hover); }
+
+        /* ── MAIN ── */
+        #main {
+            flex: 1;
+            min-width: 0;
+            padding: 18px 22px;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+        #top-bar { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+        #stats {
+            font-weight: 700;
+            color: var(--muted-strong);
+            background: var(--surface);
+            border: 1px solid var(--border);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+        }
+        .btn-action {
+            background: var(--primary);
+            color: #fff;
+            border: none;
+            padding: 6px 14px;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 12px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .btn-action:hover { opacity: 0.9; }
+        .btn-secondary {
+            background: var(--surface);
+            border: 1.5px solid var(--border);
+            color: var(--muted-strong);
+        }
+        .btn-secondary:hover { background: var(--surface-hover); }
+
+        /* ── ISSUE CARDS ── */
+        #issueList {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .issue-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        .issue-header {
+            padding: 12px 16px;
+            background: var(--surface-soft);
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .issue-title-group { display: flex; align-items: baseline; gap: 10px; }
+        .issue-sign-no { font-weight: 800; color: var(--primary); font-size: 1.1em; }
+        .issue-orig-url { font-size: 0.75em; color: var(--muted); text-decoration: none; }
+        .issue-orig-url:hover { text-decoration: underline; }
+
+        .issue-body {
+            display: grid;
+            grid-template-columns: 350px 1fr 180px;
+            gap: 20px;
+            padding: 16px;
+        }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85em;
+        }
+        .comparison-table th { text-align: left; color: var(--muted); font-size: 0.75em; text-transform: uppercase; padding-bottom: 8px; }
+        .comparison-table td { padding: 6px 0; border-bottom: 1px solid var(--border); }
+        .comparison-table tr:last-child td { border-bottom: none; }
+        .label-cell { color: var(--muted); font-weight: 700; width: 80px; }
+        .raw-value { color: var(--secondary); font-family: monospace; }
+        .norm-value { color: #166534; font-weight: 700; font-family: monospace; }
+        html[data-theme='dark'] .norm-value { color: #86efac; }
+
+        .issue-details { display: flex; flex-direction: column; gap: 8px; }
+        .issue-item {
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 0.82em;
+        }
+        .sev-Critical { background: var(--sev-critical); color: var(--sev-critical-text); border-left: 4px solid var(--sev-critical-text); }
+        .sev-Major { background: var(--sev-major); color: var(--sev-major-text); border-left: 4px solid var(--sev-major-text); }
+        .sev-Minor { background: var(--sev-minor); color: var(--sev-minor-text); border-left: 4px solid var(--sev-minor-text); }
+        .sev-Gap { background: var(--sev-gap); color: var(--sev-gap-text); border-left: 4px solid var(--sev-gap-text); }
+        .sev-Ambiguous { background: var(--sev-ambiguous); color: var(--sev-ambiguous-text); border-left: 4px solid var(--sev-ambiguous-text); }
+        
+        .issue-reasoning { font-weight: 600; margin-bottom: 2px; }
+        .issue-severity-tag { font-size: 0.75em; font-weight: 800; text-transform: uppercase; opacity: 0.8; }
+
+        .issue-preview {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            align-items: center;
+            background: var(--surface-soft);
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+        .preview-img { max-width: 100%; max-height: 100px; object-fit: contain; }
+        .preview-links { display: flex; gap: 5px; width: 100%; }
+        .preview-btn { 
+            flex: 1; text-align: center; font-size: 10px; font-weight: 700; text-decoration: none; 
+            padding: 4px; border: 1px solid var(--border); border-radius: 4px; color: var(--muted-strong);
+            background: var(--surface);
+        }
+        .preview-btn:hover { background: var(--surface-hover); }
+
+        /* ── EMPTY STATE ── */
+        #empty-state {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 60px 20px;
+            color: var(--muted);
+            gap: 10px;
+        }
+    </style>
+</head>
+<body>
+<aside id="sidebar">
+    <div class="sidebar-logo">
+        <h1>TfNSW Data Normalization</h1>
+        <span>Proposed Data Fixes</span>
+    </div>
+    <div class="filter-section">
+        <label class="section-label">Search</label>
+        <input type="text" id="searchBar" placeholder="Sign code or reasoning…">
+    </div>
+    <div class="filter-section">
+        <label class="section-label">Severity</label>
+        <div class="checkbox-group" id="sevFilters">
+            <label class="checkbox-item"><input type="checkbox" value="Critical: Reference Mismatch" checked>Critical<span class="cb-count" id="count-critical"></span></label>
+            <label class="checkbox-item"><input type="checkbox" value="Major: Variant/Modifier Error" checked>Major<span class="cb-count" id="count-major"></span></label>
+            <label class="checkbox-item"><input type="checkbox" value="Minor: Format Inconsistency" checked>Minor<span class="cb-count" id="count-minor"></span></label>
+            <label class="checkbox-item"><input type="checkbox" value="Ambiguous Reference" checked>Ambiguous<span class="cb-count" id="count-ambiguous"></span></label>
+            <label class="checkbox-item"><input type="checkbox" value="Reference Gap" checked>Gap<span class="cb-count" id="count-gap"></span></label>
+        </div>
+    </div>
+    <button class="btn-reset" onclick="clearFilters()">Reset All Filters</button>
+    <div style="margin-top:auto; font-size: 11px; color: var(--muted);">
+        <a href="interactive_catalogue_unified.html" style="color:var(--primary); font-weight:700; text-decoration:none;">&larr; Back to Catalogue</a>
+    </div>
+</aside>
+
+<main id="main">
+    <div id="top-bar">
+        <span id="stats">Analyzing data…</span>
+        <button class="btn-action" onclick="downloadCSV()">
+            <span>&darr;</span> Download CSV for TfNSW
+        </button>
+        <button class="btn-action btn-secondary" onclick="toggleTheme()">Theme</button>
+    </div>
+    <div id="issueList"></div>
+    <div id="empty-state">
+        <h3>No inconsistencies found</h3>
+        <p>Adjust filters or search criteria.</p>
+    </div>
+</main>
+
+<script>
+    let allIssues = [];
+
+    async function loadData() {
+        try {
+            const response = await fetch('naming_inconsistencies_patch.json');
+            allIssues = await response.json();
+            initStats();
+            renderIssues();
+        } catch (e) {
+            console.error("Failed to load patch data", e);
+            document.getElementById('stats').textContent = "Error loading data.";
+        }
+    }
+
+    function initStats() {
+        const counts = {
+            critical: 0, major: 0, minor: 0, ambiguous: 0, gap: 0
+        };
+        allIssues.forEach(item => {
+            item.issues.forEach(iss => {
+                if (iss.severity.includes('Critical')) counts.critical++;
+                else if (iss.severity.includes('Major')) counts.major++;
+                else if (iss.severity.includes('Minor')) counts.minor++;
+                else if (iss.severity.includes('Ambiguous')) counts.ambiguous++;
+                else if (iss.severity.includes('Gap')) counts.gap++;
+            });
+        });
+        document.getElementById('count-critical').textContent = counts.critical;
+        document.getElementById('count-major').textContent = counts.major;
+        document.getElementById('count-minor').textContent = counts.minor;
+        document.getElementById('count-ambiguous').textContent = counts.ambiguous;
+        document.getElementById('count-gap').textContent = counts.gap;
+    }
+
+    function renderIssues() {
+        const container = document.getElementById('issueList');
+        const term = document.getElementById('searchBar').value.toLowerCase();
+        const activeSevs = Array.from(document.querySelectorAll('#sevFilters input:checked')).map(cb => cb.value);
+        
+        const filtered = allIssues.filter(item => {
+            const matchesSev = item.issues.some(iss => activeSevs.includes(iss.severity));
+            if (!matchesSev) return false;
+            
+            if (term) {
+                const text = (item.original_sign_no + ' ' + item.normalized_sign_no + ' ' + item.title + ' ' + item.issues.map(i => i.reasoning).join(' ')).toLowerCase();
+                if (!text.includes(term)) return false;
+            }
+            return true;
+        });
+
+        document.getElementById('stats').textContent = `Showing ${filtered.length} entries with inconsistencies`;
+        document.getElementById('empty-state').style.display = filtered.length === 0 ? 'flex' : 'none';
+        
+        container.innerHTML = '';
+        filtered.forEach(item => {
+            const card = document.createElement('div');
+            card.className = 'issue-card';
+            
+            const issuesHtml = item.issues.filter(iss => activeSevs.includes(iss.severity)).map(iss => {
+                const sevClass = iss.severity.split(':')[0].trim();
+                return `
+                    <div class="issue-item sev-${sevClass}">
+                        <div class="issue-severity-tag">${iss.severity}</div>
+                        <div class="issue-reasoning">${iss.reasoning}</div>
+                    </div>
+                `;
+            }).join('');
+
+            card.innerHTML = `
+                <div class="issue-header">
+                    <div class="issue-title-group">
+                        <span class="issue-sign-no">${item.normalized_sign_no || 'Unknown Code'}</span>
+                        <span style="font-size:0.9em; font-weight:600; color:var(--muted-strong)">${item.title || ''}</span>
+                    </div>
+                    <a href="${item.original_url}" target="_blank" class="issue-orig-url">View Source Page &rarr;</a>
+                </div>
+                <div class="issue-body">
+                    <div class="issue-comparison">
+                        <table class="comparison-table">
+                            <thead><tr><th colspan="2">Data Comparison</th></tr></thead>
+                            <tbody>
+                                <tr>
+                                    <td class="label-cell">Sign #</td>
+                                    <td>
+                                        <div class="raw-value">${item.original_sign_no || 'null'}</div>
+                                        <div class="norm-value">${item.normalized_sign_no || 'null'}</div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="label-cell">Tech Ref</td>
+                                    <td>
+                                        <div class="raw-value">${item.original_tech_ref || 'null'}</div>
+                                        <div class="norm-value">${item.normalized_tech_ref || 'null'}</div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="label-cell">Leg Ref</td>
+                                    <td>
+                                        <div class="raw-value">${item.original_leg_ref || 'null'}</div>
+                                        <div class="norm-value">${item.normalized_leg_ref || 'null'}</div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="issue-details">${issuesHtml}</div>
+                    <div class="issue-preview">
+                        <img src="${item.image_url}" class="preview-img" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%22 height=%22100%22><rect width=%22100%22 height=%22100%22 fill=%22%23eee%22/><text x=%2250%%22 y=%2250%%22 font-family=%22sans-serif%22 font-size=%2210%22 text-anchor=%22middle%22 fill=%22%23999%22>No Image</text></svg>'">
+                        <div class="preview-links">
+                            <a href="${item.image_url}" target="_blank" class="preview-btn">Image</a>
+                            ${item.pdf_url ? `<a href="${item.pdf_url}" target="_blank" class="preview-btn">PDF</a>` : ''}
+                        </div>
+                    </div>
+                </div>
+            `;
+            container.appendChild(card);
+        });
+    }
+
+    function downloadCSV() {
+        const activeSevs = Array.from(document.querySelectorAll('#sevFilters input:checked')).map(cb => cb.value);
+        const term = document.getElementById('searchBar').value.toLowerCase();
+
+        const filtered = allIssues.filter(item => {
+            const matchesSev = item.issues.some(iss => activeSevs.includes(iss.severity));
+            if (!matchesSev) return false;
+            if (term) {
+                const text = (item.original_sign_no + ' ' + item.normalized_sign_no + ' ' + item.title + ' ' + item.issues.map(i => i.reasoning).join(' ')).toLowerCase();
+                if (!text.includes(term)) return false;
+            }
+            return true;
+        });
+
+        let csv = 'Severity,Normalized Sign Code,Original Sign Code,Title,Issue Reasoning,Original URL,Technical Reference,Legislative Reference\n';
+        filtered.forEach(item => {
+            item.issues.forEach(iss => {
+                if (activeSevs.includes(iss.severity)) {
+                    const row = [
+                        iss.severity,
+                        item.normalized_sign_no || '',
+                        item.original_sign_no || '',
+                        `"${(item.title || '').replace(/"/g, '""')}"`,
+                        `"${iss.reasoning.replace(/"/g, '""')}"`,
+                        item.original_url,
+                        `"${(item.normalized_tech_ref || '').replace(/"/g, '""')}"`,
+                        `"${(item.normalized_leg_ref || '').replace(/"/g, '""')}"`
+                    ];
+                    csv += row.join(',') + '\n';
+                }
+            });
+        });
+
+        const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+        const link = document.createElement("a");
+        const url = URL.createObjectURL(blob);
+        link.setAttribute("href", url);
+        link.setAttribute("download", "tfnsw_sign_data_corrections.csv");
+        link.style.visibility = 'hidden';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    }
+
+    function clearFilters() {
+        document.getElementById('searchBar').value = '';
+        document.querySelectorAll('#sevFilters input').forEach(cb => cb.checked = true);
+        renderIssues();
+    }
+
+    function toggleTheme() {
+        const current = document.documentElement.getAttribute('data-theme');
+        const next = current === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+    }
+
+    document.getElementById('searchBar').addEventListener('input', renderIssues);
+    document.querySelectorAll('#sevFilters input').forEach(cb => cb.addEventListener('change', renderIssues));
+    
+    loadData();
+</script>
+</body>
+</html>
