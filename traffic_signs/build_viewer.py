@@ -643,6 +643,7 @@ def build_viewer(json_path: str = 'nsw_traffic_signs_unified.json', output_path:
             #main { padding: 12px; }
         }
     </style>
+    %EXT_HEAD%
 </head>
 <body>
 <aside id="sidebar">
@@ -864,6 +865,7 @@ def build_viewer(json_path: str = 'nsw_traffic_signs_unified.json', output_path:
                     '<div class="sign-header"><div class="sign-no">' + signCode + '</div></div>' +
                     '<div class="sizes-container">' + sizesHtml + '</div>' +
                     '<div class="sign-title">' + (sign.title_html || 'Untitled') + '</div>' +
+                    '<div class="sign-ext" data-sign-no="' + signCode + '"></div>' +
                     (sign.legislative_reference && sign.legislative_reference !== 'NA' ? '<div class="detail-row"><span class="detail-label">Leg</span><span class="detail-value" title="' + sign.legislative_reference + '">' + sign.legislative_reference + '</span></div>' : '') +
                     (sign.primary_technical_reference && sign.primary_technical_reference !== 'NA' ? '<div class="detail-row"><span class="detail-label">Tech</span><span class="detail-value" title="' + sign.primary_technical_reference + '">' + sign.primary_technical_reference + '</span></div>' : '') +
                     (sign.notes_html ? '<div class="detail-row"><span class="detail-label">Notes</span><span class="detail-value" title="' + (sign.normalization_metadata && sign.normalization_metadata.notes ? sign.normalization_metadata.notes : '') + '">' + sign.notes_html + '</span></div>' : '') +
@@ -878,6 +880,14 @@ def build_viewer(json_path: str = 'nsw_traffic_signs_unified.json', output_path:
                     '<a href="' + sign.url + '" target="_blank" rel="noopener" class="btn">Detail</a>' +
                     (sign.pdf_url ? '<a href="' + sign.pdf_url + '" target="_blank" rel="noopener" class="btn btn-pdf">PDF</a>' : '') +
                 '</div>';
+
+            // Extension seam: a registered viewer extension may decorate the
+            // card by rendering into its .sign-ext mount. The viewer itself is
+            // agnostic about what (if anything) gets rendered there.
+            if (window.SignViewerExt && typeof window.SignViewerExt.renderCard === 'function') {
+                window.SignViewerExt.renderCard(card, sign);
+            }
+
             fragment.appendChild(card);
         });
         signGrid.appendChild(fragment);
@@ -989,6 +999,9 @@ def build_viewer(json_path: str = 'nsw_traffic_signs_unified.json', output_path:
     });
     initTechFilter();
     initCountBadges();
+    if (window.SignViewerExt && typeof window.SignViewerExt.init === 'function') {
+        window.SignViewerExt.init(allSigns);
+    }
     renderSigns(allSigns);
     searchBar.addEventListener('input', filterSigns);
     filterSeries.addEventListener('change', filterSigns);
@@ -1028,10 +1041,24 @@ def build_viewer(json_path: str = 'nsw_traffic_signs_unified.json', output_path:
 </body>
 </html>"""
 
+    # Extension seam: if a viewer extension has dropped its assets
+    # (catalogue.ext.css / catalogue.ext.js) beside the output, link them in the
+    # head — the script must register window.SignViewerExt BEFORE the inline
+    # viewer script runs and calls its init()/renderCard() hooks. With no
+    # extension present, nothing is emitted and the viewer stays agnostic.
+    out_dir = output_file.parent
+    ext_parts = []
+    if (out_dir / 'catalogue.ext.css').exists():
+        ext_parts.append('<link rel="stylesheet" href="catalogue.ext.css">')
+    if (out_dir / 'catalogue.ext.js').exists():
+        ext_parts.append('<script src="catalogue.ext.js"></script>')
+    ext_head = '\n    '.join(ext_parts)
+
     final_html = (
         html_template
         .replace('%DATA%', json.dumps(data))
         .replace('%RELEASE_VERSION%', RELEASE_VERSION)
+        .replace('%EXT_HEAD%', ext_head)
     )
     with open(output_file, 'w', encoding='utf-8') as f:
         f.write(final_html)
