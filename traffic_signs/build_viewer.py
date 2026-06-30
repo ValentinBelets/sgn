@@ -883,9 +883,14 @@ def build_viewer(json_path: str = 'nsw_traffic_signs_unified.json', output_path:
 
             // Extension seam: a registered viewer extension may decorate the
             // card by rendering into its .sign-ext mount. The viewer itself is
-            // agnostic about what (if anything) gets rendered there.
+            // agnostic about what gets rendered there, and a failure in a
+            // third-party extension must not break the base render loop.
             if (window.SignViewerExt && typeof window.SignViewerExt.renderCard === 'function') {
-                window.SignViewerExt.renderCard(card, sign);
+                try {
+                    window.SignViewerExt.renderCard(card, sign);
+                } catch (err) {
+                    console.error('SignViewerExt.renderCard failed', err);
+                }
             }
 
             fragment.appendChild(card);
@@ -1000,7 +1005,11 @@ def build_viewer(json_path: str = 'nsw_traffic_signs_unified.json', output_path:
     initTechFilter();
     initCountBadges();
     if (window.SignViewerExt && typeof window.SignViewerExt.init === 'function') {
-        window.SignViewerExt.init(allSigns);
+        try {
+            window.SignViewerExt.init(allSigns);
+        } catch (err) {
+            console.error('SignViewerExt.init failed', err);
+        }
     }
     renderSigns(allSigns);
     searchBar.addEventListener('input', filterSigns);
@@ -1052,13 +1061,15 @@ def build_viewer(json_path: str = 'nsw_traffic_signs_unified.json', output_path:
         ext_parts.append('<link rel="stylesheet" href="catalogue.ext.css">')
     if (out_dir / 'catalogue.ext.js').exists():
         ext_parts.append('<script src="catalogue.ext.js"></script>')
-    ext_head = '\n    '.join(ext_parts)
+    # Replace the whole placeholder line so no blank indentation remains when no
+    # extension is present — a pure-public build stays byte-identical to before.
+    ext_head_line = ('    ' + '\n    '.join(ext_parts) + '\n') if ext_parts else ''
 
     final_html = (
         html_template
         .replace('%DATA%', json.dumps(data))
         .replace('%RELEASE_VERSION%', RELEASE_VERSION)
-        .replace('%EXT_HEAD%', ext_head)
+        .replace('    %EXT_HEAD%\n', ext_head_line)
     )
     with open(output_file, 'w', encoding='utf-8') as f:
         f.write(final_html)
