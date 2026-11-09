@@ -344,23 +344,20 @@ def build_viewer(json_path: str = 'nsw_traffic_signs_unified.json', output_path:
         }
         .pill:hover { border-color: var(--muted); }
         .pill.active { background: var(--primary); color: #fff; border-color: var(--primary); }
-        /* Compact, collapsible Series filter (colour + code only) */
-        .series-details > summary {
-            list-style: none;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-        .series-details > summary::-webkit-details-marker { display: none; }
-        .series-details > summary::after {
-            content: '▸';
+        /* Series filter: compact colour+code pills by default; expands to the spelled-out list */
+        .series-header { display: flex; align-items: center; gap: 6px; }
+        .series-toggle {
             margin-left: auto;
-            font-size: 10px;
+            background: none;
+            border: none;
+            padding: 0;
+            cursor: pointer;
             color: var(--muted);
+            font-size: 11px;
+            line-height: 1;
             transition: transform 0.15s;
         }
-        .series-details[open] > summary::after { transform: rotate(90deg); }
+        .series-toggle.expanded { transform: rotate(90deg); }
         .series-pills { display: flex; flex-wrap: wrap; gap: 6px; }
         .series-pill {
             display: inline-flex;
@@ -380,13 +377,38 @@ def build_viewer(json_path: str = 'nsw_traffic_signs_unified.json', output_path:
         .series-pill:hover { border-color: var(--muted); }
         .series-pill input { display: none; }
         .series-pill .series-dot { margin: 0; background: var(--series-color); }
-        .series-pills .cb-count { display: none; }
+        .series-pill .series-name, .series-pill .cb-count { display: none; }
         .series-pill:has(input:checked) {
             background: var(--series-color);
             border-color: var(--series-color);
             color: #fff;
         }
         .series-pill:has(input:checked) .series-dot { background: #fff; }
+        /* Expanded view: restores the original spelled-out checkbox list */
+        .series-pills.expanded { flex-direction: column; flex-wrap: nowrap; gap: 2px; }
+        .series-pills.expanded .series-pill {
+            border: none;
+            background: none;
+            border-radius: 5px;
+            padding: 4px 6px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+        .series-pills.expanded .series-pill:hover { background: var(--surface-hover); }
+        .series-pills.expanded .series-pill input {
+            display: inline-block;
+            margin-right: 7px;
+            width: 14px;
+            height: 14px;
+            accent-color: var(--primary);
+            flex-shrink: 0;
+        }
+        .series-pills.expanded .series-pill .series-dot { margin-right: 6px; background: var(--series-color); }
+        .series-pills.expanded .series-pill .series-code { display: none; }
+        .series-pills.expanded .series-pill .series-name { display: inline; }
+        .series-pills.expanded .series-pill .cb-count { display: inline; margin-left: auto; }
+        .series-pills.expanded .series-pill:has(input:checked) { background: var(--surface-hover); color: var(--text); }
+        .series-pills.expanded .series-pill:has(input:checked) .series-dot { background: var(--series-color); }
         .btn-reset {
             width: 100%;
             background: var(--surface);
@@ -714,17 +736,20 @@ def build_viewer(json_path: str = 'nsw_traffic_signs_unified.json', output_path:
         <label class="section-label">Search</label>
         <input type="text" id="searchBar" placeholder="Sign code, title, rule\u2026">
     </div>
-    <details class="filter-section series-details">
-        <summary class="section-label">Series</summary>
-        <div class="series-pills" id="seriesCheckboxes">
-            <label class="series-pill" style="--series-color:var(--series-R)" title="Regulatory (R)"><input type="checkbox" value="R"><span class="series-dot"></span>R<span class="cb-count" data-series="R"></span></label>
-            <label class="series-pill" style="--series-color:var(--series-W)" title="Warning (W)"><input type="checkbox" value="W"><span class="series-dot"></span>W<span class="cb-count" data-series="W"></span></label>
-            <label class="series-pill" style="--series-color:var(--series-G)" title="Guide (G)"><input type="checkbox" value="G"><span class="series-dot"></span>G<span class="cb-count" data-series="G"></span></label>
-            <label class="series-pill" style="--series-color:var(--series-T)" title="Temporary (T)"><input type="checkbox" value="T"><span class="series-dot"></span>T<span class="cb-count" data-series="T"></span></label>
-            <label class="series-pill" style="--series-color:var(--series-GE)" title="Motorway (GE)"><input type="checkbox" value="GE"><span class="series-dot"></span>GE<span class="cb-count" data-series="GE"></span></label>
-            <label class="series-pill" style="--series-color:var(--series-RM)" title="Markings (RM)"><input type="checkbox" value="RM"><span class="series-dot"></span>RM<span class="cb-count" data-series="RM"></span></label>
+    <div class="filter-section">
+        <div class="series-header">
+            <label class="section-label">Series</label>
+            <button type="button" class="series-toggle" id="seriesToggle" aria-expanded="false" title="Show full names">▸</button>
         </div>
-    </details>
+        <div class="series-pills" id="seriesCheckboxes">
+            <label class="series-pill" style="--series-color:var(--series-R)" title="Regulatory (R)"><input type="checkbox" value="R"><span class="series-dot"></span><span class="series-code">R</span><span class="series-name">Regulatory (R)</span><span class="cb-count" data-series="R"></span></label>
+            <label class="series-pill" style="--series-color:var(--series-W)" title="Warning (W)"><input type="checkbox" value="W"><span class="series-dot"></span><span class="series-code">W</span><span class="series-name">Warning (W)</span><span class="cb-count" data-series="W"></span></label>
+            <label class="series-pill" style="--series-color:var(--series-G)" title="Guide (G)"><input type="checkbox" value="G"><span class="series-dot"></span><span class="series-code">G</span><span class="series-name">Guide (G)</span><span class="cb-count" data-series="G"></span></label>
+            <label class="series-pill" style="--series-color:var(--series-T)" title="Temporary (T)"><input type="checkbox" value="T"><span class="series-dot"></span><span class="series-code">T</span><span class="series-name">Temporary (T)</span><span class="cb-count" data-series="T"></span></label>
+            <label class="series-pill" style="--series-color:var(--series-GE)" title="Motorway (GE)"><input type="checkbox" value="GE"><span class="series-dot"></span><span class="series-code">GE</span><span class="series-name">Motorway (GE)</span><span class="cb-count" data-series="GE"></span></label>
+            <label class="series-pill" style="--series-color:var(--series-RM)" title="Markings (RM)"><input type="checkbox" value="RM"><span class="series-dot"></span><span class="series-code">RM</span><span class="series-name">Markings (RM)</span><span class="cb-count" data-series="RM"></span></label>
+        </div>
+    </div>
     <div class="filter-section">
         <label class="section-label">Standardisation</label>
         <div class="pill-group" id="filterStandard">
@@ -1074,6 +1099,15 @@ def build_viewer(json_path: str = 'nsw_traffic_signs_unified.json', output_path:
     renderSigns(allSigns);
     searchBar.addEventListener('input', filterSigns);
     filterSeries.addEventListener('change', filterSigns);
+    var seriesToggle = document.getElementById('seriesToggle');
+    if (seriesToggle) {
+        seriesToggle.addEventListener('click', function() {
+            var expanded = filterSeries.classList.toggle('expanded');
+            seriesToggle.classList.toggle('expanded', expanded);
+            seriesToggle.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+            seriesToggle.title = expanded ? 'Show compact view' : 'Show full names';
+        });
+    }
     filterNSW.addEventListener('change', filterSigns);
     [filterStandard, filterStatus].forEach(function(g){ g.addEventListener('click', function(e){ var p = e.target.closest('.pill'); if (!p) return; p.classList.toggle('active'); filterSigns(); }); });
     document.getElementById('sortSelect').addEventListener('change', filterSigns);
