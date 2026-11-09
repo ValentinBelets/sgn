@@ -233,7 +233,6 @@ def build_viewer(json_path: str = 'nsw_traffic_signs_unified.json', output_path:
             transition: border-color 0.2s;
         }
         select:focus { border-color: var(--primary); outline: none; }
-        select[multiple] { height: 82px; }
         .tech-list { flex: 1 1 auto; min-height: 120px; overflow-y: auto; border: 1.5px solid var(--border); border-radius: 6px; background: var(--surface-soft); }
         .tech-item { display: flex; align-items: center; gap: 6px; padding: 4px 8px; font-size: 12px; color: var(--muted-strong); cursor: pointer; user-select: none; transition: background 0.1s; }
         .tech-item:hover { background: var(--surface-hover); }
@@ -329,6 +328,65 @@ def build_viewer(json_path: str = 'nsw_traffic_signs_unified.json', output_path:
             flex-shrink: 0;
         }
         .cb-count { margin-left: auto; font-size: 10px; color: var(--muted); font-weight: 600; }
+        /* Toggle pills (Standardisation, Usage Status) */
+        .pill-group { display: flex; flex-wrap: wrap; gap: 6px; }
+        .pill {
+            border: 1.5px solid var(--border);
+            background: var(--surface-soft);
+            color: var(--muted-strong);
+            border-radius: 999px;
+            padding: 3px 11px;
+            font-size: 11px;
+            font-weight: 700;
+            cursor: pointer;
+            user-select: none;
+            transition: all 0.12s;
+        }
+        .pill:hover { border-color: var(--muted); }
+        .pill.active { background: var(--primary); color: #fff; border-color: var(--primary); }
+        /* Compact, collapsible Series filter (colour + code only) */
+        .series-details > summary {
+            list-style: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .series-details > summary::-webkit-details-marker { display: none; }
+        .series-details > summary::after {
+            content: '▸';
+            margin-left: auto;
+            font-size: 10px;
+            color: var(--muted);
+            transition: transform 0.15s;
+        }
+        .series-details[open] > summary::after { transform: rotate(90deg); }
+        .series-pills { display: flex; flex-wrap: wrap; gap: 6px; }
+        .series-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            border: 1.5px solid var(--border);
+            background: var(--surface-soft);
+            color: var(--muted-strong);
+            border-radius: 999px;
+            padding: 3px 10px;
+            font-size: 11px;
+            font-weight: 700;
+            cursor: pointer;
+            user-select: none;
+            transition: all 0.12s;
+        }
+        .series-pill:hover { border-color: var(--muted); }
+        .series-pill input { display: none; }
+        .series-pill .series-dot { margin: 0; background: var(--series-color); }
+        .series-pills .cb-count { display: none; }
+        .series-pill:has(input:checked) {
+            background: var(--series-color);
+            border-color: var(--series-color);
+            color: #fff;
+        }
+        .series-pill:has(input:checked) .series-dot { background: #fff; }
         .btn-reset {
             width: 100%;
             background: var(--surface);
@@ -656,31 +714,31 @@ def build_viewer(json_path: str = 'nsw_traffic_signs_unified.json', output_path:
         <label class="section-label">Search</label>
         <input type="text" id="searchBar" placeholder="Sign code, title, rule\u2026">
     </div>
+    <details class="filter-section series-details">
+        <summary class="section-label">Series</summary>
+        <div class="series-pills" id="seriesCheckboxes">
+            <label class="series-pill" style="--series-color:var(--series-R)" title="Regulatory (R)"><input type="checkbox" value="R"><span class="series-dot"></span>R<span class="cb-count" data-series="R"></span></label>
+            <label class="series-pill" style="--series-color:var(--series-W)" title="Warning (W)"><input type="checkbox" value="W"><span class="series-dot"></span>W<span class="cb-count" data-series="W"></span></label>
+            <label class="series-pill" style="--series-color:var(--series-G)" title="Guide (G)"><input type="checkbox" value="G"><span class="series-dot"></span>G<span class="cb-count" data-series="G"></span></label>
+            <label class="series-pill" style="--series-color:var(--series-T)" title="Temporary (T)"><input type="checkbox" value="T"><span class="series-dot"></span>T<span class="cb-count" data-series="T"></span></label>
+            <label class="series-pill" style="--series-color:var(--series-GE)" title="Motorway (GE)"><input type="checkbox" value="GE"><span class="series-dot"></span>GE<span class="cb-count" data-series="GE"></span></label>
+            <label class="series-pill" style="--series-color:var(--series-RM)" title="Markings (RM)"><input type="checkbox" value="RM"><span class="series-dot"></span>RM<span class="cb-count" data-series="RM"></span></label>
+        </div>
+    </details>
     <div class="filter-section">
-        <label class="section-label">Series</label>
-        <div class="checkbox-group" id="seriesCheckboxes">
-            <label class="checkbox-item"><input type="checkbox" value="R"><span class="series-dot" style="background:var(--series-R)"></span>Regulatory (R)<span class="cb-count" data-series="R"></span></label>
-            <label class="checkbox-item"><input type="checkbox" value="W"><span class="series-dot" style="background:var(--series-W)"></span>Warning (W)<span class="cb-count" data-series="W"></span></label>
-            <label class="checkbox-item"><input type="checkbox" value="G"><span class="series-dot" style="background:var(--series-G)"></span>Guide (G)<span class="cb-count" data-series="G"></span></label>
-            <label class="checkbox-item"><input type="checkbox" value="T"><span class="series-dot" style="background:var(--series-T)"></span>Temporary (T)<span class="cb-count" data-series="T"></span></label>
-            <label class="checkbox-item"><input type="checkbox" value="GE"><span class="series-dot" style="background:var(--series-GE)"></span>Motorway (GE)<span class="cb-count" data-series="GE"></span></label>
-            <label class="checkbox-item"><input type="checkbox" value="RM"><span class="series-dot" style="background:var(--series-RM)"></span>Markings (RM)<span class="cb-count" data-series="RM"></span></label>
+        <label class="section-label">Standardisation</label>
+        <div class="pill-group" id="filterStandard">
+            <button type="button" class="pill" data-value="Yes">Standard</button>
+            <button type="button" class="pill" data-value="No">Non-Standard</button>
+            <button type="button" class="pill" data-value="-">Undefined</button>
         </div>
     </div>
     <div class="filter-section">
-        <label class="section-label">Standardisation</label>
-        <select id="filterStandard" multiple>
-            <option value="Yes">Standard Sign</option>
-            <option value="No">Non-Standard</option>
-            <option value="-">Undefined</option>
-        </select>
-    </div>
-    <div class="filter-section">
         <label class="section-label">Usage Status</label>
-        <select id="filterStatus" multiple>
-            <option value="Active">Active</option>
-            <option value="Superseded">Superseded</option>
-        </select>
+        <div class="pill-group" id="filterStatus">
+            <button type="button" class="pill" data-value="Active">Active</button>
+            <button type="button" class="pill" data-value="Superseded">Superseded</button>
+        </div>
     </div>
     <div class="filter-section">
         <label class="section-label">NSW Usage</label>
@@ -912,12 +970,13 @@ def build_viewer(json_path: str = 'nsw_traffic_signs_unified.json', output_path:
         if (term) add('"' + term + '"', function() { searchBar.value = ''; filterSigns(); });
         selectedSeries.forEach(function(s) { add('Series: ' + s, function() { filterSeries.querySelector('input[value="' + s + '"]').checked = false; filterSigns(); }); });
         selectedTech.forEach(function(t) { add('Ref: ' + t, function() { var cb = Array.from(filterTech.querySelectorAll('input')).find(function(c){ return c.value === t; }); if(cb) cb.checked = false; filterSigns(); }); });
-        selectedStd.forEach(function(v) { add('Std: ' + v, function() { Array.from(filterStandard.options).find(function(o){ return o.value === v; }).selected = false; filterSigns(); }); });
-        selectedStatus.forEach(function(v) { add('Status: ' + v, function() { Array.from(filterStatus.options).find(function(o){ return o.value === v; }).selected = false; filterSigns(); }); });
+        selectedStd.forEach(function(v) { add('Std: ' + v, function() { deactivatePill(filterStandard, v); filterSigns(); }); });
+        selectedStatus.forEach(function(v) { add('Status: ' + v, function() { deactivatePill(filterStatus, v); filterSigns(); }); });
         if (nswFilter !== 'all') add('NSW: ' + (nswFilter === 'used' ? 'Used' : 'Not Used'), function() { filterNSW.value = 'all'; filterSigns(); });
     }
 
-    function getSelectedValues(sel) { return Array.from(sel.selectedOptions).map(function(o){ return o.value; }); }
+    function getActivePills(container) { return Array.from(container.querySelectorAll('.pill.active')).map(function(p){ return p.dataset.value; }); }
+    function deactivatePill(container, v) { var p = container.querySelector('.pill[data-value="' + v + '"]'); if (p) p.classList.remove('active'); }
     function getSelectedCheckboxes(container) { return Array.from(container.querySelectorAll('input:checked')).map(function(cb){ return cb.value; }); }
 
     function getSortedSigns(signs) {
@@ -937,8 +996,8 @@ def build_viewer(json_path: str = 'nsw_traffic_signs_unified.json', output_path:
         const selectedTech = getSelectedCheckboxes(filterTech);
         const nswFilter = filterNSW.value;
         const selectedSeries = getSelectedCheckboxes(filterSeries);
-        const selectedStd = getSelectedValues(filterStandard);
-        const selectedStatus = getSelectedValues(filterStatus);
+        const selectedStd = getActivePills(filterStandard);
+        const selectedStatus = getActivePills(filterStatus);
 
         const filtered = allSigns.filter(function(s) {
             if (term) {
@@ -968,7 +1027,7 @@ def build_viewer(json_path: str = 'nsw_traffic_signs_unified.json', output_path:
         if (ts) ts.value = '';
         filterTech.querySelectorAll('input').forEach(function(cb){ cb.checked = false; });
         filterTech.querySelectorAll('.tech-item').forEach(function(item){ item.style.display = ''; });
-        [filterStandard, filterStatus].forEach(function(sel){ Array.from(sel.options).forEach(function(o){ o.selected = false; }); });
+        [filterStandard, filterStatus].forEach(function(g){ g.querySelectorAll('.pill.active').forEach(function(p){ p.classList.remove('active'); }); });
         filterSeries.querySelectorAll('input').forEach(function(cb){ cb.checked = false; });
         document.getElementById('sortSelect').value = 'sign_no';
         filterSigns();
@@ -1015,7 +1074,8 @@ def build_viewer(json_path: str = 'nsw_traffic_signs_unified.json', output_path:
     renderSigns(allSigns);
     searchBar.addEventListener('input', filterSigns);
     filterSeries.addEventListener('change', filterSigns);
-    [filterStandard, filterStatus, filterNSW].forEach(function(el){ el.addEventListener('change', filterSigns); });
+    filterNSW.addEventListener('change', filterSigns);
+    [filterStandard, filterStatus].forEach(function(g){ g.addEventListener('click', function(e){ var p = e.target.closest('.pill'); if (!p) return; p.classList.toggle('active'); filterSigns(); }); });
     document.getElementById('sortSelect').addEventListener('change', filterSigns);
 </script>
 <div id="disclaimer-overlay" role="dialog" aria-modal="true" aria-labelledby="disclaimer-title" onclick="if(event.target===this)closeDisclaimer()">
