@@ -2,7 +2,17 @@ import urllib.request
 import re
 import json
 import time
+import ssl
 from pathlib import Path
+
+# Use certifi's CA bundle when available so HTTPS verification works on macOS
+# (stock python.org builds otherwise fail with CERTIFICATE_VERIFY_FAILED).
+# Falls back to the system default context if certifi isn't installed.
+try:
+    import certifi
+    SSL_CONTEXT = ssl.create_default_context(cafile=certifi.where())
+except ImportError:
+    SSL_CONTEXT = ssl.create_default_context()
 
 BASE_URL = "https://www.transport.nsw.gov.au"
 SEARCH_URL = BASE_URL + "/operations/roads-and-waterways/traffic-signs?page={}"
@@ -17,7 +27,7 @@ HEADERS = {
 def get_html(url):
     try:
         req = urllib.request.Request(url, headers=HEADERS)
-        with urllib.request.urlopen(req, timeout=15) as response:
+        with urllib.request.urlopen(req, timeout=15, context=SSL_CONTEXT) as response:
             return response.read().decode('utf-8', errors='ignore')
     except Exception as e:
         print(f"Error fetching {url}: {e}")
