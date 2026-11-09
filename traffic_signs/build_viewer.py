@@ -384,7 +384,8 @@ def build_viewer(json_path: str = 'nsw_traffic_signs_unified.json', output_path:
             margin-left: 0;
         }
         .release-pill {
-            cursor: default;
+            cursor: pointer;
+            text-decoration: none;
         }
         .theme-toggle {
             border: 1.5px solid var(--border);
@@ -711,7 +712,7 @@ def build_viewer(json_path: str = 'nsw_traffic_signs_unified.json', output_path:
             <button class="view-btn" id="btnList" onclick="setView('list')" title="List view">&#8801;</button>
         </div>
         <div class="top-right-pills">
-            <span id="release-badge" class="btn-disclaimer release-pill">Release %RELEASE_VERSION%</span>
+            <a id="release-badge" class="btn-disclaimer release-pill" href="https://github.com/ValentinBelets/sgn/blob/main/CHANGELOG.md" target="_blank" rel="noopener noreferrer" title="View changelog">Release %RELEASE_VERSION%</a>
             <button class="btn-disclaimer" onclick="openDisclaimer()" type="button" title="View data disclaimer and attribution">\u24d8 Disclaimer</button>
         </div>
     </div>
