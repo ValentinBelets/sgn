@@ -32,5 +32,5 @@ GitHub Pages serves `traffic_signs/index.html`, which redirects to `traffic_sign
 ## Releases
 
 - `v0.1.0` is reserved as the initial-release baseline.
-- The next release is `v0.2.0` and is shown in the viewer header.
+- The current release is `v0.3.0` and is shown in the viewer header. See [CHANGELOG.md](CHANGELOG.md) for what changed.
 - Update `RELEASE_VERSION` in `traffic_signs/build_viewer.py`, then rebuild with `python traffic_signs/build_viewer.py` before tagging.
